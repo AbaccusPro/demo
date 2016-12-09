@@ -87,9 +87,9 @@ Route::get('soporte', 'Modulos\HerramientasController@soporte');
 
 /* -- RUTAS DE CONFIGURACIONES -- */
 
+
 /* -- PLANEACION -- */
 Route::get('planeacion/configuraciones/clasificadores_egreso', 'Submodulos\PlaneacionConfigController@configClasificadoresEgreso');
-
 
 
 
@@ -97,7 +97,6 @@ Route::get('planeacion/configuraciones/clasificadores_egreso', 'Submodulos\Plane
 
 /* -- PLANEACION -- */
 Route::get('planeacion/consultas/presupuesto_aprobado', 'Submodulos\PlaneacionSubmodulosController@show');
-
 
 /* -- PRESUPUESTO -- */
 Route::get('presupuesto/consultas/suficiencia_presupuestal', 'Submodulos\PresupuestoSubmodulosController@suficienciaPresupuestal');
@@ -125,6 +124,7 @@ Route::get('bienes/submodulo/adquisiciones', 'Submodulos\BienesSubmodulosControl
 Route::get('bienes/submodulo/adquisiciones/verificacion_documentos', 'Submodulos\BienesSubmodulosController@verificacionDocumentos');
 
 Route::get('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\BienesSubmodulosController@solicitudBienes');
+Route::get('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\BienesSubmodulosController@create');
 Route::post('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\BienesSubmodulosController@storeSolicitudBienes');
 Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\BienesSubmodulosController@autorizacionBienes');
 Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\BienesSubmodulosController@showSolicitudBienes');
@@ -145,12 +145,20 @@ Route::get('presupuesto/submodulo/autorizaciones', 'Submodulos\PresupuestoSubmod
 
 
 Route::get('planeacion/submodulo/carga_presupuesto_aprobado', 'Submodulos\PlaneacionSubmodulosController@planeacionsub15');
+Route::get('planeacion/submodulo/carga_presupuesto_aprobado', 'Submodulos\PlaneacionSubmodulosController@create');
 Route::post('planeacion/submodulo/carga_presupuesto_aprobado', 'Submodulos\PlaneacionSubmodulosController@store');
 
 
 /* -- RUTAS DE REPORTES -- */
 Route::get('contabilidad/reportes/libro_diario', 'Reportes\ContabilidadReportesController@reporte1');
+Route::get('contabilidad/reportes/pdf/libro_diario', 'Reportes\ContabilidadReportesController@reportePDF1');
+
+
 Route::get('contabilidad/reportes/libro_mayor', 'Reportes\ContabilidadReportesController@reporte2');
+
+
+
+
 
 /* -- RUTAS DE TOOLS -- */
 Route::get('abc_armonizacion', 'Modulos\ToolsController@abc_armonizacion');

@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Submodulos;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
 use App\Plan_sub15;
+use App\Presup_mod;
 use DB;
 
 
@@ -31,9 +31,9 @@ class PresupuestoSubmodulosController extends Controller
      */
     public function show()
     {
-        $input = DB::table('plan_sub15')->get();
+        $input = DB::table('presup_mod')->get();
 
-        return view('submodulos.presupuesto.consultas.suficiencia_presupuestal', ['plan_sub15' => $input]);
+        return view('submodulos.presupuesto.consultas.suficiencia_presupuestal', ['presup_mod' => $input]);
     }
 
 

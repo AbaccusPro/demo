@@ -5,6 +5,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
+use App\Claves_ur;
+use App\Claves_fun;
+use App\Claves_pp;
+use App\Claves_cog;
+use App\Claves_gas;
+use App\Claves_ff;
 use App\Bien_sub2;
 use App\Bien_sub3;
 use App\Bien_sub4_1;
@@ -44,6 +50,19 @@ class BienesSubmodulosController extends Controller
         return view('submodulos.bienes.adquisiciones.solicitud_bienes');
     }
 
+
+    public function create()
+    {
+
+        $claves_ur = Claves_ur::pluck('nombre', 'id');
+        $claves_fun = Claves_fun::pluck('nombre', 'id');
+        $claves_pp = Claves_pp::pluck('nombre', 'id');
+        $claves_cog = Claves_cog::pluck('nombre', 'id');
+        $claves_gas = Claves_gas::pluck('nombre', 'id');
+        $claves_ff = Claves_ff::pluck('nombre', 'id');
+        
+    return view('submodulos.bienes.adquisiciones.solicitud_bienes', compact('claves_ur', 'claves_fun', 'claves_pp', 'claves_cog', 'claves_gas', 'claves_ff'));
+}
 
     public function storeSolicitudBienes(Request $request)
     {       

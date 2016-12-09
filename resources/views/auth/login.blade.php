@@ -100,7 +100,7 @@
                 </div>
               </div>
               <div class="col-md-6 text-right">
-                <a href="#" class="text-info small">¿Ayuda? Ir a Soporte en línea</a>
+                <a href="http://abaccuspro.com" target="_blank" class="text-info small">¿Ayuda? Ir a Soporte en línea</a>
               </div>
             </div>
             <!-- END Form Control-->

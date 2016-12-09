@@ -139,19 +139,19 @@
                         </div></td>
                         <td>{{$plan_sub15->fecha}}</td>
                         <td>{!! $plan_sub15->ur . '-' . $plan_sub15->fun . '-'  . $plan_sub15->pp . '-' . $plan_sub15->cog . '-' . $plan_sub15->gasto . '-' . $plan_sub15->ff !!}</a></td>
-                        <td>{{$plan_sub15->ene}}</td>
-                        <td>{{$plan_sub15->feb}}</td>
-                        <td>{{$plan_sub15->feb}}</td>
-                        <td>{{$plan_sub15->mar}}</td>
-                        <td>{{$plan_sub15->abr}}</td>
-                        <td>{{$plan_sub15->jun}}</td>
-                        <td>{{$plan_sub15->jul}}</td>
-                        <td>{{$plan_sub15->ago}}</td>
-                        <td>{{$plan_sub15->sep}}</td>
-                        <td>{{$plan_sub15->oct}}</td>
-                        <td>{{$plan_sub15->nov}}</td>
-                        <td>{{$plan_sub15->dic}}</td>
-                        <td>{{$plan_sub15->total}}</td>
+                        <td>${{ number_format($plan_sub15->ene,2) }}</td>
+                        <td>${{ number_format($plan_sub15->feb,2) }}</td>
+                        <td>${{ number_format($plan_sub15->feb,2) }}</td>
+                        <td>${{ number_format($plan_sub15->mar,2) }}</td>
+                        <td>${{ number_format($plan_sub15->abr,2) }}</td>
+                        <td>${{ number_format($plan_sub15->jun,2) }}</td>
+                        <td>${{ number_format($plan_sub15->jul,2) }}</td>
+                        <td>${{ number_format($plan_sub15->ago,2) }}</td>
+                        <td>${{ number_format($plan_sub15->sep,2) }}</td>
+                        <td>${{ number_format($plan_sub15->oct,2) }}</td>
+                        <td>${{ number_format($plan_sub15->nov,2) }}</td>
+                        <td>${{ number_format($plan_sub15->dic,2) }}</td>
+                        <td>${{ number_format($plan_sub15->total,2) }}</td>
                       </tr>
                       @endforeach
                     </tbody>

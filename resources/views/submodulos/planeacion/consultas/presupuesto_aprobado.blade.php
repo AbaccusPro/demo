@@ -76,7 +76,7 @@
                   <li><a href="{{ url('/home') }}">Inicio</a></li>
                   <li><a href="{{ url('/planeacion') }}">Planeacion</a>
                   <li><a href="{{ url('/planeacion/consultas') }}">Consultas y Reportes</a>
-                  <li><a href="#" class="active">Consulta de claves de Presupuesto aprobado</a>
+                  <li><a href="#" class="active">Consulta de Presupuesto aprobado</a>
                   </li>
                 </ul>
                 <!-- END BREADCRUMB -->
@@ -90,7 +90,7 @@
                           </div>
                         </div>
                         <div class="panel-body">
-                          <h3>Consulta de claves de Presupuesto aprobado</h3>
+                          <h3>Consulta de Presupuesto aprobado</h3>
                           <p>En esta sección podrá encontrar la lista de consultas y reportes definidos previamente y que son de uso constante para esta área.</p>
                           <br>
                           <p>Las herramientas de consultas y reportes están disponibles únicamente para áreas gerenciales o jefaturas.</p>
@@ -126,10 +126,12 @@
                 </div>
                 <div class="clearfix"></div>
               </div>
+              
               <div class="panel-body">
                 <table class="table table-hover demo-table-search" id="tableWithSearch">
                   <thead>
                     <tr>
+                      <th>Fecha</th>
                       <th>Clave Presupuestal</th>
                       <th>Techo</th>
                       <th>Ene</th>
@@ -150,21 +152,22 @@
                     <tbody>                        
                     @foreach ($plan_sub15 as $plan_sub15)
                       <tr class="even gradeC">
-                        <td>{!! $plan_sub15->ur . '-' . $plan_sub15->fun . '-'  . $plan_sub15->pp . '-' . $plan_sub15->cog . '-' . $plan_sub15->gasto . '-' . $plan_sub15->ff !!}</a></td>
-                        <td>${{$plan_sub15->techo_presup}}</td>
-                        <td>${{$plan_sub15->ene}}</td>
-                        <td>${{$plan_sub15->feb}}</td>
-                        <td>${{$plan_sub15->feb}}</td>
-                        <td>${{$plan_sub15->mar}}</td>
-                        <td>${{$plan_sub15->abr}}</td>
-                        <td>${{$plan_sub15->jun}}</td>
-                        <td>${{$plan_sub15->jul}}</td>
-                        <td>${{$plan_sub15->ago}}</td>
-                        <td>${{$plan_sub15->sep}}</td>
-                        <td>${{$plan_sub15->oct}}</td>
-                        <td>${{$plan_sub15->nov}}</td>
-                        <td>${{$plan_sub15->dic}}</td>
-                        <td>${{$plan_sub15->total}}</td>
+                        <td>{{ $plan_sub15->fecha }}</td>
+                        <td>{{ $plan_sub15->clave }}</td>
+                        <td>${{ number_format($plan_sub15->techo_presup,2) }}</td>
+                        <td>${{ number_format($plan_sub15->ene,2) }}</td>
+                        <td>${{ number_format($plan_sub15->feb,2) }}</td>
+                        <td>${{ number_format($plan_sub15->feb,2) }}</td>
+                        <td>${{ number_format($plan_sub15->mar,2) }}</td>
+                        <td>${{ number_format($plan_sub15->abr,2) }}</td>
+                        <td>${{ number_format($plan_sub15->jun,2) }}</td>
+                        <td>${{ number_format($plan_sub15->jul,2) }}</td>
+                        <td>${{ number_format($plan_sub15->ago,2) }}</td>
+                        <td>${{ number_format($plan_sub15->sep,2) }}</td>
+                        <td>${{ number_format($plan_sub15->oct,2) }}</td>
+                        <td>${{ number_format($plan_sub15->nov,2) }}</td>
+                        <td>${{ number_format($plan_sub15->dic,2) }}</td>
+                        <td>${{ number_format($plan_sub15->total,2) }}</td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -209,6 +212,7 @@
     <script src="{{ URL::asset('assets/js/datatables.js') }}" type="text/javascript"></script>
 
     <!-- END PAGE LEVEL JS -->
+
 
 
 @endsection

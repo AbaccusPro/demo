@@ -92,6 +92,69 @@
 
 <!-- CHANGE 'content' HERE-->
 
+
+          <!-- START CONTAINER FLUID -->
+          <div class="container-fluid container-fixed-lg">
+            <div class"row">
+
+            <!-- START PANEL -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-title">Suficiencia Presupuestal (Presupuesto Modificado)
+                </div>
+                <div class="pull-right">
+                  <div class="col-xs-12">
+                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              
+              <div class="panel-body">
+                <table class="table table-hover demo-table-search" id="tableWithSearch">
+                  <thead>
+                    <tr>
+                      <th>Clave</th>
+                      <th>Ene</th>                      
+                      <th>Feb</th>
+                      <th>Mar</th>
+                      <th>Abr</th>
+                      <th>May</th>
+                      <th>Jun</th>
+                      <th>Jul</th>
+                      <th>Ago</th>
+                      <th>Sep</th>
+                      <th>Oct</th>
+                      <th>Nov</th>
+                      <th>Dic</th>
+                    </tr>
+                  </thead>
+                    <tbody>                        
+                    @foreach ($presup_mod as $presup_mod)
+                      <tr class="even gradeC">
+                        <td>{{ $presup_mod->clave }}</td>
+                        <td>${{ number_format($presup_mod->ene,2) }}</td>
+                        <td>${{ number_format($presup_mod->feb,2) }}</td>
+                        <td>${{ number_format($presup_mod->feb,2) }}</td>
+                        <td>${{ number_format($presup_mod->mar,2) }}</td>
+                        <td>${{ number_format($presup_mod->abr,2) }}</td>
+                        <td>${{ number_format($presup_mod->jun,2) }}</td>
+                        <td>${{ number_format($presup_mod->jul,2) }}</td>
+                        <td>${{ number_format($presup_mod->ago,2) }}</td>
+                        <td>${{ number_format($presup_mod->sep,2) }}</td>
+                        <td>${{ number_format($presup_mod->oct,2) }}</td>
+                        <td>${{ number_format($presup_mod->nov,2) }}</td>
+                        <td>${{ number_format($presup_mod->dic,2) }}</td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div> <!-- END PANEL -->
+
+
           <!-- AQUÍ INICIA EL PANEL PRINCIPAL -->
           
             <div class="row">
@@ -104,9 +167,9 @@
                       Debe elegir todos los combos para obtener una búsqueda exacta. 
                     </div>
                   </div>
+
                   <div class="panel-body"> <!-- DIV "panel body" - Insertar Contenidos Aquí" -->
                     <h4>Parte 1 - Consulta de presupuesto por Partida específica</h4>
-
 
             {!! Form::open(['url' => 'presupuesto/consultas/suficiencia_presupuestal']) !!}
 
@@ -231,15 +294,16 @@
                     {!!Form::submit('Buscar',['class' => 'btn btn-complete show-notification'])!!}
                                             
                     {!! Form::close() !!}
-<br>
-<br>
+                    <br>
+                    <br>
 
-                      </div>
+                       </div>
                     </div>
                   </div> <!-- END FORM --> 
                 </div> <!-- DIV "panel body" - NO BORRAR" -->
               </div> <!-- AQUI TERMINA EL PANEL PRINCIPAL -->
 
+          </div>
 
 <!-- STOP CHANGING 'content' HERE-->
 

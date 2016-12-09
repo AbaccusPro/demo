@@ -130,38 +130,14 @@
                         <div class="col-sm-6">
                           <div class="form-group form-group-default form-group-default-select2 required">
                             <label class="">Unidad Responsable</label>
-                            {!!Form::select('ur', [
-                            '16110' => '16110 Dirección de Administración',
-                            '16111' => '16111 Departamento A',
-                            '16112' => '16112 Departamento B',
-                            '16120' => '16120 Dirección de Operación',
-                            '16121' => '16121 Departamento C',
-                            '16122' => '16122 Departamento D',
-                            ], null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                            {!!Form::select('ur', $claves_ur, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
                           </div>
                         </div> 
                       
                         <div class="col-sm-6">
                           <div class="form-group form-group-default form-group-default-select2 required">
                             <label class="">Funcional</label>
-                            {!!Form::select('fun', [
-                            '200' => '200 DESARROLLO SOCIAL',
-                            '210' => '210 PROTECCION AMBIENTAL',
-                            '211' => '211 Ordenación de Desechos',
-                            '212' => '212 Administración del Agua',
-                            '213' => '213 Ordenación de Aguas Residuales, Drenaje y Alcantarillado',
-                            '214' => '214 Reducción de la Contaminación',
-                            '215' => '215 Protección de la Diversidad Biológica y del Paisaje',
-                            '216' => '216 Otros de Protección Ambiental',
-                            '220' => '220 VIVIENDA Y SERVICIOS A LA COMUNIDAD',
-                            '221' => '221 Urbanización',
-                            '222' => '222 Desarrollo Comunitario',
-                            '223' => '223 Abastecimiento de Agua',
-                            '224' => '224 Alumbrado Público',
-                            '225' => '225 Vivienda',
-                            '226' => '226 Servicios Comunales',
-                            '227' => '227 Desarrollo Regional',
-                            ], null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                            {!!Form::select('fun', $claves_fun, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
                           </div>
                         </div>
                       </div> <!-- END ROW -->
@@ -170,69 +146,14 @@
                         <div class="col-sm-6">
                           <div class="form-group form-group-default form-group-default-select2 required">
                             <label class="">Programa</label>
-                            {!!Form::select('pp', [
-                            'E009' => 'E009 - Investigación científica y tecnológica',
-                            'G001' => 'G001 - Administración Sustentable del Agua',
-                            'G023' => 'G023 - Servicios a usuarios y mercado del agua.',
-                            'G025' => 'G025 - Recaudación y fiscalización',
-                            'K007' => 'K007 - Proyectos de infraestructura económica de agua potable, alcantarillado y saneamiento',
-                            'K028' => 'K028 - Estudios de preinversión',
-                            'M001' => 'M001 - Actividades de apoyo administrativo',
-                            'P006' => 'P006 - Apoyo a las actividades de planeación, elaboración y seguimiento de las políticas y programas de la dependencia',
-                            'R005' => 'R005 - Presupuesto Basado en Resultados-Sistema de Evaluación del Desempeño',
-                            'R120' => 'R120 - Provisión para la Armonización Contable',
-                            'S071' => 'S071 - Programa de Empleo Temporal (PET)',
-                            'S074' => 'S074 - Programa de Agua Potable, Alcantarillado y Saneamiento en Zonas Urbanas',
-                            'S218' => 'S218 - Programa de Tratamiento de Aguas Residuales',
-                            'U008' => 'U008 - Saneamiento de Aguas Residuales',
-                            'U010' => 'U010 - Programa de Cultura del Agua',
-                            'U012' => 'U012 - Prevención y gestión integral de residuos',
-                            'U022' => 'U022 - Programa de Mitigación y Adaptación del Cambio Climáticos',
-                            'U032' => 'U032 - Programa de Fortalecimiento Ambiental en las Entidades Federativas',
-                            'U037' => 'U037 - Infraestructura Hídrica',
-                            ], null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                            {!!Form::select('pp', $claves_pp, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
                           </div>
                         </div>                     
 
                         <div class="col-sm-6">
                           <div class="form-group form-group-default form-group-default-select2 required">
                             <label class="">COG Partida</label>
-                            {!!Form::select('cog', [
-                            '113' => '113 Sueldos base al personal permanente',
-                            '114' => '114 Remuneraciones por adscripción laboral en el extranjero',
-                            '122' => '122 Sueldos base al personal eventual',
-                            '123' => '123 Retribuciones por servicios de carácter social',
-                            '131' => '131 Primas por años de servicios efectivos prestados',
-                            '132' => '132 Primas de vacaciones, dominical y gratificación de fin de año',
-                            '133' => '133 Horas extraordinarias',
-                            '134' => '134 Compensaciones',
-                            '141' => '141 Aportaciones de seguridad social',
-                            '142' => '142 Aportaciones a fondos de vivienda',
-                            '143' => '143 Aportaciones al sistema para el retiro',
-                            '151' => '151 Cuotas para el fondo de ahorro y fondo de trabajo',
-                            '152' => '152 Indemnizaciones',
-                            '154' => '154 Prestaciones contractuales',
-                            '155' => '155 Apoyos a la capacitación de los servidores públicos',
-                            '161' => '161 Previsiones de carácter laboral, económica y de seguridad social',
-                            '171' => '171 Estímulos',
-                            '172' => '172 Recompensas',
-                            '211' => '211 Materiales, útiles y equipos menores de oficina',
-                            '216' => '216 Material de limpieza',
-                            '218' => '218 Materiales para el registro e identificación de bienes y personas',
-                            '221' => '221 Productos alimenticios para personas',
-                            '223' => '223 Utensilios para el servicio de alimentación',
-                            '241' => '241 Productos minerales no metálicos',
-                            '242' => '242 Cemento y productos de concreto',
-                            '246' => '246 Material eléctrico y electrónico',
-                            '247' => '247 Artículos metálicos para la construcción',
-                            '248' => '248 Materiales complementarios',
-                            '261' => '261 Combustibles, lubricantes y aditivos',
-                            '271' => '271 Vestuario y uniformes',
-                            '272' => '272 Prendas de seguridad y protección personal',
-                            '273' => '273 Artículos deportivos',
-                            '291' => '291 Herramientas menores',
-                            '296' => '296 Refacciones y accesorios menores de equipo de transporte',            
-                            ], null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                            {!!Form::select('cog', $claves_cog, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
                           </div>
                         </div> 
                       </div> <!-- END ROW -->
@@ -241,26 +162,14 @@
                         <div class="col-sm-6">
                           <div class="form-group form-group-default form-group-default-select2 required">
                             <label class="">Tipo de Gasto</label>
-                            {!!Form::select('gasto', [
-                            '1' => '1 Gasto Corriente',
-                            '2' => '2 Gasto de Capital',
-                            '3' => '3 Amortización de la deuda y disminución de pasivos',
-                            ], null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                            {!!Form::select('gasto', $claves_gas, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
                           </div>
                         </div> 
                                             
                         <div class="col-sm-6">
                           <div class="form-group form-group-default form-group-default-select2 required">
                             <label class="">Fuente de financiamiento</label>
-                            {!!Form::select('ff', [
-                            '1' => '1 Recursos Fiscales',
-                            '2' => '2 Financiamientos internos',
-                            '3' => '3 Financiamientos externos',
-                            '4' => '4 Ingresos propios',
-                            '5' => '5 Recursos Federales',
-                            '6' => '6 Recursos Estatales',
-                            '7' => '7 Otros recursos',
-                            ], null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                            {!!Form::select('ff', $claves_ff, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
                           </div>
                         </div>
                       </div>
@@ -272,44 +181,47 @@
                         </div>
                       </div>
                   
+
+
+
+
+
+                <div class="cardio" id="car1">
+
                       <div class="row">
                         <div class="col-sm-3">
                           <div class="form-group form-group-default required">
                             <label>Bien<span class="help"></span></label>
-                            {!!Form::text('bien', null, ['class' => 'form-control', 'placeholder' => 'Nombre del bien']) !!}
+                            {!!Form::text('bien[]', null, ['class' => 'form-control', 'placeholder' => 'Nombre del bien']) !!}
                             </div>
                         </div>
 
+
                         <div class="col-sm-2">
-                          <div class="form-group form-group-default form-group-default-select2 required">
-                            <label class="">Unidad de medida</label>
-                            {!!Form::select('medida', [
-                            'Pieza' => 'Pieza',
-                            'KG' => 'KG',
-                            'LT' => 'LT',
-                            'M' => 'M',
-                            ], null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
-                          </div>
+                          <div class="form-group form-group-default required">
+                            <label>Cantidad<span class="help"></span></label>
+                            {!!Form::text('medida[]', null, ['class' => 'form-control', 'placeholder' => 'kg/lt/mt']) !!}
+                            </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
                             <label>Cantidad<span class="help"></span></label>
-                            {!!Form::number('cantidad', null, ['class' => 'form-control', 'placeholder' => 'Número']) !!}
+                            {!!Form::text('cantidad[]', null, ['class' => 'form-control', 'placeholder' => 'Número']) !!}
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                           <div class="form-group form-group-default required">
                             <label>Marca<span class="help"></span></label>
-                            {!!Form::text('marca', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
+                            {!!Form::text('marca[]', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
                             <label>Precio Cotizado<span class="help"></span></label>
-                            {!!Form::number('precio', null, ['class' => 'form-control', 'step' => 'any']) !!}
+                            {!!Form::text('precio[]', null, ['class' => 'form-control price', 'placeholder' => 'Precio']) !!}
                             </div>
                         </div>
                       </div> <!-- END ROW  -->
@@ -318,26 +230,26 @@
                           <div class="col-sm-6">
                             <div class="form-group form-group-default required">
                               <label>Características<span class="help"></span></label>
-                              {!!Form::text('carac', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
+                              {!!Form::text('carac[]', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
                               </div>
                           </div>
 
                           <div class="col-sm-6">
                             <div class="form-group form-group-default required">
                               <label>Justificación<span class="help"></span></label>
-                              {!!Form::text('just', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
+                              {!!Form::text('just[]', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
                               </div>
                           </div>
                         </div> <!-- END ROW -->
+                        <br>
+                    </div>
 
                         <div class="row">
-                            <div class="col-sm-3">
-                          <a><button type="button" class="btn btn-complete btn-cons btn-animated from-left fa fa-hand-o-down">
-                            <span>Agregar bien o servicio</span>
-                          </button></a>
-                            </div>
+                          <div class="action col-md-12">
+                            <a href="#" id="cardio" class="btn btn-complete">+</a>
+                            <a href="#" id="-cardio" class="btn btn-complete">-</a>
+                          </div>
                         </div> <!-- END ROW -->
-
                         <br>
                         <br>
 
@@ -345,7 +257,7 @@
                           <div class="col-sm-3">
                           <div class="form-group form-group-default required">
                             <label>Importe a comprometer<span class="help"></span></label>
-                            {!!Form::number('imp_comp', null, ['class' => 'form-control', 'step' => 'any']) !!}
+                            {!!Form::number('imp_comp', null, ['class' => 'autonumeric form-control', 'step' => 'any', 'id' => 'totalPrice']) !!}
                             </div>
                           </div>
                         </div>
@@ -404,8 +316,107 @@
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ URL::asset('assets/js/form_elements.js') }}" type="text/javascript"></script>
     <script src="{{ URL::asset('assets/js/notifications.js') }}" type="text/javascript"></script>
-
     <!-- END PAGE LEVEL JS -->
+
+<script>
+$('.price').keyup(function () {
+    var sum = 0;    
+    $('.price').each(function() {
+        sum += Number($(this).val());
+    });
+    $('#totalPrice').val(sum.toFixed(2));
+     
+});
+</script>
+<script type="text/javascript"> 
+
+      $('#price').live('keyup', function (event) {
+        var value=$('#price').val();
+
+      if(event.which >= 37 && event.which <= 40){
+          event.preventDefault();
+      }
+      var newvalue=value.replace(/,/g, '');   
+      var valuewithcomma=Number(newvalue).toLocaleString('en');   
+      $('#price').val(valuewithcomma); 
+
+      });
+</script>
+
+
+<script type="text/JavaScript">
+$(document).on('ready', function(){
+  $('#cardio').on('click', function(e){
+  e.preventDefault();
+  // get the last DIV which ID starts with ^= "car"
+  var div = $('div[id^="car"]:last');
+
+  // Read the Number from that DIV's ID (i.e: 3 from "car3")
+  // And increment that number by 1
+  var num = parseInt(div.prop("id").match(/\d+/g), 10) +1;
+
+  // Clone it and assign the new ID (i.e: from num 4 to ID "car4")
+  var klon = div.clone().prop('id', 'car'+num ).insertAfter(div).find("input[type='text']").val("");
+  $('div[id^="car"]:last label').remove(); //qui removemos las label para que no vuelvan a aparecer
+  });
+
+
+
+  //con esta funcion evitamos que se borre el campo, es decir, al menos debe de haber un una linea de cada campo
+
+  $('#-cardio').on('click', function(e){
+    e.preventDefault();
+    if($('div[id^="car"]:last').attr('id') != 'car1') $('div[id^="car"]:last').remove();
+  });
+
+
+  $('#boton').on('click', function(e){
+    //aqui se asignan las variables que se van a mandar con el post y el metodo Ajax de jquery
+    e.preventDefault();
+    var bien = valores($("input[name^='bien']"));
+    var cantidad = valores($("input[name^='cantidad']"));
+    var marca = valores($("input[name^='marca']"));
+
+    var $inputs = $('#myForm :input');
+
+      // not sure if you wanted this, but I thought I'd add it.
+      // get an associative array of just the values.
+      var values = {};
+      $inputs.each(function() {
+          values[this.name] = $(this).val();
+      });
+      
+        console.log(Excercise_T);
+      
+    $.ajax({
+      //metodo Ajax de jquery
+        type: "POST", //peticion post
+        url: "{{ url('bienes/submodulo/adquisiciones/solicitud_bienes') }}", //url a la que se envian los datos
+        data: {values, bien, cantidad, marca}, //datos que se envian
+        headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}, //el token de seguridad de laravel
+        success: function() {
+          //si el guardado es correcto y la peticion sale bien se ejecuta este codigo
+          alert('datos guardados correctamente');
+          //con esta funcion se resetea el forulario
+          $('#myForm').each (function(){
+            this.reset();
+        });
+        }
+    });
+  });
+}); 
+</script>
+
+<script>
+  //functions
+  //con esta funcion obtenemos todos los campos que fueron creados dinamicamente... dependiendo el selector que ocupemos
+  function valores(input_array){
+    /* var values2 = $("input[name^='Excercise_T']")
+              .map(function(){return $(this).val();}).get();*/
+    return input_array.map(function(){return $(this).val();}).get();
+  }
+</script>
+
 
 @stop
 
