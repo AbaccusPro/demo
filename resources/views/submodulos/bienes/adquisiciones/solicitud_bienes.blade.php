@@ -100,13 +100,19 @@
                   @endif
 
                     <h4>Solicitud de Adquisición de Bien o Servicio</h4>
-                    <h5>1. Elija la partida presupuestal</h5>
+                    <h5>1. Escriba la partida presupuestal</h5>
                    
                   {!! Form::open(['url' => 'bienes/submodulo/adquisiciones/solicitud_bienes']) !!}
                     <div class="" role="form">    
 
                       <div class="row">
-                        <div class="col-sm-6"></div>
+
+                        <div class="col-sm-6">
+                          <div class="form-group form-group-default form-group-default-select2">
+                           <label>Clave Presupuestal<span class="help"></span></label>
+                            {!!Form::select('clave', $clave, null, ['class' => 'full-width', 'data-init-plugin' => 'select2']) !!}
+                          </div>
+                        </div>
 
                         <div class="col-sm-3">
                           <div class="form-group form-group-default required">
@@ -124,7 +130,7 @@
                             </span>
                           </div>
                         </div>
-                      </div>
+                      </div> <!-- END ROW -->
 
                       <div class="row">
                         <div class="col-sm-6">
@@ -175,6 +181,7 @@
                       </div>
                     </div>    <!-- END ROW -->
 
+
                       <div class="row">
                           <div class="col-sm-6">
                             <h5>2. Indique las especificaciones del bien o servicio</h5>
@@ -183,19 +190,15 @@
                   
 
 
-
-
-
                 <div class="cardio" id="car1">
 
                       <div class="row">
                         <div class="col-sm-3">
-                          <div class="form-group form-group-default required">
-                            <label>Bien<span class="help"></span></label>
-                            {!!Form::text('bien[]', null, ['class' => 'form-control', 'placeholder' => 'Nombre del bien']) !!}
-                            </div>
+                          <div class="form-group form-group-default form-group-default-select2 required">
+                            <label class="">Nombre del Bien</label>
+                            {!!Form::select('bien[]', $bienes, null, ['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                          </div>
                         </div>
-
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
@@ -271,7 +274,7 @@
                   </div> <!-- END FORM -->
                 </div> <!-- DIV "panel body" - NO BORRAR" -->
               </div> <!-- AQUI TERMINA EL PANEL PRINCIPAL -->
-
+            </div>
 
 <!-- STOP CHANGING 'content' HERE-->
 

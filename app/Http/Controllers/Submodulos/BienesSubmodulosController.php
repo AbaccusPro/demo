@@ -11,6 +11,10 @@ use App\Claves_pp;
 use App\Claves_cog;
 use App\Claves_gas;
 use App\Claves_ff;
+
+use App\Proveedor;
+use App\Plan_sub15;
+
 use App\Bien_sub2;
 use App\Bien_sub3;
 use App\Bien_sub4_1;
@@ -116,6 +120,18 @@ class BienesSubmodulosController extends Controller
     {
         return view('submodulos.bienes.adquisiciones.registro_orden_compra');
     }
+
+
+    public function catClaves()
+    {
+
+        $clave = Plan_sub15::pluck('clave', 'id');        
+
+    return view('submodulos.bienes.adquisiciones.registro_orden_compra', compact('clave'));
+}
+
+
+
 
 
     public function storeOrdenCompra(Request $request)

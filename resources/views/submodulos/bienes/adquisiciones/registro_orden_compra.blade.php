@@ -137,9 +137,9 @@
 
                       <div class="row">
                         <div class="col-sm-8">
-                          <div class="form-group form-group-default required">
+                          <div class="form-group form-group-default form-group-default-select2 required">
                            <label>Clave Presupuestal<span class="help"></span></label>
-                            {!!Form::text('clave', null, ['class' => 'form-control', 'placeholder' => 'Clave']) !!}
+                            {!!Form::select('clave', $clave, null, ['class' => 'full-width', 'data-init-plugin' => 'select2']) !!}
                           </div>
                         </div>
 
@@ -158,19 +158,9 @@
                       <div class="row">
                           <div class="form-group form-group-default form-group-default-select2 required">
                             <label class="">Proovedor</label>
-                            {!!Form::select('proveedor', [
-                            'GCI9404283F7 - GRUPO DE COMUNICACION INTEGRAL S.A. DE C.V.' => 'GCI9404283F7 - GRUPO DE COMUNICACION INTEGRAL S.A. DE C.V.',
-                            'TAM950224FSH - TEKNOMERICA' => 'TAM950224FSH - TEKNOMERICA',
-                            'CME870331AZ2 - COMERCIAL MEXICANA S.A DE C.V.' => 'CME870331AZ2 - COMERCIAL MEXICANA S.A DE C.V.',
-                            'OFI920113KZ8 - OFIX S.A. DE C.V.' => 'OFI920113KZ8 - OFIX S.A. DE C.V.',
-                            'IUS890616RH6 - IUSACELL DIGITAL S.A. DE C.V.' => 'IUS890616RH6 - IUSACELL DIGITAL S.A. DE C.V.',
-                            'RFA9407252H2 - RIMO FORMAS Y ACCESORIOS S.A. DE C.V.' => 'RFA9407252H2 - RIMO FORMAS Y ACCESORIOS S.A. DE C.V.',
-                            'LSX890830 - LLANTAS Y SERVICIOS DE XALAPA S.A. DE C.V. (COPACA)' => 'LSX890830 - LLANTAS Y SERVICIOS DE XALAPA S.A. DE C.V. (COPACA)',
-                            'EEL9002125D6 - EDICIONES ELMIRE S. DE R.L. DE C.V. (PAPELERIAS ELMIRE)' => 'EEL9002125D6 - EDICIONES ELMIRE S. DE R.L. DE C.V. (PAPELERIAS ELMIRE)',
-                            'NMX910614GB7 - LA NUEVA MERCED DE XALAPA S.A. DE C.V.' => 'NMX910614GB7 - LA NUEVA MERCED DE XALAPA S.A. DE C.V.',
-                            ], null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                            {!!Form::select('proveedor', $proveedor, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
                           </div>
-                        </div> <!-- END ROW  -->
+                      </div> <!-- END ROW  -->
 
                       <div class="row">
                           <div class="col-sm-6">

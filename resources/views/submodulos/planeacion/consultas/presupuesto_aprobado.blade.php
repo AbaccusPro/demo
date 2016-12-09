@@ -133,7 +133,7 @@
                     <tr>
                       <th>Fecha</th>
                       <th>Clave Presupuestal</th>
-                      <th>Techo</th>
+                      <th>Techo Presupuestal</th>
                       <th>Ene</th>
                       <th>Feb</th>
                       <th>Mar</th>
