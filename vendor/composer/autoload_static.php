@@ -319,6 +319,7 @@ class ComposerStaticInit8bf8a9c9bbc64267d7fb9450285409b9
     public static $classMap = array (
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
         'CrearTablaBienSub2' => __DIR__ . '/../..' . '/database/migrations/past-migrations/2016_11_27_041009_crear_tabla_bien_sub2.php',
+        'CrearTablaBienes' => __DIR__ . '/../..' . '/database/migrations/2016_12_11_174406_crear_tabla_bienes.php',
         'CrearTablaCatBienes' => __DIR__ . '/../..' . '/database/migrations/2016_12_09_163548_crear_tabla_cat_bienes.php',
         'CrearTablaClavesCog' => __DIR__ . '/../..' . '/database/migrations/past-migrations/2016_12_06_234222_crear_tabla_claves_cog.php',
         'CrearTablaClavesFf' => __DIR__ . '/../..' . '/database/migrations/past-migrations/2016_12_06_233547_crear_tabla_claves_ff.php',

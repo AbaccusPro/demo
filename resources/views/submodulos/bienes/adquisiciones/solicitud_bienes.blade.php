@@ -102,7 +102,9 @@
                     <h4>Solicitud de Adquisición de Bien o Servicio</h4>
                     <h5>1. Escriba la partida presupuestal</h5>
                    
-                  {!! Form::open(['url' => 'bienes/submodulo/adquisiciones/solicitud_bienes']) !!}
+
+                 {!! Form::open(['url' => ['bienes/submodulo/adquisiciones/solicitud_bienes'], 'id' => 'myForm']) !!}
+
                     <div class="" role="form">    
 
                       <div class="row">
@@ -115,7 +117,7 @@
                         </div>
 
                         <div class="col-sm-3">
-                          <div class="form-group form-group-default required">
+                          <div class="form-group form-group-default">
                             <label>No. de Solicitud<span class="help"></span></label>
                             {!!Form::text('num_sol', null, ['class' => 'form-control', 'placeholder' => 'COMPSOL-00001']) !!}
                             </div>
@@ -202,7 +204,7 @@
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
-                            <label>Cantidad<span class="help"></span></label>
+                            <label>Unidad de Medida<span class="help"></span></label>
                             {!!Form::text('medida[]', null, ['class' => 'form-control', 'placeholder' => 'kg/lt/mt']) !!}
                             </div>
                         </div>
@@ -347,7 +349,14 @@ $('.price').keyup(function () {
 </script>
 
 
+
+
+
+
+
+
 <script type="text/JavaScript">
+
 $(document).on('ready', function(){
   $('#cardio').on('click', function(e){
   e.preventDefault();
@@ -364,7 +373,6 @@ $(document).on('ready', function(){
   });
 
 
-
   //con esta funcion evitamos que se borre el campo, es decir, al menos debe de haber un una linea de cada campo
 
   $('#-cardio').on('click', function(e){
@@ -377,9 +385,12 @@ $(document).on('ready', function(){
     //aqui se asignan las variables que se van a mandar con el post y el metodo Ajax de jquery
     e.preventDefault();
     var bien = valores($("input[name^='bien']"));
+    var medida = valores($("input[name^='medida']"));
     var cantidad = valores($("input[name^='cantidad']"));
     var marca = valores($("input[name^='marca']"));
-
+    var precio = valores($("input[name^='precio']"));
+    var caract = valores($("input[name^='caract']"));
+    var just = valores($("input[name^='just']"));
     var $inputs = $('#myForm :input');
 
       // not sure if you wanted this, but I thought I'd add it.
@@ -389,13 +400,13 @@ $(document).on('ready', function(){
           values[this.name] = $(this).val();
       });
       
-        console.log(Excercise_T);
+      console.log(bien);
+
       
     $.ajax({
-      //metodo Ajax de jquery
-        type: "POST", //peticion post
-        url: "{{ url('bienes/submodulo/adquisiciones/solicitud_bienes') }}", //url a la que se envian los datos
-        data: {values, bien, cantidad, marca}, //datos que se envian
+        type: "POST", 
+        url: "{{ url('bienes/submodulo/adquisiciones/solicitud_bienes') }}", 
+        data: {values, bien, medida, cantidad, marca, precio, carac, just}, 
         headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}, //el token de seguridad de laravel
         success: function() {
           //si el guardado es correcto y la peticion sale bien se ejecuta este codigo

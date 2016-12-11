@@ -15,6 +15,7 @@ use App\Claves_gas;
 use App\Claves_ff;
 
 use App\Bien_sub2;
+use App\Bien_sub2_bienes;
 use App\Bien_sub3;
 use App\Bien_sub4_1;
 use DB;
@@ -50,30 +51,42 @@ class SolicitudBienesController extends Controller
 }
 
 
-    public function storeSolicitudBienes(Request $request)
+    public function store(Request $request)
     {       
+        // aqui se guarda el workout mediante el formulario...
+        //primero con request->all() se obtienen todos los campos del formulario
+        $data = $request->all();
 
-        $input = new bien_sub2;
+        //los campos que no son dinamicos se crean de manera normal, con el metodo create
+        $input = Bien_sub2::create([ 
 
-        $input->num_sol = $request->num_sol;
-        $input->fecha = $request->fecha;
-        $input->ur = $request->ur;
-        $input->fun = $request->fun;
-        $input->pp = $request->pp;
-        $input->cog = $request->cog;
-        $input->gasto = $request->gasto;
-        $input->ff = $request->ff;
+            'clave'    => $data['clave'],
+            'fecha'    => $data['fecha'],
+            'ur'       => $data['ur'],
+            'fun'      => $data['fun'],
+            'pp'       => $data['pp'],
+            'cog'      => $data['cog'],
+            'gasto'    => $data['gasto'],
+            'ff'       => $data['ff'],
+            'imp_comp' => $data['imp_comp'],
+]);
 
-        $input->bien = $request->bien;
-        $input->medida = $request->medida;
-        $input->cantidad = $request->cantidad;
-        $input->marca = $request->marca;
-        $input->precio = $request->precio;
-        $input->carac = $request->carac;
-        $input->just = $request->just;
-        $input->imp_comp = $request->imp_comp;
+        //los campos que se van creando dinamicamente de acuerdo a la necesidad del usuario deben recorrerse para poder guardarse todos. primero se cuenta el numero de elementos de el primero campo con el metodo count($data['excercise']) y luego en base a ese conteo se recorre el arreglo y se van guardando los campos con la relacion al modelo workout creado en la parte de arriba
+       
+        for ($i=0; $i < count($data['bien']) ; $i++) { 
 
-        $input->save();
+            $input = Bien_sub2_bienes::create([
+                'bien'     => $data['bien'][$i],
+                'medida'   => $data['medida'][$i],
+                'cantidad' => $data['cantidad'][$i],
+                'marca'    => $data['marca'][$i],
+                'precio'   => $data['precio'][$i],
+                'carac'    => $data['carac'][$i],
+                'just'     => $data['just'][$i],
+
+                ]);
+        }
+        
 
     $request->session()->flash('alerta', 'Su solicitud de bien se ha enviado exitosamente');
 

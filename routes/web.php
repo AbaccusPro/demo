@@ -126,8 +126,11 @@ Route::get('bienes/submodulo/adquisiciones/verificacion_documentos', 'Submodulos
 
 
 Route::get('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\SolicitudBienesController@solicitudBienes');
+Route::post('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\SolicitudBienesController@store');
+
+
 Route::get('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\SolicitudBienesController@catCreate');
-Route::post('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\SolicitudBienesController@storeSolicitudBienes');
+
 Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\BienesSubmodulosController@autorizacionBienes');
 Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\BienesSubmodulosController@showSolicitudBienes');
 
