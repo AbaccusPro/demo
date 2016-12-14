@@ -122,14 +122,14 @@
                         <div class="col-sm-3">
                           <div class="form-group form-group-default required">
                             <label>Folio de solicitud aprobada<span class="help"></span></label>
-                            {!!Form::text('num_sol_apro', null, ['class' => 'form-control', 'placeholder' => 'COMPSOL-00001']) !!}
+                            {!!Form::text('folio_aprobado', null, ['class' => 'form-control', 'placeholder' => 'COMPSOL-00001']) !!}
                             </div>
                         </div>
                         
                         <div class="col-sm-3">
                           <div class="form-group form-group-default required">
                             <label>Folio de orden de Compra<span class="help"></span></label>
-                            {!!Form::text('num_sol_compra', null, ['class' => 'form-control', 'placeholder' => 'COMP-00001']) !!}
+                            {!!Form::text('folio_compra', null, ['class' => 'form-control', 'placeholder' => 'COMP-00001']) !!}
                             </div>
                         </div>
                       </div> <!-- END ROW  -->
@@ -168,18 +168,28 @@
                         </div>
                       </div>
                   
+
+                <div class="cardio" id="car1">
+
                       <div class="row">
                         <div class="col-sm-3">
-                          <div class="form-group form-group-default">
-                            <label>Producto<span class="help"></span></label>
-                            {!!Form::text('producto', null, ['class' => 'form-control', 'placeholder' => 'Nombre del bien']) !!}
+                          <div class="form-group form-group-default form-group-default-select2 required">
+                            <label class="">Nombre del producto</label>
+                            {!!Form::select('producto[]', $bienes, null, ['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                          </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                          <div class="form-group form-group-default required">
+                            <label>Marca<span class="help"></span></label>
+                            {!!Form::text('marca[]', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default form-group-default-select2 required">
                             <label class="">Unidad de medida</label>
-                            {!!Form::select('medida', [
+                            {!!Form::select('medida[]', [
                             'Pieza' => 'Pieza',
                             'KG' => 'KG',
                             'LT' => 'LT',
@@ -190,50 +200,44 @@
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
-                            <label>Cantidad<span class="help"></span></label>
-                            {!!Form::number('cantidad', null, ['class' => 'form-control', 'placeholder' => 'Número']) !!}
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                          <div class="form-group form-group-default required">
-                            <label>Marca<span class="help"></span></label>
-                            {!!Form::text('marca', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
+                            <label>Precio<span class="help"></span></label>
+                            {!!Form::number('precio[]', null, ['class' => 'form-control', 'step' => 'any']) !!}
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
-                            <label>Precio<span class="help"></span></label>
-                            {!!Form::number('precio', null, ['class' => 'form-control', 'step' => 'any']) !!}
+                            <label>Cantidad<span class="help"></span></label>
+                            {!!Form::number('cantidad[]', null, ['class' => 'form-control', 'placeholder' => 'Número']) !!}
                             </div>
                         </div>
+
                       </div> <!-- END ROW  -->
 
                       <div class="row">                      
-                          <div class="col-sm-5">
+                          <div class="col-sm-6">
                             <div class="form-group form-group-default required">
                               <label>Características<span class="help"></span></label>
-                              {!!Form::text('carac', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
+                              {!!Form::text('carac[]', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
                               </div>
                           </div>
 
                         </div> <!-- END ROW -->
 
+                </div>
                         <div class="row">
-                            <div class="col-sm-3">
-                          <a><button type="button" class="btn btn-complete btn-cons btn-animated from-left fa fa-hand-o-down">
-                            <span>Agregar bien o servicio</span>
-                          </button></a>
-                            </div>
+                          <div class="action col-md-12">
+                            <a href="#" id="cardio" class="btn btn-complete">+</a>
+                            <a href="#" id="-cardio" class="btn btn-complete">-</a>
+                          </div>
                         </div> <!-- END ROW -->
+                        <br>
 
-                        <br>
-                        <br>
+
                         
                         <div class="row">
 
-                        <div class="col-sm-5"></div>
+                        <div class="col-sm-6"></div>
 
                           <div class="col-sm-2">
                            <div class="form-group form-group-default required">
@@ -249,7 +253,7 @@
                               </div>
                           </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                           <div class="form-group form-group-default input-group">
                             <label class="label-lg">Total</label>
                               {!!Form::number('total', null, ['class' => 'autonumeric form-control required', 'step' => 'any']) !!}
@@ -259,19 +263,19 @@
                         </div> <!-- END ROW -->                       
 
                         <div class="row">
-                        <div class="col-sm-5"></div>
+                        <div class="col-sm-6"></div>
 
                           <div class="col-sm-3">
                             <div class="form-group form-group-default required">
                             <label>Tiempo de entrega<span class="help"></span></label>
-                            {!!Form::text('dias_ent', null, ['class' => 'form-control', 'placeholder' => 'Ej. 2 semanas']) !!}
+                            {!!Form::text('ent_dias', null, ['class' => 'form-control', 'placeholder' => 'Ej. 2 semanas']) !!}
                             </div>
                          </div>
 
-                          <div class="col-sm-4">
+                          <div class="col-sm-3">
                             <div class="form-group form-group-default required">
                             <label>Lugar de entrega<span class="help"></span></label>
-                            {!!Form::text('lugar_ent', null, ['class' => 'form-control']) !!}
+                            {!!Form::text('ent_lugar', null, ['class' => 'form-control']) !!}
                             </div>
                          </div>
                         </div> <!-- END ROW -->
@@ -334,6 +338,99 @@
     <script src="{{ URL::asset('assets/js/notifications.js') }}" type="text/javascript"></script>
 
     <!-- END PAGE LEVEL JS -->
+
+
+<script>
+$('.price').keyup(function () {
+    var sum = 0;    
+    $('.price').each(function() {
+        sum += Number($(this).val());
+    });
+    $('#totalPrice').val(sum.toFixed(2));
+     
+});
+</script>
+
+
+
+<script type="text/JavaScript">
+
+$(document).on('ready', function(){
+  $('#cardio').on('click', function(e){
+  e.preventDefault();
+  // get the last DIV which ID starts with ^= "car"
+  var div = $('div[id^="car"]:last');
+
+  // Read the Number from that DIV's ID (i.e: 3 from "car3")
+  // And increment that number by 1
+  var num = parseInt(div.prop("id").match(/\d+/g), 10) +1;
+
+  // Clone it and assign the new ID (i.e: from num 4 to ID "car4")
+  var klon = div.clone().prop('id', 'car'+num ).insertAfter(div).find("input[type='text']").val("");
+  $('div[id^="car"]:last label').remove(); //qui removemos las label para que no vuelvan a aparecer
+  });
+
+
+  //con esta funcion evitamos que se borre el campo, es decir, al menos debe de haber un una linea de cada campo
+
+  $('#-cardio').on('click', function(e){
+    e.preventDefault();
+    if($('div[id^="car"]:last').attr('id') != 'car1') $('div[id^="car"]:last').remove();
+  });
+
+
+  $('#boton').on('click', function(e){
+    //aqui se asignan las variables que se van a mandar con el post y el metodo Ajax de jquery
+    e.preventDefault();
+    var producto = valores($("input[name^='producto']"));
+    var medida = valores($("input[name^='medida']"));
+    var cantidad = valores($("input[name^='cantidad']"));
+    var marca = valores($("input[name^='marca']"));
+    var precio = valores($("input[name^='precio']"));
+    var caract = valores($("input[name^='caract']"));
+    var $inputs = $('#myForm :input');
+
+      // not sure if you wanted this, but I thought I'd add it.
+      // get an associative array of just the values.
+      var values = {};
+      $inputs.each(function() {
+          values[this.name] = $(this).val();
+      });
+      
+      console.log(bien);
+
+      
+    $.ajax({
+        type: "POST", 
+        url: "{{ url('bienes/submodulo/adquisiciones/registro_orden_compra') }}", 
+        data: {values, producto, medida, cantidad, marca, precio, carac}, 
+        headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}, //el token de seguridad de laravel
+        success: function() {
+          //si el guardado es correcto y la peticion sale bien se ejecuta este codigo
+          alert('datos guardados correctamente');
+          //con esta funcion se resetea el forulario
+          $('#myForm').each (function(){
+            this.reset();
+        });
+        }
+    });
+  });
+}); 
+</script>
+
+<script>
+  //functions
+  //con esta funcion obtenemos todos los campos que fueron creados dinamicamente... dependiendo el selector que ocupemos
+  function valores(input_array){
+    /* var values2 = $("input[name^='Excercise_T']")
+              .map(function(){return $(this).val();}).get();*/
+    return input_array.map(function(){return $(this).val();}).get();
+  }
+</script>
+
+
+
+
 
 @stop
 

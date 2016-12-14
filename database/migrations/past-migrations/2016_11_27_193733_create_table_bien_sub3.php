@@ -18,24 +18,17 @@ class CreateTableBienSub3 extends Migration
             $table->timestamps();
 
             $table->string('fecha');
-            $table->string('num_sol_apro');
-            $table->string('num_sol_compra');
+            $table->string('folio_aprobado');
+            $table->string('folio_compra');
             $table->string('clave');
             $table->string('tipo_adqui');
             $table->string('proveedor');
 
-            $table->string('producto');
-            $table->string('medida');
-            $table->double('cantidad');
-            $table->string('marca');
-            $table->double('precio');
-            $table->string('carac');
-
-            $table->double('subtotal');
-            $table->double('iva');
-            $table->double('total');
-            $table->string('dias_ent');
-            $table->string('lugar_ent');
+            $table->decimal('subtotal');
+            $table->decimal('iva');
+            $table->decimal('total');
+            $table->string('ent_dias');
+            $table->string('ent_lugar');
 
         });
     }

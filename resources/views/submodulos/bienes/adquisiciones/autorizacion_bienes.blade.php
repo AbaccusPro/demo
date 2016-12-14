@@ -127,19 +127,18 @@
                 </div>
                 <div class="clearfix"></div>
               </div>
+
               <div class="panel-body">
                 <table class="table table-hover demo-table-search" id="tableWithSearch">
+                <p><h2>Solicitudes por autorizar</h2></p>
                   <thead>
                     <tr>
                       <th>Estatus</th>
                       <th>Fecha</th>
                       <th>Clave Presupuestal</th>                      
                       <th>Área Solicitante</th>
-                      <th>Folio de Solicitud</th>
-                      <th>Cantidad</th>
-                      <th>Precio cotizado</th>
+                      <th>Folio</th>
                       <th>Importe Comprometido</th>
-                      <th>Justificación</th>
                     </tr>
                   </thead>
                     <tbody>                        
@@ -153,19 +152,43 @@
                             </li>
                           </ul>
                         </div></td>
-                        <td>{{$bien_sub2->fecha}}</td>
-                        <td>{!! $bien_sub2->ur . '-' . $bien_sub2->fun . '-'  . $bien_sub2->pp . '-' . $bien_sub2->cog . '-' . $bien_sub2->gasto . '-' . $bien_sub2->ff !!}</a></td>
-                        <td>{{$bien_sub2->ur}}</td>
-                        <td>{{$bien_sub2->num_sol}}</td>
-                        <td>{{$bien_sub2->cantidad}}</td>
-                        <td>${{$bien_sub2->precio}}</td>
-                        <td>${{$bien_sub2->imp_comp}}</td>
-                        <td>{{$bien_sub2->just}}</td>
+                        <td>{{ $bien_sub2->fecha }}</td>
+                        <td><a href="#">{!! $bien_sub2->ur . '-' . $bien_sub2->fun . '-'  . $bien_sub2->pp . '-' . $bien_sub2->cog . '-' . $bien_sub2->gasto . '-' . $bien_sub2->ff !!}</a></td>
+                        <td>{{ $bien_sub2->ur }}</td>
+                        <td>{{ $bien_sub2->folio }}</td>
+                        <td>${{ number_format($bien_sub2->imp_comp, 2) }}</td>
                       </tr>
                       @endforeach
                     </tbody>
                 </table>
               </div>
+
+              <div class="panel-body">
+                <p><h2>Lista de bienes solicitados</h2></p>
+                <table class="table table-hover demo-table-search" id="tableWithSearch">
+                  <thead>
+                    <tr>
+                      <th>Clave Presupuestal</th>                    
+                      <th>Bien</th>
+                      <th>Cantidad</th>                      
+                      <th>Precio cotizado</th>
+                      <th>Justificación</th>
+                    </tr>
+                  </thead>
+                    <tbody>                        
+                    @foreach ($bien_sub2_bienes as $bien_sub2_bienes)
+                      <tr class="even gradeC">
+                        <td>{!! $bien_sub2->ur . '-' . $bien_sub2->fun . '-'  . $bien_sub2->pp . '-' . $bien_sub2->cog . '-' . $bien_sub2->gasto . '-' . $bien_sub2->ff !!}</a></td>
+                        <td>{{ $bien_sub2_bienes->bien }}</td>
+                        <td>{{ $bien_sub2_bienes->cantidad }}</td>
+                        <td>${{ number_format($bien_sub2_bienes->precio,2 ) }}</td>
+                        <td>{{ $bien_sub2_bienes->just }}</td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                </table>
+              </div>
+
             </div>
 
           </div> <!-- END PANEL -->

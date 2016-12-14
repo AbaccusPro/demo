@@ -22,30 +22,6 @@ class AdquisicionesSubmodulosController extends Controller
 
 
     /**
-     * Muestra bandeja de autorizacion de bienes.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function autorizacionBienes()
-    {
-        return view('submodulos.bienes.adquisiciones.autorizacion_bienes');
-    }
-
-
-        /**
-     * Muestro la bandeja de las autorizaciones de compras.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function autorizacionCompras()
-    {
-        return view('submodulos.bienes.adquisiciones.autorizacion_orden_compra');
-    }
-
-
-
-
-    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response

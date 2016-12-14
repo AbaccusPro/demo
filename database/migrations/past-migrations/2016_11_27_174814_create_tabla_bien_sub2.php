@@ -17,23 +17,16 @@ class CreateTablaBienSub2 extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('num_sol');
+            $table->string('clave');
             $table->string('fecha');
+            $table->string('folio');
             $table->string('ur');
             $table->string('fun');
             $table->string('pp');
             $table->string('cog');
             $table->string('gasto');
             $table->string('ff');
-
-            $table->string('bien');
-            $table->string('medida');
-            $table->string('cantidad');
-            $table->string('marca');
-            $table->double('precio');
-            $table->string('carac');
-            $table->string('just');
-            $table->double('imp_comp');
+            $table->decimal('imp_comp');
             
         });
     }

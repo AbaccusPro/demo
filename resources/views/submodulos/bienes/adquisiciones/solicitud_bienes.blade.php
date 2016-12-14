@@ -102,8 +102,7 @@
                     <h4>Solicitud de Adquisición de Bien o Servicio</h4>
                     <h5>1. Escriba la partida presupuestal</h5>
                    
-
-                 {!! Form::open(['url' => ['bienes/submodulo/adquisiciones/solicitud_bienes'], 'id' => 'myForm']) !!}
+                 {!! Form::open(['url' => ['bienes/submodulo/adquisiciones/solicitud_bienes', 'id'], 'method' => 'POST', 'id' => 'myForm']) !!}
 
                     <div class="" role="form">    
 
@@ -118,8 +117,8 @@
 
                         <div class="col-sm-3">
                           <div class="form-group form-group-default">
-                            <label>No. de Solicitud<span class="help"></span></label>
-                            {!!Form::text('num_sol', null, ['class' => 'form-control', 'placeholder' => 'COMPSOL-00001']) !!}
+                            <label>Folio<span class="help"></span></label>
+                            {!!Form::text('folio', null, ['class' => 'form-control', 'placeholder' => 'COMPSOL-00001']) !!}
                             </div>
                         </div>
                         
@@ -195,17 +194,32 @@
                 <div class="cardio" id="car1">
 
                       <div class="row">
+
                         <div class="col-sm-3">
-                          <div class="form-group form-group-default form-group-default-select2 required">
-                            <label class="">Nombre del Bien</label>
-                            {!!Form::select('bien[]', $bienes, null, ['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
-                          </div>
+                          <div class="form-group form-group-default required">
+                            <label>Nombre del bien o servicio<span class="help"></span></label>
+                            {!!Form::text('bien[]', null, ['class' => 'form-control', 'placeholder' => 'Bien/Servicio']) !!}
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                          <div class="form-group form-group-default required">
+                            <label>Marca<span class="help"></span></label>
+                            {!!Form::text('marca[]', null, ['class' => 'form-control', 'placeholder' => 'Marca']) !!}
+                            </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
-                            <label>Unidad de Medida<span class="help"></span></label>
-                            {!!Form::text('medida[]', null, ['class' => 'form-control', 'placeholder' => 'kg/lt/mt']) !!}
+                            <label>Unidad de medida<span class="help"></span></label>
+                            {!!Form::text('medida[]', null, ['class' => 'form-control', 'placeholder' => 'Pieza / kg / lt']) !!}
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                          <div class="form-group form-group-default required">
+                            <label>Precio Cotizado<span class="help"></span></label>
+                            {!!Form::text('precio[]', null, ['class' => 'form-control price', 'placeholder' => 'Precio']) !!}
                             </div>
                         </div>
 
@@ -216,19 +230,6 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-3">
-                          <div class="form-group form-group-default required">
-                            <label>Marca<span class="help"></span></label>
-                            {!!Form::text('marca[]', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
-                            </div>
-                        </div>
-
-                        <div class="col-sm-2">
-                          <div class="form-group form-group-default required">
-                            <label>Precio Cotizado<span class="help"></span></label>
-                            {!!Form::text('precio[]', null, ['class' => 'form-control price', 'placeholder' => 'Precio']) !!}
-                            </div>
-                        </div>
                       </div> <!-- END ROW  -->
 
                       <div class="row">                      
@@ -277,6 +278,7 @@
                 </div> <!-- DIV "panel body" - NO BORRAR" -->
               </div> <!-- AQUI TERMINA EL PANEL PRINCIPAL -->
             </div>
+
 
 <!-- STOP CHANGING 'content' HERE-->
 
@@ -333,25 +335,6 @@ $('.price').keyup(function () {
      
 });
 </script>
-<script type="text/javascript"> 
-
-      $('#price').live('keyup', function (event) {
-        var value=$('#price').val();
-
-      if(event.which >= 37 && event.which <= 40){
-          event.preventDefault();
-      }
-      var newvalue=value.replace(/,/g, '');   
-      var valuewithcomma=Number(newvalue).toLocaleString('en');   
-      $('#price').val(valuewithcomma); 
-
-      });
-</script>
-
-
-
-
-
 
 
 
@@ -405,7 +388,7 @@ $(document).on('ready', function(){
       
     $.ajax({
         type: "POST", 
-        url: "{{ url('bienes/submodulo/adquisiciones/solicitud_bienes') }}", 
+        url: "{{ url( 'bienes/submodulo/adquisiciones/solicitud_bienes', 'id' ) }}", 
         data: {values, bien, medida, cantidad, marca, precio, carac, just}, 
         headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}, //el token de seguridad de laravel
         success: function() {

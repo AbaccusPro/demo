@@ -7,9 +7,11 @@ use Illuminate\Http\RedirectResponse;
 
 use App\Plan_sub15;
 use App\cat_Proveedores;
+use App\cat_Bienes;
 
 use App\Bien_sub2;
 use App\Bien_sub3;
+use App\Bien_sub3_bienes;
 use App\Bien_sub4_1;
 use DB;
 
@@ -30,38 +32,47 @@ class OrdenCompraController extends Controller
     public function catCreate()
     {
         $clave = Plan_sub15::pluck('clave', 'id');  
-        $proveedor = cat_Proveedores::pluck('nombre', 'id');        
+        $proveedor = cat_Proveedores::pluck('nombre', 'id');     
+        $bienes = cat_Bienes::pluck('nombre');    
 
-    return view('submodulos.bienes.adquisiciones.registro_orden_compra', compact('clave', 'proveedor'));
+    return view('submodulos.bienes.adquisiciones.registro_orden_compra', compact('clave', 'proveedor', 'bienes'));
 }
 
 
-    public function storeOrdenCompra(Request $request)
+    public function store(Request $request)
     {       
 
-        $input = new bien_sub3;
+        $data = $request->all();
 
-        $input->fecha = $request->fecha;
-        $input->num_sol_apro = $request->num_sol_apro;
-        $input->num_sol_compra = $request->num_sol_compra;
-        $input->clave = $request->clave;
-        $input->tipo_adqui = $request->tipo_adqui;
-        $input->proveedor = $request->proveedor;
+        $input = Bien_sub3::create([ 
 
-        $input->producto = $request->producto;
-        $input->medida = $request->medida;
-        $input->cantidad = $request->cantidad;
-        $input->marca = $request->marca;
-        $input->precio = $request->precio;
-        $input->carac = $request->carac;
+            'fecha'           => $data['fecha'],
+            'folio_aprobado'  => $data['folio_aprobado'],
+            'folio_compra'    => $data['folio_compra'],
+            'clave'           => $data['clave'],
+            'tipo_adqui'      => $data['tipo_adqui'],
+            'proveedor'       => $data['proveedor'],
 
-        $input->subtotal = $request->subtotal;
-        $input->iva = $request->iva;
-        $input->total = $request->total;
-        $input->dias_ent = $request->dias_ent;
-        $input->lugar_ent = $request->lugar_ent;
+            'subtotal'        => $data['subtotal'],
+            'iva'             => $data['iva'],
+            'total'           => $data['total'],
+            'ent_dias'        => $data['ent_dias'],
+            'ent_lugar'       => $data['ent_lugar'],
 
-        $input->save();
+]);
+     
+        for ($i=0; $i < count($data['producto']) ; $i++) { 
+
+            $input = Bien_sub3_bienes::create([
+                'producto'  => $data['producto'][$i],
+                'marca'     => $data['marca'][$i],
+                'medida'    => $data['medida'][$i],
+                'precio'    => $data['precio'][$i],
+                'cantidad'  => $data['cantidad'][$i],
+                'carac'     => $data['carac'][$i],
+
+                ]);
+        }       
 
     $request->session()->flash('alerta', 'Su Orden de Compra se ha enviado exitosamente');
 
@@ -74,14 +85,24 @@ class OrdenCompraController extends Controller
      *
      * @return Response
      */
-    public function showOrdenCompra()
+    public function show()
     {
         $input = DB::table('bien_sub3')->get();
+        $bienes = DB::table('bien_sub3_bienes')->get();
 
-        return view('submodulos.bienes.adquisiciones.autorizacion_orden_compra', ['bien_sub3' => $input]);
+        return view('submodulos.bienes.adquisiciones.autorizacion_orden_compra', ['bien_sub3' => $input, 'bien_sub3_bienes' => $bienes] );
     }
+    
 
-
+       /**
+     * Muestro la bandeja de las autorizaciones de compras.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function autorizacionCompras()
+    {
+        return view('submodulos.bienes.adquisiciones.autorizacion_orden_compra');
+    }
 
 
 }

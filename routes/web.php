@@ -125,22 +125,23 @@ Route::get('bienes/submodulo/adquisiciones/verificacion_documentos', 'Submodulos
 
 
 
-Route::get('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\SolicitudBienesController@solicitudBienes');
-Route::post('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\SolicitudBienesController@store');
+Route::get('bienes/submodulo/adquisiciones/solicitud_bienes/', 'Submodulos\SolicitudBienesController@solicitudBienes');
 
+Route::get('bienes/submodulo/adquisiciones/solicitud_bienes/{id}', 'Submodulos\SolicitudBienesController@create');
+Route::post('bienes/submodulo/adquisiciones/solicitud_bienes/{id}', 'Submodulos\SolicitudBienesController@store');
 
 Route::get('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\SolicitudBienesController@catCreate');
-
-Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\BienesSubmodulosController@autorizacionBienes');
-Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\BienesSubmodulosController@showSolicitudBienes');
-
+Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\SolicitudBienesController@autorizacionBienes');
+Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\SolicitudBienesController@show');
 
 
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\OrdenCompraController@ordenCompra');
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\OrdenCompraController@catCreate');
-Route::post('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\OrdenCompraController@storeOrdenCompra');
-Route::get('bienes/submodulo/adquisiciones/autorizacion_orden_compra', 'Submodulos\AdquisicionesSubmodulosController@autorizacionCompra');
-Route::get('bienes/submodulo/adquisiciones/autorizacion_orden_compra', 'Submodulos\AdquisicionesSubmodulosController@showOrdenCompra');
+
+Route::post('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\OrdenCompraController@store');
+
+Route::get('bienes/submodulo/adquisiciones/autorizacion_orden_compra', 'Submodulos\OrdenCompraController@autorizacionCompra');
+Route::get('bienes/submodulo/adquisiciones/autorizacion_orden_compra', 'Submodulos\OrdenCompraController@show');
 
 /* -- Almacén -- */
 Route::get('bienes/submodulo/almacen/entrada_inventario', 'Submodulos\BienesSubmodulosController@entradaInventario');

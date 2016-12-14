@@ -135,12 +135,9 @@
                       <th>Fecha</th>
                       <th>Folio de Solicitud de Bien</th>
                       <th>Folio de Solicitud de Compra</th>
-                      <th>Producto</th>
-                      <th>Cantidad</th>
-                      <th>Importe</th>
+                      <th>Total</th>
                       <th>Entrega</th>
                       <th>Lugar</th>
-
                     </tr>
                   </thead>
                     <tbody>                        
@@ -156,19 +153,37 @@
                         </div></td>
                             <td class="v-align-middle"><button type="button" class="btn btn-complete"><i class="fa fa-file-o"></i>
                             </button></td>
-                        <td>{{$bien_sub3->fecha}}</td>
-                        <td>{{$bien_sub3->num_sol_apro}}</td>
-                        <td>{{$bien_sub3->num_sol_compra}}</td>
-                        <td>{{$bien_sub3->producto}}</td>
-                        <td>{{$bien_sub3->cantidad}}</td>
-                        <td>${{$bien_sub3->total}}</td>
-                        <td>{{$bien_sub3->dias_ent}}</td>
-                        <td>{{$bien_sub3->lugar_ent}}</td>
+                        <td>{{ $bien_sub3->fecha }}</td>
+                        <td>{{ $bien_sub3->folio_aprobado }}</td>
+                        <td>{{ $bien_sub3->folio_compra }}</td>
+                        <td>${{ number_format($bien_sub3->total, 2) }}</td>
+                        <td>{{ $bien_sub3->ent_dias }}</td>
+                        <td>{{ $bien_sub3->ent_lugar }}</td>
                       </tr>
                       @endforeach
                     </tbody>
                 </table>
               </div>
+
+              <div class="panel-body">
+                <table class="table table-hover demo-table-search" id="tableWithSearch">
+                  <thead>
+                    <tr>
+                      <th>Producto</th>
+                      <th>Cantidad</th>
+                    </tr>
+                  </thead>
+                    <tbody>                        
+                    @foreach ($bien_sub3_bienes as $bien_sub3_bienes)
+                      <tr class="even gradeC">
+                        <td>{{ $bien_sub3_bienes->producto }}</td>
+                        <td>{{ $bien_sub3_bienes->cantidad }}</td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                </table>
+              </div>
+
             </div>
 
           </div> <!-- END PANEL -->

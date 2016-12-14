@@ -8,8 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'Cpdf' => $vendorDir . '/dompdf/dompdf/lib/Cpdf.php',
     'CrearTablaBienSub2' => $baseDir . '/database/migrations/past-migrations/2016_11_27_041009_crear_tabla_bien_sub2.php',
-    'CrearTablaBienes' => $baseDir . '/database/migrations/2016_12_11_174406_crear_tabla_bienes.php',
-    'CrearTablaCatBienes' => $baseDir . '/database/migrations/2016_12_09_163548_crear_tabla_cat_bienes.php',
+    'CrearTablaBienes' => $baseDir . '/database/migrations/past-migrations/2016_12_11_174406_crear_tabla_bienes.php',
+    'CrearTablaCatBienes' => $baseDir . '/database/migrations/past-migrations/2016_12_09_163548_crear_tabla_cat_bienes.php',
     'CrearTablaClavesCog' => $baseDir . '/database/migrations/past-migrations/2016_12_06_234222_crear_tabla_claves_cog.php',
     'CrearTablaClavesFf' => $baseDir . '/database/migrations/past-migrations/2016_12_06_233547_crear_tabla_claves_ff.php',
     'CrearTablaClavesFun' => $baseDir . '/database/migrations/past-migrations/2016_12_06_234414_crear_tabla_claves_fun.php',
@@ -19,6 +19,7 @@ return array(
     'CrearTablaPlanSub15' => $baseDir . '/database/migrations/past-migrations/2016_11_25_160528_crear_tabla_plan_sub15.php',
     'CrearTablaPresupMod' => $baseDir . '/database/migrations/past-migrations/2016_12_06_173216_crear_tabla_presup_mod.php',
     'CrearTablaProveedores' => $baseDir . '/database/migrations/past-migrations/2016_12_09_011959_crear_tabla_proveedores.php',
+    'CrearTablaSub3Bienes' => $baseDir . '/database/migrations/2016_12_13_022125_crear_tabla_sub3_bienes.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/past-migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePlanSub15Table' => $baseDir . '/database/migrations/past-migrations/2016_11_24_171245_create_plan_sub15_table.php',
     'CreateTablaBienSub2' => $baseDir . '/database/migrations/past-migrations/2016_11_27_174814_create_tabla_bien_sub2.php',

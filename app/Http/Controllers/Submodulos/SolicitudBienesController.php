@@ -51,17 +51,27 @@ class SolicitudBienesController extends Controller
 }
 
 
-    public function store(Request $request)
+    public function create($Id)
+    {
+        //para asignarle el workout al usuario, se encuentra mediante el id y nos envia al formulario de asignacion
+        $id = base64_decode($Id);
+        $folio = Bien_sub2::find($id);
+
+        return view('bienes/submodulo/adquisiciones/solicitud_bienes', compact('folio'));
+    }
+
+    public function store(Request $request, $id)
     {       
         // aqui se guarda el workout mediante el formulario...
         //primero con request->all() se obtienen todos los campos del formulario
         $data = $request->all();
 
         //los campos que no son dinamicos se crean de manera normal, con el metodo create
-        $input = Bien_sub2::create([ 
+        $orden = Bien_sub2::create([ 
 
             'clave'    => $data['clave'],
             'fecha'    => $data['fecha'],
+            'folio'    => $data['folio'],
             'ur'       => $data['ur'],
             'fun'      => $data['fun'],
             'pp'       => $data['pp'],
@@ -75,7 +85,8 @@ class SolicitudBienesController extends Controller
        
         for ($i=0; $i < count($data['bien']) ; $i++) { 
 
-            $input = Bien_sub2_bienes::create([
+            $bien = Bien_sub2_bienes::create([
+
                 'bien'     => $data['bien'][$i],
                 'medida'   => $data['medida'][$i],
                 'cantidad' => $data['cantidad'][$i],
@@ -83,26 +94,40 @@ class SolicitudBienesController extends Controller
                 'precio'   => $data['precio'][$i],
                 'carac'    => $data['carac'][$i],
                 'just'     => $data['just'][$i],
+                'orden_id' => $orden->id,
 
                 ]);
         }
         
-
     $request->session()->flash('alerta', 'Su solicitud de bien se ha enviado exitosamente');
 
     return redirect('bienes/submodulo/adquisiciones/solicitud_bienes');
 }
 
+
+    /**
+     * Muestra bandeja de autorizacion de bienes.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function autorizacionBienes()
+    {
+        return view('submodulos.bienes.adquisiciones.autorizacion_bienes');
+    }
+
+
+
      /**
-     * Al final muestro los datos de las solicitudes de bienes.
+     * Se muestran los datos generales de la solicitud de bienes (primera tabla).
      *
      * @return Response
      */
-    public function showSolicitudBienes()
+    public function show()
     {
         $input = DB::table('bien_sub2')->get();
+        $bienes = DB::table('bien_sub2_bienes')->get();
 
-        return view('submodulos.bienes.adquisiciones.autorizacion_bienes', ['bien_sub2' => $input]);
+        return view('submodulos.bienes.adquisiciones.autorizacion_bienes', ['bien_sub2' => $input, 'bien_sub2_bienes' => $bienes]);
     }
 
 
