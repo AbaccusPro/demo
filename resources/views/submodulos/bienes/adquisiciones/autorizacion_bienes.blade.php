@@ -144,16 +144,9 @@
                     <tbody>                        
                     @foreach ($bien_sub2 as $bien_sub2)
                       <tr class="even gradeC">
-                        <td> <div class="btn-group dropdown-default dropup"> <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Pendiente <span class="caret"></span> </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="{{ url('bienes/submodulo/adquisiciones/registro_orden_compra') }}"><i class="fa fa-check"></i> Autorizar</a>
-                            </li>
-                            <li><a><i class="fa fa-times"></i> Rechazar</a>
-                            </li>
-                          </ul>
-                        </div></td>
+                        <td><span class="label label-warning">Pendiente</span></td>
                         <td>{{ $bien_sub2->fecha }}</td>
-                        <td><a href="#">{!! $bien_sub2->ur . '-' . $bien_sub2->fun . '-'  . $bien_sub2->pp . '-' . $bien_sub2->cog . '-' . $bien_sub2->gasto . '-' . $bien_sub2->ff !!}</a></td>
+                        <td><a href="{{ url('bienes/submodulo/adquisiciones/solicitud', $bien_sub2->id) }}">{!! $bien_sub2->ur . '-' . $bien_sub2->fun . '-'  . $bien_sub2->pp . '-' . $bien_sub2->cog . '-' . $bien_sub2->gasto . '-' . $bien_sub2->ff !!}</a></td>
                         <td>{{ $bien_sub2->ur }}</td>
                         <td>{{ $bien_sub2->folio }}</td>
                         <td>${{ number_format($bien_sub2->imp_comp, 2) }}</td>
@@ -170,6 +163,7 @@
                     <tr>
                       <th>Clave Presupuestal</th>                    
                       <th>Bien</th>
+                      <th>Características</th>
                       <th>Cantidad</th>                      
                       <th>Precio cotizado</th>
                       <th>Justificación</th>
@@ -180,6 +174,7 @@
                       <tr class="even gradeC">
                         <td>{!! $bien_sub2->ur . '-' . $bien_sub2->fun . '-'  . $bien_sub2->pp . '-' . $bien_sub2->cog . '-' . $bien_sub2->gasto . '-' . $bien_sub2->ff !!}</a></td>
                         <td>{{ $bien_sub2_bienes->bien }}</td>
+                        <td>{{ $bien_sub2_bienes->carac }}</td>
                         <td>{{ $bien_sub2_bienes->cantidad }}</td>
                         <td>${{ number_format($bien_sub2_bienes->precio,2 ) }}</td>
                         <td>{{ $bien_sub2_bienes->just }}</td>

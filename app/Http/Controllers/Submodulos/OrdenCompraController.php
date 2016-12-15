@@ -23,7 +23,7 @@ class OrdenCompraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function ordenCompra()
+    public function index()
     {
         return view('submodulos.bienes.adquisiciones.registro_orden_compra');
     }
@@ -39,12 +39,21 @@ class OrdenCompraController extends Controller
 }
 
 
-    public function store(Request $request)
+    public function create($Id)
+    {
+        //para asignarle el workout al usuario, se encuentra mediante el id y nos envia al formulario de asignacion
+        $id = base64_decode($Id);
+        $folio = Bien_sub3::find($id);
+
+        return view('bienes/submodulo/adquisiciones/registro_orden_compra', compact('folio'));
+    }
+
+    public function store(Request $request, $id)
     {       
 
         $data = $request->all();
 
-        $input = Bien_sub3::create([ 
+        $orden = Bien_sub3::create([ 
 
             'fecha'           => $data['fecha'],
             'folio_aprobado'  => $data['folio_aprobado'],
@@ -63,14 +72,16 @@ class OrdenCompraController extends Controller
      
         for ($i=0; $i < count($data['producto']) ; $i++) { 
 
-            $input = Bien_sub3_bienes::create([
+            $producto = Bien_sub3_bienes::create([
+
                 'producto'  => $data['producto'][$i],
                 'marca'     => $data['marca'][$i],
                 'medida'    => $data['medida'][$i],
                 'precio'    => $data['precio'][$i],
                 'cantidad'  => $data['cantidad'][$i],
                 'carac'     => $data['carac'][$i],
-
+                'orden_id'  => $orden->id,
+  
                 ]);
         }       
 

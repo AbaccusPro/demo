@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Submodulos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
+
 
 use App\Plan_sub15;
 use App\cat_Bienes;
@@ -17,6 +19,7 @@ use App\Claves_ff;
 use App\Bien_sub2;
 use App\Bien_sub2_bienes;
 use App\Bien_sub3;
+use App\Bien_sub3_bienes;
 use App\Bien_sub4_1;
 use DB;
 
@@ -131,6 +134,20 @@ class SolicitudBienesController extends Controller
     }
 
 
+    /**
+     * Primero se muestra y guarda la solicitud de bienes.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showSolicitud($id)
+    {
+
+        $solicitud = Bien_sub2::find($id);
+        $bienes = Bien_sub2_bienes::find($id);
+
+        return view('submodulos.bienes.adquisiciones.solicitud', compact('solicitud', 'bienes'));
+    }
 
 
 }
+

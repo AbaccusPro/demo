@@ -99,10 +99,10 @@
                         <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alerta') !!}</em></div>
                   @endif
 
-                    <h4>Registro de Orden de Compra</h4>
-                    <h5>1. Datos Generales</h5>                   
+                    <h4><strong>Registro de Orden de Compra</h4></strong>
+                    <h5>/ Parte 1. Datos Generales</h5>                   
 
-                  {!! Form::open(['url' => 'bienes/submodulo/adquisiciones/registro_orden_compra']) !!}
+                  {!! Form::open(['url' => ['bienes/submodulo/adquisiciones/registro_orden_compra', 'id'], 'method' => 'POST', 'id' => 'myForm']) !!}
 
                     <div class="" role="form">    
 
@@ -164,7 +164,7 @@
 
                       <div class="row">
                           <div class="col-sm-6">
-                            <h5>2. Indique las especificaciones del bien o servicio</h5>
+                            <h5>/ Parte 2. Indique las especificaciones del bien o servicio</h5>
                         </div>
                       </div>
                   
@@ -173,42 +173,37 @@
 
                       <div class="row">
                         <div class="col-sm-3">
-                          <div class="form-group form-group-default form-group-default-select2 required">
-                            <label class="">Nombre del producto</label>
-                            {!!Form::select('producto[]', $bienes, null, ['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
-                          </div>
+                          <div class="form-group form-group-default required">
+                            <label>Nombre del bien o servicio<span class="help"></span></label>
+                            {!!Form::text('producto[]', null, ['class' => 'form-control', 'placeholder' => 'Bien/Servicio']) !!}
+                            </div>
                         </div>
 
                         <div class="col-sm-3">
                           <div class="form-group form-group-default required">
-                            <label>Marca<span class="help"></span></label>
-                            {!!Form::text('marca[]', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
+                            <label>Nombre de marca<span class="help"></span></label>
+                            {!!Form::text('marca[]', null, ['class' => 'form-control', 'placeholder' => 'Marca']) !!}
                             </div>
                         </div>
 
                         <div class="col-sm-2">
-                          <div class="form-group form-group-default form-group-default-select2 required">
-                            <label class="">Unidad de medida</label>
-                            {!!Form::select('medida[]', [
-                            'Pieza' => 'Pieza',
-                            'KG' => 'KG',
-                            'LT' => 'LT',
-                            'M' => 'M',
-                            ], null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
-                          </div>
+                          <div class="form-group form-group-default required">
+                            <label>Unidad de medida<span class="help"></span></label>
+                            {!!Form::text('medida[]', null, ['class' => 'form-control', 'placeholder' => 'Pieza / kg / lt']) !!}
+                            </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
                             <label>Precio<span class="help"></span></label>
-                            {!!Form::number('precio[]', null, ['class' => 'form-control', 'step' => 'any']) !!}
+                            {!!Form::number('precio[]', null, ['class' => 'form-control', 'step' => 'any', 'placeholder' => '$']) !!}
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
                             <label>Cantidad<span class="help"></span></label>
-                            {!!Form::number('cantidad[]', null, ['class' => 'form-control', 'placeholder' => 'Número']) !!}
+                            {!!Form::number('cantidad[]', null, ['class' => 'form-control', 'placeholder' => 'cantidad']) !!}
                             </div>
                         </div>
 
@@ -216,7 +211,7 @@
 
                       <div class="row">                      
                           <div class="col-sm-6">
-                            <div class="form-group form-group-default required">
+                            <div class="form-group form-group-default">
                               <label>Características<span class="help"></span></label>
                               {!!Form::text('carac[]', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
                               </div>
@@ -233,12 +228,8 @@
                         </div> <!-- END ROW -->
                         <br>
 
-
                         
                         <div class="row">
-
-                        <div class="col-sm-6"></div>
-
                           <div class="col-sm-2">
                            <div class="form-group form-group-default required">
                               <label>Subtotal<span class="help"></span></label>
@@ -263,17 +254,15 @@
                         </div> <!-- END ROW -->                       
 
                         <div class="row">
-                        <div class="col-sm-6"></div>
-
                           <div class="col-sm-3">
-                            <div class="form-group form-group-default required">
+                            <div class="form-group form-group-default">
                             <label>Tiempo de entrega<span class="help"></span></label>
                             {!!Form::text('ent_dias', null, ['class' => 'form-control', 'placeholder' => 'Ej. 2 semanas']) !!}
                             </div>
                          </div>
 
                           <div class="col-sm-3">
-                            <div class="form-group form-group-default required">
+                            <div class="form-group form-group-default">
                             <label>Lugar de entrega<span class="help"></span></label>
                             {!!Form::text('ent_lugar', null, ['class' => 'form-control']) !!}
                             </div>
@@ -397,12 +386,12 @@ $(document).on('ready', function(){
           values[this.name] = $(this).val();
       });
       
-      console.log(bien);
+      console.log(producto);
 
       
     $.ajax({
         type: "POST", 
-        url: "{{ url('bienes/submodulo/adquisiciones/registro_orden_compra') }}", 
+        url: "{{ url('bienes/submodulo/adquisiciones/registro_orden_compra', 'id') }}", 
         data: {values, producto, medida, cantidad, marca, precio, carac}, 
         headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}, //el token de seguridad de laravel
         success: function() {
@@ -427,9 +416,6 @@ $(document).on('ready', function(){
     return input_array.map(function(){return $(this).val();}).get();
   }
 </script>
-
-
-
 
 
 @stop

@@ -99,8 +99,8 @@
                         <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alerta') !!}</em></div>
                   @endif
 
-                    <h4>Solicitud de Adquisición de Bien o Servicio</h4>
-                    <h5>1. Escriba la partida presupuestal</h5>
+                    <h4><strong>Solicitud de Adquisición de Bien o Servicio</h4></strong>
+                    <h5>/ Parte 1. Elija la partida presupuestal disponible:</h5>
                    
                  {!! Form::open(['url' => ['bienes/submodulo/adquisiciones/solicitud_bienes', 'id'], 'method' => 'POST', 'id' => 'myForm']) !!}
 
@@ -134,7 +134,11 @@
                       </div> <!-- END ROW -->
 
                       <div class="row">
-                        <div class="col-sm-6">
+                      <h5>--> Si no conoce la clave completa, elija de los siguientes combos:</h5>
+                      </div>
+
+                      <div class="row">                                        
+                        <div class="col-sm-6">                          
                           <div class="form-group form-group-default form-group-default-select2 required">
                             <label class="">Unidad Responsable</label>
                             {!!Form::select('ur', $claves_ur, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
@@ -185,7 +189,7 @@
 
                       <div class="row">
                           <div class="col-sm-6">
-                            <h5>2. Indique las especificaciones del bien o servicio</h5>
+                            <h5>/ Parte 2. Indique las especificaciones del bien o servicio</h5>
                         </div>
                       </div>
                   
@@ -204,7 +208,7 @@
 
                         <div class="col-sm-3">
                           <div class="form-group form-group-default required">
-                            <label>Marca<span class="help"></span></label>
+                            <label>Nombre de Marca<span class="help"></span></label>
                             {!!Form::text('marca[]', null, ['class' => 'form-control', 'placeholder' => 'Marca']) !!}
                             </div>
                         </div>
@@ -218,15 +222,15 @@
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
-                            <label>Precio Cotizado<span class="help"></span></label>
-                            {!!Form::text('precio[]', null, ['class' => 'form-control price', 'placeholder' => 'Precio']) !!}
+                            <label>Cantidad<span class="help"></span></label>
+                            {!!Form::text('cantidad[]', null, ['class' => 'form-control', 'placeholder' => 'cantidad']) !!}
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default required">
-                            <label>Cantidad<span class="help"></span></label>
-                            {!!Form::text('cantidad[]', null, ['class' => 'form-control', 'placeholder' => 'Número']) !!}
+                            <label>Precio Cotizado<span class="help"></span></label>
+                            {!!Form::text('precio[]', null, ['class' => 'form-control price', 'placeholder' => '$']) !!}
                             </div>
                         </div>
 

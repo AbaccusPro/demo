@@ -8,7 +8,15 @@ class Bien_sub2_bienes extends Model
 {
     protected $table = 'bien_sub2_bienes';
 
-    protected $fillable = ['bien','medida','cantidad','marca', 'precio', 'carac', 'just', 'orden_id'];
+    protected $fillable = [
+    'bien',
+    'medida',
+    'cantidad',
+    'marca', 
+    'precio', 
+    'carac', 
+    'just', 
+    'orden_id'];
 
     public function orden(){
 
