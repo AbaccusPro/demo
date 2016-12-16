@@ -28,7 +28,7 @@
                   <div class="col-sm-8">
                     <ul class="nav navbar-nav navbar-right">
                       <li>
-                        <a href="{{ url('contabilidad/reportes/pdf/libro_diario')}}" class="p-r-10"><img width="25" height="25" alt="" class="icon-pdf" data-src-retina="assets/img/invoice/pdf2x.png" data-src="{{ URL::asset('assets/img/invoice/pdf.png') }}" src="assets/img/invoice/pdf2x.png"></a>
+                        <a href="{{ url('bienes/submodulo/adquisiciones/reportes/solicitud', $solicitud->id) }}" class="p-r-10"><img width="25" height="25" alt="" class="icon-pdf" data-src-retina="assets/img/invoice/pdf2x.png" data-src="{{ URL::asset('assets/img/invoice/pdf.png') }}" src="assets/img/invoice/pdf2x.png"></a>
                       </li>
                       <li>
                         <a href="#" class="p-r-10"><img width="25" height="25" alt="" class="icon-doc" data-src-retina="assets/img/invoice/doc2x.png" data-src="{{ URL::asset('assets/img/invoice/doc.png') }}" src="assets/img/invoice/doc2x.png"></a>

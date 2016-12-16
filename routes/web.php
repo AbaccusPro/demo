@@ -119,30 +119,32 @@ Route::get('bienes/submodulo/almacen/consulta_existencias', 'Submodulos\BienesSu
 Route::get('bienes/submodulo/almacen/consulta_inventario_consumo', 'Submodulos\BienesSubmodulosController@consultaInventario');
 Route::get('bienes/submodulo/almacen/consulta_inventario_consumo', 'Submodulos\BienesSubmodulosController@showConsultaInventario');
 
-/* -- Adquisiciones -- */
+//////////////////////// ADQUISICIONES //////////////////////
 Route::get('bienes/submodulo/adquisiciones', 'Submodulos\BienesSubmodulosController@adquisiciones');
-Route::get('bienes/submodulo/adquisiciones/verificacion_documentos', 'Submodulos\BienesSubmodulosController@verificacionDocumentos');
 
-
+//////////////////////// SOLICITUD DE BIENES //////////////////////
 Route::get('bienes/submodulo/adquisiciones/solicitud_bienes/', 'Submodulos\SolicitudBienesController@solicitudBienes');
 Route::get('bienes/submodulo/adquisiciones/solicitud_bienes/{id}', 'Submodulos\SolicitudBienesController@create');
 Route::post('bienes/submodulo/adquisiciones/solicitud_bienes/{id}', 'Submodulos\SolicitudBienesController@store');
 Route::get('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\SolicitudBienesController@catCreate');
 
+//////////////////////// AUTORIZACIONES Y REPORTES //////////////////////
 Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\SolicitudBienesController@show');
 Route::get('bienes/submodulo/adquisiciones/solicitud/{id}', 'Submodulos\SolicitudBienesController@showSolicitud');
+Route::get('bienes/submodulo/adquisiciones/reportes/solicitud/{id}', 'Reportes\AdquisicionesReportesController@solicitudPDF');
 
-
+//////////////////////// ORDENES DE COMPRA //////////////////////
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\OrdenCompraController@index');
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\OrdenCompraController@catCreate');
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra/{id}', 'Submodulos\OrdenCompraController@create');
 Route::post('bienes/submodulo/adquisiciones/registro_orden_compra/{id}', 'Submodulos\OrdenCompraController@store');
 
+//////////////////////// AUTORIZACIONES Y REPORTES //////////////////////
 Route::get('bienes/submodulo/adquisiciones/autorizacion_orden_compra', 'Submodulos\OrdenCompraController@show');
 Route::get('bienes/submodulo/adquisiciones/orden_compra/{id}', 'Submodulos\OrdenCompraController@showOrden');
+Route::get('bienes/submodulo/adquisiciones/reportes/orden/{id}', 'Reportes\AdquisicionesReportesController@ordenPDF');
 
-
-/* -- Almacén -- */
+//////////////////////// ALMACEN //////////////////////
 Route::get('bienes/submodulo/almacen/entrada_inventario', 'Submodulos\BienesSubmodulosController@entradaInventario');
 Route::post('bienes/submodulo/almacen/entrada_inventario', 'Submodulos\BienesSubmodulosController@storeEntradaInventario');
 
@@ -161,9 +163,7 @@ Route::post('planeacion/submodulo/carga_presupuesto_aprobado', 'Submodulos\Plane
 Route::get('contabilidad/reportes/libro_diario', 'Reportes\ContabilidadReportesController@reporte1');
 Route::get('contabilidad/reportes/pdf/libro_diario', 'Reportes\ContabilidadReportesController@reportePDF1');
 
-
 Route::get('contabilidad/reportes/libro_mayor', 'Reportes\ContabilidadReportesController@reporte2');
-
 
 
 

@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')  <!-- TODOS LOS CONTENIDOS LLEVAN EL MISMO NOMBRE DE SECCION !-->
 
 <!-- NO MOVEER NINGÚN DIV !-->
 <div class="fixed-header horizontal-menu">  
@@ -242,4 +240,3 @@
 <!-- TERMINA CONTENIDO / LA SECCIÓN SE QUEDA ABIERTA PARA CERRAR footer-->
 
 
-@endsection
