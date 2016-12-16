@@ -124,31 +124,23 @@ Route::get('bienes/submodulo/adquisiciones', 'Submodulos\BienesSubmodulosControl
 Route::get('bienes/submodulo/adquisiciones/verificacion_documentos', 'Submodulos\BienesSubmodulosController@verificacionDocumentos');
 
 
-
 Route::get('bienes/submodulo/adquisiciones/solicitud_bienes/', 'Submodulos\SolicitudBienesController@solicitudBienes');
 Route::get('bienes/submodulo/adquisiciones/solicitud_bienes/{id}', 'Submodulos\SolicitudBienesController@create');
 Route::post('bienes/submodulo/adquisiciones/solicitud_bienes/{id}', 'Submodulos\SolicitudBienesController@store');
 Route::get('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\SolicitudBienesController@catCreate');
 
-
-
-
-Route::get('bienes/submodulo/adquisiciones/solicitud/{id}', 'Submodulos\SolicitudBienesController@showSolicitud');
-
-
-
-
-
-Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\SolicitudBienesController@autorizacionBienes');
 Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\SolicitudBienesController@show');
+Route::get('bienes/submodulo/adquisiciones/solicitud/{id}', 'Submodulos\SolicitudBienesController@showSolicitud');
 
 
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\OrdenCompraController@index');
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\OrdenCompraController@catCreate');
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra/{id}', 'Submodulos\OrdenCompraController@create');
 Route::post('bienes/submodulo/adquisiciones/registro_orden_compra/{id}', 'Submodulos\OrdenCompraController@store');
-Route::get('bienes/submodulo/adquisiciones/autorizacion_orden_compra', 'Submodulos\OrdenCompraController@autorizacionCompra');
+
 Route::get('bienes/submodulo/adquisiciones/autorizacion_orden_compra', 'Submodulos\OrdenCompraController@show');
+Route::get('bienes/submodulo/adquisiciones/orden_compra/{id}', 'Submodulos\OrdenCompraController@showOrden');
+
 
 /* -- Almacén -- */
 Route::get('bienes/submodulo/almacen/entrada_inventario', 'Submodulos\BienesSubmodulosController@entradaInventario');

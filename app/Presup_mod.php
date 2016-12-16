@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Presup_mod extends Model
 {
     protected $table = 'presup_mod';
-    //
 
     public function setClaveAttribute($value)
     {

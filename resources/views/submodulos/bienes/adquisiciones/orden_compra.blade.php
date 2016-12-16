@@ -58,7 +58,7 @@
                                   </address>
                     </div>
                     <div class="pull-right sm-m-t-20">
-                      <h2 class="font-montserrat all-caps hint-text">Solicitud de Bien o Servicio</h2>
+                      <h2 class="font-montserrat all-caps hint-text">Orden de Compra</h2>
                     </div>
                     <div class="clearfix"></div>
                   </div>
@@ -80,18 +80,23 @@
                       <div class="col-md-6 col-sm-height col-bottom sm-no-padding sm-p-b-20">
                         <br>
                         <div>
-                          <div class="pull-left font-montserrat bold all-caps">Clave :</div>
-                          <div class="pull-right"><strong>{{ $solicitud->clave }}</strong></div>
+                          <div class="pull-left font-montserrat bold all-caps">Clave:</div>
+                          <div class="pull-right"><strong>{{ $orden->clave }}</strong></div>
                           <div class="clearfix"></div>
                         </div>
                         <div>
-                          <div class="pull-left font-montserrat bold all-caps">Número de Folio :</div>
-                          <div class="pull-right"><strong>{{ $solicitud->folio }}</strong></div>
+                          <div class="pull-left font-montserrat bold all-caps">Folio de Solicitud aprobada:</div>
+                          <div class="pull-right"><strong>{{ $orden->folio_aprobado }}</strong></div>
                           <div class="clearfix"></div>
                         </div>
                         <div>
-                          <div class="pull-left font-montserrat bold all-caps">Fecha :</div>
-                          <div class="pull-right"><strong>{{ $solicitud->fecha }}</strong></div>
+                          <div class="pull-left font-montserrat bold all-caps">Folio de Orden de Compra:</div>
+                          <div class="pull-right"><strong>{{ $orden->folio_compra }}</strong></div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div>
+                          <div class="pull-left font-montserrat bold all-caps">Fecha:</div>
+                          <div class="pull-right"><strong>{{ $orden->fecha }}</strong></div>
                           <div class="clearfix"></div>
                         </div> 
                       </div>
@@ -111,14 +116,14 @@
                         <div class="row clearfix">
                           <div class="col-sm-6">
                             <div class="form-group form-group-default">
-                              <label>Unidad Responsable</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->ur }}" disabled>
+                              <label>Proveedor</label>
+                              <input type="text" class="form-control" value="{{ $orden->proveedor }}" disabled>
                             </div>
                           </div>
                           <div class="col-sm-6">
                             <div class="form-group form-group-default">
-                              <label>Funcional</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->fun }}" disabled>
+                              <label>Tipo de adquisición</label>
+                              <input type="text" class="form-control" value="{{ $orden->tipo_adqui }}" disabled>
                             </div>
                           </div>
                         </div>
@@ -126,58 +131,41 @@
                         <div class="row clearfix">
                           <div class="col-sm-6">
                             <div class="form-group form-group-default">
-                              <label>Programa</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->pp }}" disabled>
+                              <label>Tiempo de entrega</label>
+                              <input type="text" class="form-control" value="{{ $orden->ent_dias }}"  disabled>
                             </div>
                           </div>
                           <div class="col-sm-6">
                             <div class="form-group form-group-default">
-                              <label>Partida</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->cog }}" disabled>
-                            </div>
-                          </div>
-                        </div>
-
-                       <div class="row clearfix">
-                          <div class="col-sm-6">
-                            <div class="form-group form-group-default">
-                              <label>Tipo de Gasto</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->gasto }}" disabled>
-                            </div>
-                          </div>
-                          <div class="col-sm-6">
-                            <div class="form-group form-group-default">
-                              <label>Fuente de Financiamiento</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->ff }}" disabled>
+                              <label>Lugar de entrega</label>
+                              <input type="text" class="form-control" value="{{ $orden->ent_lugar }}"  disabled>
                             </div>
                           </div>
                         </div>
 
                       </div>
 
-                      <p class="m-t-10"><h5>Bienes o Servicios</h5></p>
+                      <p class="m-t-10"><h5>Productos o Servicios</h5></p>
 
                           <table class="table table-hover demo-table-search" id="tableWithSearch">
                             <thead>
                               <tr>
-                                <th>Bien</th>                    
+                                <th>Producto/Servicio</th>                    
                                 <th>Marca</th>
                                 <th>Medida</th>                      
                                 <th>Cantidad</th>
                                 <th>Características</th>
-                                <th>Justificación</th>
                                 <th>Precio</th>
                               </tr>
                             </thead>
                               <tbody>                        
-                              @foreach ($solicitud->bienes as $bienes)
+                              @foreach ($orden->bienes as $bienes)
                                 <tr class="even gradeC">
-                                  <td>{{ $bienes->bien }}</a></td>
+                                  <td>{{ $bienes->producto }}</a></td>
                                   <td>{{ $bienes->marca }}</td>
                                   <td>{{ $bienes->medida }}</td>
                                   <td>{{ $bienes->cantidad }}</td>
                                   <td>{{ $bienes->carac }}</td>
-                                  <td>{{ $bienes->just }}</td>
                                   <td>${{ $bienes->precio }}</td>
                                 </tr>
                               @endforeach
@@ -185,22 +173,35 @@
                           </table>
 
                         </div>
-                        <div class="row clearfix">                        
-                          <div class="col-sm-3">
+
+                        <div class="row clearfix"> 
+                          <div class="col-sm-2">
                             <div class="form-group form-group-default input-group">
-                              <label>Importe Total</label>
-                              <input type="text" class="form-control" value="${{ number_format($solicitud->imp_comp,2) }}" disabled>
-                              <span class="input-group-addon">
-                                                       MXN
-                                                    </span>
+                              <label>Subtotal</label>
+                              <input type="text" class="form-control" value="${{ number_format($orden->subtotal,2) }}" disabled>
                             </div>
                           </div>
+
+                          <div class="col-sm-2">
+                            <div class="form-group form-group-default input-group">
+                              <label>IVA</label>
+                              <input type="text" class="form-control" value="${{ number_format($orden->iva,2) }}" disabled>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3">
+                            <div class="form-group form-group-default input-group">
+                              <label>Total</label>
+                              <input type="text" class="form-control" value="${{ number_format($orden->total,2) }}" disabled>
+                              <span class="input-group-addon">MXN</span>
+                            </div>
+                          </div>
+
                       <br>
                       <br>
                       <div class="row">
                         <div class="col-sm-9">
-                          <button class="btn btn-success" type="submit"><i class="fa fa-check"></i> Autorizar</button>
-                          <button class="btn btn-danger"><i class="fa fa-times"></i> Rechazar</button>
+                          <button class="btn btn-danger"><i class="fa fa-times"></i> Cancelar Orden</button>
                         </div>
                       </div>
                     </form>

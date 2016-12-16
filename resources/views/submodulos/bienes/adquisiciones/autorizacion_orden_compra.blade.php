@@ -132,33 +132,25 @@
                     <tr>
                       <th>Estatus</th>
                       <th>Ver Documentación</th>
+                      <th>Clave</th>
                       <th>Fecha</th>
                       <th>Folio de Solicitud de Bien</th>
                       <th>Folio de Solicitud de Compra</th>
+                      <th>Tipo de Adquisición</th>
                       <th>Total</th>
-                      <th>Entrega</th>
-                      <th>Lugar</th>
                     </tr>
                   </thead>
                     <tbody>                        
                     @foreach ($bien_sub3 as $bien_sub3)
                       <tr class="even gradeC">
-                        <td> <div class="btn-group dropdown-default dropup"> <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Pendiente <span class="caret"></span> </a>
-                          <ul class="dropdown-menu">
-                            <li><a><i class="fa fa-check"></i> Autorizar</a>
-                            </li>
-                            <li><a><i class="fa fa-times"></i> Rechazar</a>
-                            </li>
-                          </ul>
-                        </div></td>
-                            <td class="v-align-middle"><button type="button" class="btn btn-complete"><i class="fa fa-file-o"></i>
-                            </button></td>
+                        <td><span class="label label-warning">Pendiente</span></td>
+                        <td class="v-align-middle"><button type="button" class="btn btn-complete"><i class="fa fa-file-o"></i></button></td>
+                        <td><a href="{{ url('bienes/submodulo/adquisiciones/orden_compra', $bien_sub3->id) }}">{{ $bien_sub3->clave }}</a></td>
                         <td>{{ $bien_sub3->fecha }}</td>
                         <td>{{ $bien_sub3->folio_aprobado }}</td>
                         <td>{{ $bien_sub3->folio_compra }}</td>
+                        <td>{{ $bien_sub3->tipo_adqui }}</td>
                         <td>${{ number_format($bien_sub3->total, 2) }}</td>
-                        <td>{{ $bien_sub3->ent_dias }}</td>
-                        <td>{{ $bien_sub3->ent_lugar }}</td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -166,19 +158,28 @@
               </div>
 
               <div class="panel-body">
+                <p><h2>Lista de productos solicitados</h2></p>
                 <table class="table table-hover demo-table-search" id="tableWithSearch">
                   <thead>
                     <tr>
                       <th>Producto</th>
+                      <th>Marca</th>
+                      <th>Medida</th>
+                      <th>Características</th>
                       <th>Cantidad</th>
+                      <th>Precio</th>
                     </tr>
                   </thead>
                     <tbody>                        
                     @foreach ($bien_sub3_bienes as $bien_sub3_bienes)
                       <tr class="even gradeC">
                         <td>{{ $bien_sub3_bienes->producto }}</td>
+                        <td>{{ $bien_sub3_bienes->marca }}</td>
+                        <td>{{ $bien_sub3_bienes->medida }}</td>
+                        <td>{{ $bien_sub3_bienes->carac }}</td>
                         <td>{{ $bien_sub3_bienes->cantidad }}</td>
-                      </tr>
+                        <td>${{ number_format($bien_sub3_bienes->precio,2 ) }}</td>                        
+                      </tr>                      
                       @endforeach
                     </tbody>
                 </table>

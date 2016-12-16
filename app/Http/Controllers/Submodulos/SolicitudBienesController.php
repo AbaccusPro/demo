@@ -108,20 +108,8 @@ class SolicitudBienesController extends Controller
 }
 
 
-    /**
-     * Muestra bandeja de autorizacion de bienes.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function autorizacionBienes()
-    {
-        return view('submodulos.bienes.adquisiciones.autorizacion_bienes');
-    }
-
-
-
      /**
-     * Se muestran los datos generales de la solicitud de bienes (primera tabla).
+     * Se obtienen los datos de cada tabla y se envían a la vista (tabla), por separado.
      *
      * @return Response
      */
@@ -135,7 +123,7 @@ class SolicitudBienesController extends Controller
 
 
     /**
-     * Primero se muestra y guarda la solicitud de bienes.
+     * Se busca el id de la solicitud y se inyectan los datos para mostrar cada solicitud.
      *
      * @return \Illuminate\Http\Response
      */

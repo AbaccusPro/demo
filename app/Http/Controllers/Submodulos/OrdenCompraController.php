@@ -92,7 +92,7 @@ class OrdenCompraController extends Controller
 
 
      /**
-     * Muestra los datos de las órdenes de compra.
+     * Se obtienen los datos de cada tabla y se envían a la vista (tabla), por separado.
      *
      * @return Response
      */
@@ -105,15 +105,20 @@ class OrdenCompraController extends Controller
     }
     
 
-       /**
-     * Muestro la bandeja de las autorizaciones de compras.
+    /**
+     * Se busca el id y se inyectan los datos para visualizar cada orden de compra.
      *
      * @return \Illuminate\Http\Response
      */
-    public function autorizacionCompras()
+    public function showOrden($id)
     {
-        return view('submodulos.bienes.adquisiciones.autorizacion_orden_compra');
+
+        $orden = Bien_sub3::find($id);
+        $bienes = Bien_sub3_bienes::find($id);
+
+        return view('submodulos.bienes.adquisiciones.orden_compra', compact('orden', 'bienes'));
     }
+
 
 
 }
