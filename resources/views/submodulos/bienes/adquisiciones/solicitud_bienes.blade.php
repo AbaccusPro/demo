@@ -100,6 +100,7 @@
                   @endif
 
                     <h4><strong>Solicitud de Adquisición de Bien o Servicio</h4></strong>
+                    <hr>
                     <h5>/ Parte 1. Elija la partida presupuestal disponible:</h5>
                    
                  {!! Form::open(['url' => ['bienes/submodulo/adquisiciones/solicitud_bienes', 'id'], 'method' => 'POST', 'id' => 'myForm']) !!}

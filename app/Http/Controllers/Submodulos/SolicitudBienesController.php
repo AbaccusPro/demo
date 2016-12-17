@@ -40,15 +40,15 @@ class SolicitudBienesController extends Controller
 
     public function catCreate()
     {        
-        $clave = Plan_sub15::pluck('clave', 'id');  
+        $clave = Plan_sub15::pluck('clave', 'clave');  
         $bienes = cat_Bienes::pluck('nombre', 'id'); 
 
-        $claves_ur = Claves_ur::pluck('nombre', 'id');
-        $claves_fun = Claves_fun::pluck('nombre', 'id');
-        $claves_pp = Claves_pp::pluck('nombre', 'id');
-        $claves_cog = Claves_cog::pluck('nombre', 'id');
-        $claves_gas = Claves_gas::pluck('nombre', 'id');
-        $claves_ff = Claves_ff::pluck('nombre', 'id');
+        $claves_ur = Claves_ur::pluck('nombre', 'nombre');
+        $claves_fun = Claves_fun::pluck('nombre', 'nombre');
+        $claves_pp = Claves_pp::pluck('nombre', 'nombre');
+        $claves_cog = Claves_cog::pluck('nombre', 'nombre');
+        $claves_gas = Claves_gas::pluck('nombre', 'nombre');
+        $claves_ff = Claves_ff::pluck('nombre', 'nombre');
 
     return view('submodulos.bienes.adquisiciones.solicitud_bienes', compact('clave', 'bienes', 'claves_ur', 'claves_fun', 'claves_pp', 'claves_cog', 'claves_gas', 'claves_ff'));
 }
@@ -56,7 +56,7 @@ class SolicitudBienesController extends Controller
 
     public function create($Id)
     {
-        //para asignarle el workout al usuario, se encuentra mediante el id y nos envia al formulario de asignacion
+        // consultamos el folio de la solicitud para relacionarlo a los bienes
         $id = base64_decode($Id);
         $folio = Bien_sub2::find($id);
 

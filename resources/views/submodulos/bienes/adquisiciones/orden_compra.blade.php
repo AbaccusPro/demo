@@ -62,13 +62,13 @@
                     </div>
                     <div class="clearfix"></div>
                   </div>
-                  <br>
+                  <hr>
                   <br>
                   <div class="container-sm-height">
                     <div class="row-sm-height">
                       <div class="col-md-9 col-sm-height sm-no-padding">
-                        <p class="small no-margin">A quien corresponda</p>
-                        <h5 class="semi-bold m-t-0">Lic. Juan López Pérez</h5>
+                        <p class="small no-margin"></p>
+                        <h5 class="semi-bold m-t-0">Comisión Municipal de Agua y Saneamiento de Xalapa</h5>
                         <address>
                                               <strong>Dirección General de Contabilidad.</strong>
                                               <br>Gobierno de la Ciudad de México
@@ -80,7 +80,7 @@
                       <div class="col-md-6 col-sm-height col-bottom sm-no-padding sm-p-b-20">
                         <br>
                         <div>
-                          <div class="pull-left font-montserrat bold all-caps">Clave:</div>
+                          <div class="pull-left font-montserrat bold all-caps">Clave Presupuestal:</div>
                           <div class="pull-right"><strong>{{ $orden->clave }}</strong></div>
                           <div class="clearfix"></div>
                         </div>
@@ -150,7 +150,7 @@
                           <table class="table table-hover demo-table-search" id="tableWithSearch">
                             <thead>
                               <tr>
-                                <th>Producto/Servicio</th>                    
+                                <th>Artículos</th>                    
                                 <th>Marca</th>
                                 <th>Medida</th>                      
                                 <th>Cantidad</th>

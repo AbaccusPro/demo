@@ -108,22 +108,22 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/almacen/consulta_inventario_consumo') }}">Consulta de existencias</a></td>
+                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/almacen/consulta_inventario_consumo') }}">1. Consulta de existencias</a></td>
                             <td class="v-align-middle">Básica</td>
                             <td class="v-align-middle semi-bold">Almacén</td>
                           </tr>
                           <tr>
-                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/almacen/entrada_inventario') }}">Recepción e inventario</a></td>
+                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/almacen/entrada_inventario') }}">2. Recepción e inventario</a></td>
                             <td class="v-align-middle">Básica</td>
                             <td class="v-align-middle semi-bold">Almacén</td>
                           </tr>
                           <tr>
-                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/almacen/suministro_bienes') }}">Suministro de bienes</a></td>
+                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/almacen/suministro_bienes') }}">3. Suministro de bienes</a></td>
                             <td class="v-align-middle">Básica</td>
                             <td class="v-align-middle semi-bold">Almacén</td>
                           </tr>
                           <tr>
-                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/almacen/consulta_inventario_consumo') }}">Consulta de Inventario</a></td>
+                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/almacen/consulta_inventario_consumo') }}">4. Consulta de Inventario</a></td>
                             <td class="v-align-middle">Básica</td>
                             <td class="v-align-middle semi-bold">Almacén</td>
                           </tr>

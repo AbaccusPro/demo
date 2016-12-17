@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
 use App\Plan_sub15;
+use App\Presup_mod;
 use App\cat_Proveedores;
 use App\cat_Bienes;
 
@@ -31,8 +32,8 @@ class OrdenCompraController extends Controller
 
     public function catCreate()
     {
-        $clave = Plan_sub15::pluck('clave', 'id');  
-        $proveedor = cat_Proveedores::pluck('nombre', 'id');     
+        $clave = Plan_sub15::pluck('clave', 'clave');  
+        $proveedor = cat_Proveedores::pluck('nombre', 'nombre');     
         $bienes = cat_Bienes::pluck('nombre');    
 
     return view('submodulos.bienes.adquisiciones.registro_orden_compra', compact('clave', 'proveedor', 'bienes'));
@@ -47,6 +48,7 @@ class OrdenCompraController extends Controller
 
         return view('bienes/submodulo/adquisiciones/registro_orden_compra', compact('folio'));
     }
+
 
     public function store(Request $request, $id)
     {       
@@ -112,12 +114,14 @@ class OrdenCompraController extends Controller
      */
     public function showOrden($id)
     {
-
         $orden = Bien_sub3::find($id);
         $bienes = Bien_sub3_bienes::find($id);
 
         return view('submodulos.bienes.adquisiciones.orden_compra', compact('orden', 'bienes'));
     }
+
+
+
 
 
 

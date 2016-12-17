@@ -146,7 +146,7 @@
                       <tr class="even gradeC">
                         <td><span class="label label-warning">Pendiente</span></td>
                         <td>{{ $bien_sub2->fecha }}</td>
-                        <td><a href="{{ url('bienes/submodulo/adquisiciones/solicitud', $bien_sub2->id) }}">{!! $bien_sub2->ur . '-' . $bien_sub2->fun . '-'  . $bien_sub2->pp . '-' . $bien_sub2->cog . '-' . $bien_sub2->gasto . '-' . $bien_sub2->ff !!}</a></td>
+                        <td><a href="{{ url('bienes/submodulo/adquisiciones/solicitud', $bien_sub2->id) }}">{{ $bien_sub2->clave }}</a></td>
                         <td>{{ $bien_sub2->ur }}</td>
                         <td>{{ $bien_sub2->folio }}</td>
                         <td>${{ number_format($bien_sub2->imp_comp, 2) }}</td>
@@ -161,7 +161,6 @@
                 <table class="table table-hover demo-table-search" id="tableWithSearch">
                   <thead>
                     <tr>
-                      <th>Clave Presupuestal</th>                    
                       <th>Bien</th>
                       <th>Características</th>
                       <th>Cantidad</th>                      
@@ -172,7 +171,6 @@
                     <tbody>                        
                     @foreach ($bien_sub2_bienes as $bien_sub2_bienes)
                       <tr class="even gradeC">
-                        <td>{!! $bien_sub2->ur . '-' . $bien_sub2->fun . '-'  . $bien_sub2->pp . '-' . $bien_sub2->cog . '-' . $bien_sub2->gasto . '-' . $bien_sub2->ff !!}</a></td>
                         <td>{{ $bien_sub2_bienes->bien }}</td>
                         <td>{{ $bien_sub2_bienes->carac }}</td>
                         <td>{{ $bien_sub2_bienes->cantidad }}</td>

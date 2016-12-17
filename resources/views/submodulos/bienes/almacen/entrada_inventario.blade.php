@@ -96,8 +96,9 @@
                         <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alerta') !!}</em></div>
                   @endif
 
-                    <h4>Registro de entrada de inventario</h4>
-                    <h5>1. Datos Generales</h5>                   
+                    <h4><strong>Registro de entrada de inventario</strong></h4>
+                    <hr>
+                    <h5>/ Parte 1. Datos Generales</h5>                   
 
                   {!! Form::open(['url' => 'bienes/submodulo/almacen/entrada_inventario']) !!}
 
@@ -140,51 +141,88 @@
                       </div> <!-- END ROW  -->
 
                       <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group form-group-default form-group-default-select2">
+                            <label class="">Clave Presupuestal</label>
+                            {!!Form::select('cve_presup', $clave, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                          </div>
+                        </div>
+
+                        <div class="col-sm-6">
                           <div class="form-group form-group-default form-group-default-select2">
                             <label class="">Proovedor</label>
-                            {!!Form::select('proveedor', [
-                            'GCI9404283F7 - GRUPO DE COMUNICACION INTEGRAL S.A. DE C.V.' => 'GCI9404283F7 - GRUPO DE COMUNICACION INTEGRAL S.A. DE C.V.',
-                            'TAM950224FSH - TEKNOMERICA' => 'TAM950224FSH - TEKNOMERICA',
-                            'CME870331AZ2 - COMERCIAL MEXICANA S.A DE C.V.' => 'CME870331AZ2 - COMERCIAL MEXICANA S.A DE C.V.',
-                            'OFI920113KZ8 - OFIX S.A. DE C.V.' => 'OFI920113KZ8 - OFIX S.A. DE C.V.',
-                            'IUS890616RH6 - IUSACELL DIGITAL S.A. DE C.V.' => 'IUS890616RH6 - IUSACELL DIGITAL S.A. DE C.V.',
-                            'RFA9407252H2 - RIMO FORMAS Y ACCESORIOS S.A. DE C.V.' => 'RFA9407252H2 - RIMO FORMAS Y ACCESORIOS S.A. DE C.V.',
-                            'LSX890830 - LLANTAS Y SERVICIOS DE XALAPA S.A. DE C.V. (COPACA)' => 'LSX890830 - LLANTAS Y SERVICIOS DE XALAPA S.A. DE C.V. (COPACA)',
-                            'EEL9002125D6 - EDICIONES ELMIRE S. DE R.L. DE C.V. (PAPELERIAS ELMIRE)' => 'EEL9002125D6 - EDICIONES ELMIRE S. DE R.L. DE C.V. (PAPELERIAS ELMIRE)',
-                            'NMX910614GB7 - LA NUEVA MERCED DE XALAPA S.A. DE C.V.' => 'NMX910614GB7 - LA NUEVA MERCED DE XALAPA S.A. DE C.V.',
-                            ], null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                            {!!Form::select('proveedor', $proveedor, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
                           </div>
-                        </div> <!-- END ROW  -->
+                        </div>
+                      </div> <!-- END ROW  -->
 
                   
+                      <div class="row">                                        
+                        <div class="col-sm-3">
+                          <h5>/ Parte 2. Especificaciones del Bien</h5> 
+                        </div>
+                      </div>
+
                       <div class="row">
                         <div class="col-sm-3">
                           <div class="form-group form-group-default">
-                            <label>Clave del Artículo<span class="help"></span></label>
-                            {!!Form::text('articulo', null, ['class' => 'form-control', 'placeholder' => 'Clave']) !!}
+                            <label>Nombre del Bien<span class="help"></span></label>
+                            {!!Form::text('bien', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                          <div class="form-group form-group-default">
+                            <label>Clave del Bien<span class="help"></span></label>
+                            {!!Form::text('cve_bien', null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default">
-                            <label>Cantidad<span class="help"></span></label>
-                            {!!Form::number('cantidad', null, ['class' => 'form-control', 'placeholder' => 'Número']) !!}
+                            <label>Marca<span class="help"></span></label>
+                            {!!Form::text('marca', null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default">
-                            <label>Precio Unitario<span class="help"></span></label>
-                            {!!Form::number('importe', null, ['class' => 'form-control', 'step' => 'any']) !!}
+                            <label>Modelo<span class="help"></span></label>
+                            {!!Form::text('modelo', null, ['class' => 'form-control']) !!}
                             </div>
+                          </div>
+
+                          <div class="col-sm-2">
+                            <div class="form-group form-group-default">
+                              <label>Cantidad<span class="help"></span></label>
+                              {!!Form::number('cantidad', null, ['class' => 'form-control']) !!}
+                              </div>
+                            </div>
+                          </div>
                         </div>
 
-                        <div class="col-sm-5">
-                          <div class="form-group form-group-default">
-                            <label>Características<span class="help"></span></label>
-                            {!!Form::text('carac', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
-                            </div>
-                        </div>
+                        <div class="row">
+                          <div class="col-sm-8">
+                            <div class="form-group form-group-default">
+                              <label>Características<span class="help"></span></label>
+                              {!!Form::text('carac', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
+                              </div>
+                           </div>
+                          <div class="col-sm-2">
+                            <div class="form-group form-group-default">
+                              <label>Costo Unitario<span class="help"></span></label>
+                              {!!Form::number('costo_unit', null, ['class' => 'form-control', 'placeholder' => '$', 'step' => 'any']) !!}
+                              </div>
+                          </div>
+
+                          <div class="col-sm-2">
+                            <div class="form-group form-group-default">
+                              <label>Importe Total<span class="help"></span></label>
+                              {!!Form::number('total', null, ['class' => 'form-control', 'placeholder' => '$', 'step' => 'any']) !!}
+                              </div>
+                          </div>
+                         </div>
+                         <br>
 
                     {!!Form::submit('Ingresar a Inventario',['class' => 'btn btn-success show-notification'])!!}
                                             

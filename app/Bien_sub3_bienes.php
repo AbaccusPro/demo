@@ -18,7 +18,6 @@ class Bien_sub3_bienes extends Model
     'orden_id'];
 
     public function orden(){
-
     return $this->belongsTo('App\Bien_sub3', 'orden_id');
 	}
 

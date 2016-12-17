@@ -26,7 +26,7 @@
                   <div class="col-sm-8">
                     <ul class="nav navbar-nav navbar-right">
                       <li>
-                        <a href="{{ url('bienes/submodulo/adquisiciones/reportes/solicitud')}}" class="p-r-10"><img width="25" height="25" alt="" class="icon-pdf" data-src-retina="assets/img/invoice/pdf2x.png" data-src="{{ URL::asset('assets/img/invoice/pdf.png') }}" src="assets/img/invoice/pdf2x.png"></a>
+                        <a href="#" class="p-r-10"><img width="25" height="25" alt="" class="icon-pdf" data-src-retina="assets/img/invoice/pdf2x.png" data-src="{{ URL::asset('assets/img/invoice/pdf.png') }}" src="assets/img/invoice/pdf2x.png"></a>
                       </li>
                       <li>
                         <a href="#" class="p-r-10"><img width="25" height="25" alt="" class="icon-doc" data-src-retina="assets/img/invoice/doc2x.png" data-src="{{ URL::asset('assets/img/invoice/doc.png') }}" src="assets/img/invoice/doc2x.png"></a>
@@ -56,11 +56,11 @@
                                   </address>
                     </div>
                     <div class="pull-right sm-m-t-20">
-                      <h2 class="font-montserrat all-caps hint-text">Solicitud de Bien o Servicio</h2>
+                      <h2 class="font-montserrat all-caps hint-text">Entrada de Inventario</h2>
                     </div>
                     <div class="clearfix"></div>
                   </div>
-                  <br>
+                  <hr>
                   <br>
                   <div class="container-sm-height">
                     <div class="row-sm-height">
@@ -78,18 +78,18 @@
                       <div class="col-md-6 col-sm-height col-bottom sm-no-padding sm-p-b-20">
                         <br>
                         <div>
-                          <div class="pull-left font-montserrat bold all-caps">Clave :</div>
-                          <div class="pull-right"><strong>{{ $solicitud->clave }}</strong></div>
+                          <div class="pull-left font-montserrat bold all-caps">Clave Presupuestal:</div>
+                          <div class="pull-right"><strong>{{ $entrada['cve_presup'] }}</strong></div>
                           <div class="clearfix"></div>
                         </div>
                         <div>
-                          <div class="pull-left font-montserrat bold all-caps">Número de Folio :</div>
-                          <div class="pull-right"><strong>{{ $solicitud->folio }}</strong></div>
+                          <div class="pull-left font-montserrat bold all-caps">Folio Orden de Compra:</div>
+                          <div class="pull-right"><strong>{{ $entrada['folio_compra'] }}</strong></div>
                           <div class="clearfix"></div>
                         </div>
                         <div>
-                          <div class="pull-left font-montserrat bold all-caps">Fecha :</div>
-                          <div class="pull-right"><strong>{{ $solicitud->fecha }}</strong></div>
+                          <div class="pull-left font-montserrat bold all-caps">Fecha de entrada:</div>
+                          <div class="pull-right"><strong>{{ $entrada['fecha_ent'] }}</strong></div>
                           <div class="clearfix"></div>
                         </div> 
                       </div>
@@ -101,52 +101,30 @@
                 <!-- START PANEL -->
                 <div class="panel panel-transparent">
                   <div class="panel-body">
+
                     <form id="form-project" role="form" autocomplete="off">
                       <h5>Datos Generales</h5>
 
                       <div class="form-group-attached">
 
                         <div class="row clearfix">
-                          <div class="col-sm-6">
+                          <div class="col-sm-2">
                             <div class="form-group form-group-default">
-                              <label>Unidad Responsable</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->ur }}" disabled>
+                              <label>Fecha de Factura</label>
+                              <input type="text" class="form-control" value="{{ $entrada['fecha_fact'] }}" disabled>
                             </div>
                           </div>
-                          <div class="col-sm-6">
+                          <div class="col-sm-2">
                             <div class="form-group form-group-default">
-                              <label>Funcional</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->fun }}" disabled>
+                              <label>Folio de Factura</label>
+                              <input type="text" class="form-control" value="{{ $entrada['folio_fact'] }}" disabled>
                             </div>
                           </div>
-                        </div>
 
-                        <div class="row clearfix">
-                          <div class="col-sm-6">
+                          <div class="col-sm-8">
                             <div class="form-group form-group-default">
-                              <label>Programa</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->pp }}" disabled>
-                            </div>
-                          </div>
-                          <div class="col-sm-6">
-                            <div class="form-group form-group-default">
-                              <label>Partida</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->cog }}" disabled>
-                            </div>
-                          </div>
-                        </div>
-
-                       <div class="row clearfix">
-                          <div class="col-sm-6">
-                            <div class="form-group form-group-default">
-                              <label>Tipo de Gasto</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->gasto }}" disabled>
-                            </div>
-                          </div>
-                          <div class="col-sm-6">
-                            <div class="form-group form-group-default">
-                              <label>Fuente de Financiamiento</label>
-                              <input type="text" class="form-control" value="{{ $solicitud->ff }}" disabled>
+                              <label>Proveedor</label>
+                              <input type="text" class="form-control" value="{{ $entrada['proveedor'] }}" disabled>
                             </div>
                           </div>
                         </div>
@@ -155,56 +133,77 @@
 
                       <p class="m-t-10"><h5>Bienes o Servicios</h5></p>
 
-                          <table class="table table-hover demo-table-search" id="tableWithSearch">
-                            <thead>
-                              <tr>
-                                <th>Bien</th>                    
-                                <th>Marca</th>
-                                <th>Medida</th>                      
-                                <th>Cantidad</th>
-                                <th>Características</th>
-                                <th>Justificación</th>
-                                <th>Precio</th>
-                              </tr>
-                            </thead>
-                              <tbody>                        
-                              @foreach ($solicitud->bienes as $bienes)
-                                <tr class="even gradeC">
-                                  <td>{{ $bienes->bien }}</a></td>
-                                  <td>{{ $bienes->marca }}</td>
-                                  <td>{{ $bienes->medida }}</td>
-                                  <td>{{ $bienes->cantidad }}</td>
-                                  <td>{{ $bienes->carac }}</td>
-                                  <td>{{ $bienes->just }}</td>
-                                  <td>${{ number_format($bienes->precio,2) }}</td>
-                                </tr>
-                              @endforeach
-                              </tbody>
-                          </table>
+                      <div class="form-group-attached">
+                        <div class="row clearfix">
+                          <div class="col-sm-3">
+                            <div class="form-group form-group-default">
+                              <label>Nombre del Bien</label>
+                              <input type="text" class="form-control" value="{{ $entrada['bien'] }}" disabled>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class="form-group form-group-default">
+                              <label>Clave del Bien</label>
+                              <input type="text" class="form-control" value="{{ $entrada['cve_bien'] }}" disabled>
+                            </div>
+                          </div>
 
-                        </div>
-                        <div class="row clearfix">                        
+                          <div class="col-sm-2">
+                            <div class="form-group form-group-default">
+                              <label>Marca</label>
+                              <input type="text" class="form-control" value="{{ $entrada['marca'] }}" disabled>
+                            </div>
+                          </div>
+
+                        <div class="col-sm-2">
+                           <div class="form-group form-group-default">
+                             <label>Modelo</label>
+                             <input type="text" class="form-control" value="{{ $entrada['modelo'] }}" disabled>
+                           </div>
+                         </div>
+
+                         <div class="col-sm-2">
+                           <div class="form-group form-group-default">
+                             <label>Cantidad</label>
+                             <input type="text" class="form-control" value="{{ $entrada['cantidad'] }}" disabled>
+                           </div>
+                         </div>
+                        </div>  
+
+                        <div class="row clearfix">
+                          <div class="col-sm-10">
+                            <div class="form-group form-group-default">
+                              <label>Características</label>
+                              <input type="text" class="form-control" value="{{ $entrada['carac'] }}" disabled>
+                            </div>
+                          </div>
+                          <div class="col-sm-2">
+                            <div class="form-group form-group-default">
+                              <label>Costo Unitario</label>
+                              <input type="text" class="form-control" value="{{ $entrada['costo_unit'] }}" disabled>
+                            </div>
+                          </div>
+
+                        </div>  
+                      </div>        
+
+                      <br>
+                      <div class="row clearfix">                        
                           <div class="col-sm-3">
                             <div class="form-group form-group-default input-group">
                               <label>Importe Total</label>
-                              <input type="text" class="form-control" value="${{ number_format($solicitud->imp_comp,2) }}" disabled>
-                              <span class="input-group-addon">
-                                                       MXN
-                                                    </span>
+                              <input type="text" class="form-control" value="${{ $entrada['total'] }}" disabled>
+                              <span class="input-group-addon">MXN</span>
                             </div>
                           </div>
                       <br>
                       <br>
-                      <div class="row">
-                        <div class="col-sm-9">
-                          <button class="btn btn-success" type="submit"><i class="fa fa-check"></i> Autorizar</button>
-                          <button class="btn btn-danger"><i class="fa fa-times"></i> Rechazar</button>
-                        </div>
-                      </div>
+
                     </form>
                   </div>
                 </div>
                 <!-- END PANEL -->
+              </div>
 
               </div>
             </div>
@@ -236,4 +235,5 @@
       <!-- TERMINA page container / DIV DE ESPACIO PARA FOOTER -->
 
 <!-- TERMINA CONTENIDO / LA SECCIÓN SE QUEDA ABIERTA PARA CERRAR footer-->
+
 

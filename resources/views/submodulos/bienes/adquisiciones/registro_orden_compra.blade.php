@@ -100,6 +100,7 @@
                   @endif
 
                     <h4><strong>Registro de Orden de Compra</h4></strong>
+                    <hr>
                     <h5>/ Parte 1. Datos Generales</h5>                   
 
                   {!! Form::open(['url' => ['bienes/submodulo/adquisiciones/registro_orden_compra', 'id'], 'method' => 'POST', 'id' => 'myForm']) !!}
@@ -227,47 +228,47 @@
                           </div>
                         </div> <!-- END ROW -->
                         <br>
-
+                        <hr>
                         
                         <div class="row">
-                          <div class="col-sm-2">
-                           <div class="form-group form-group-default required">
-                              <label>Subtotal<span class="help"></span></label>
-                              {!!Form::number('subtotal', null, ['class' => 'form-control', 'step' => 'any']) !!}
+                          <div class="col-sm-3">
+                              <div class="form-group form-group-default">
+                              <label>Tiempo de entrega<span class="help"></span></label>
+                              {!!Form::text('ent_dias', null, ['class' => 'form-control', 'placeholder' => 'Ej. 2 semanas']) !!}
                               </div>
-                          </div>
+                           </div>
 
-                          <div class="col-sm-2">
-                           <div class="form-group form-group-default required">
-                              <label>IVA<span class="help"></span></label>
-                              {!!Form::number('iva', null, ['class' => 'form-control', 'step' => 'any']) !!}
+                            <div class="col-sm-3">
+                              <div class="form-group form-group-default">
+                              <label>Lugar de entrega<span class="help"></span></label>
+                              {!!Form::text('ent_lugar', null, ['class' => 'form-control']) !!}
                               </div>
-                          </div>
-
-                        <div class="col-sm-2">
-                          <div class="form-group form-group-default input-group">
-                            <label class="label-lg">Total</label>
-                              {!!Form::number('total', null, ['class' => 'autonumeric form-control required', 'step' => 'any']) !!}
-                            <span class="input-group-addon">MXN</span>
-                          </div>
+                           </div>
                         </div>
-                        </div> <!-- END ROW -->                       
 
                         <div class="row">
-                          <div class="col-sm-3">
-                            <div class="form-group form-group-default">
-                            <label>Tiempo de entrega<span class="help"></span></label>
-                            {!!Form::text('ent_dias', null, ['class' => 'form-control', 'placeholder' => 'Ej. 2 semanas']) !!}
+                           <div class="col-sm-2">
+                             <div class="form-group form-group-default required">
+                                <label>Subtotal<span class="help"></span></label>
+                                {!!Form::number('subtotal', null, ['class' => 'form-control', 'step' => 'any']) !!}
+                                </div>
                             </div>
-                         </div>
 
-                          <div class="col-sm-3">
-                            <div class="form-group form-group-default">
-                            <label>Lugar de entrega<span class="help"></span></label>
-                            {!!Form::text('ent_lugar', null, ['class' => 'form-control']) !!}
+                            <div class="col-sm-2">
+                             <div class="form-group form-group-default required">
+                                <label>IVA<span class="help"></span></label>
+                                {!!Form::number('iva', null, ['class' => 'form-control', 'step' => 'any']) !!}
+                                </div>
                             </div>
-                         </div>
-                        </div> <!-- END ROW -->
+
+                            <div class="col-sm-2">
+                             <div class="form-group form-group-default input-group">
+                              <label class="label-lg">Total</label>
+                                {!!Form::number('total', null, ['class' => 'autonumeric form-control required', 'step' => 'any']) !!}
+                              <span class="input-group-addon">MXN</span>
+                            </div>                            
+                          </div>
+                        </div> <!-- END ROW -->                       
 
 
                     {!!Form::submit('Generar solicitud',['class' => 'btn btn-success show-notification'])!!}

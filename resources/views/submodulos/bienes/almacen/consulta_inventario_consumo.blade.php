@@ -26,7 +26,7 @@
                             <ul class="breadcrumb">
                               <li><a href="{{ url('/home') }}">Inicio</a></li>
                               <li><a href="{{ url('/bienes') }}">Bienes</a>
-                              <li><a href="{{ url('/bienes/submodulo/adquisiciones') }}">Almacén</a>
+                              <li><a href="{{ url('/bienes/submodulo/almacen') }}">Almacén</a>
                               <li><a href="#" class="active">Consulta de Inventario</a>
                               </li>
                             </ul>
@@ -124,7 +124,7 @@
                       <div class="col-sm-2">
                         <h5>c/ Emitir no existencia</h5>
                         <form class="m-t-10" role="form">
-                        <button class="btn btn-sm  btn-rounded btn-danger" type="button"><i class="pg-form"></i> Solicitar</button>
+                        <a href="{{ url('bienes/submodulo/adquisiciones/solicitud_bienes') }}"><button class="btn btn-sm  btn-rounded btn-danger" type="button"><i class="pg-form"></i> Solicitar bien</button></a>
                         </form>
                       </div>
 
@@ -141,7 +141,7 @@
             <!-- START PANEL -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                <div class="panel-title">Bandeja de Entradas a Inventario
+                <div class="panel-title">Bandeja de Entrada a Inventario
                 </div>
                 <div class="pull-right">
                   <div class="col-xs-12">
@@ -154,29 +154,33 @@
                 <table class="table table-hover demo-table-search" id="tableWithSearch">
                   <thead>
                     <tr>
-                      <th>Clave del Artículo</th>
+                      <th>Bien</th>
+                      <th>Clave del Bien</th>
+                      <th>Clave presupuestal</th>
                       <th>Fecha de Entrada</th>
                       <th>Folio Orden de Compra</th>
                       <th>Fecha de factura</th>
                       <th>Folio de factura</th>
                       <th>Proveedor</th>
                       <th>Cantidad</th>
-                      <th>Importe</th>
+                      <th>Total</th>
                       <th>Características</th>
                     </tr>
                   </thead>
                     <tbody>                        
                     @foreach ($bien_sub4_1 as $bien_sub4_1)
                       <tr class="even gradeC">
-                        <td>{{$bien_sub4_1->articulo}}</td>
-                        <td>{{$bien_sub4_1->fecha_ent}}</td>
-                        <td>{{$bien_sub4_1->folio_compra}}</td>
-                        <td>{{$bien_sub4_1->fecha_fact}}</td>
-                        <td>{{$bien_sub4_1->folio_fact}}</td>
-                        <td>{{$bien_sub4_1->proveedor}}</td>
-                        <td>{{$bien_sub4_1->cantidad}}</td>
-                        <td>${{$bien_sub4_1->importe}}</td>
-                        <td>{{$bien_sub4_1->carac}}</td>
+                        <td><a href="{{ url('bienes/submodulo/almacen/entrada', $bien_sub4_1->id) }}">{{$bien_sub4_1->bien}}</td></a>
+                        <td>{{ $bien_sub4_1->cve_bien }}</td>
+                        <td>{{ $bien_sub4_1->cve_presup }}</td>
+                        <td>{{ $bien_sub4_1->fecha_ent }}</td>
+                        <td>{{ $bien_sub4_1->folio_compra }}</td>
+                        <td>{{ $bien_sub4_1->fecha_fact }}</td>
+                        <td>{{ $bien_sub4_1->folio_fact }}</td>
+                        <td>{{ $bien_sub4_1->proveedor }}</td>
+                        <td>{{ $bien_sub4_1->cantidad }}</td>
+                        <td>${{ number_format($bien_sub4_1->total,2) }}</td>
+                        <td>{{ $bien_sub4_1->carac }}</td>
                       </tr>
                       @endforeach
                     </tbody>

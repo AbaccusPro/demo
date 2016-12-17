@@ -19,11 +19,16 @@ class Bien_sub3 extends Model
     'iva',
     'total',
     'ent_dias',
-    'ent_lugar'];
+    'ent_lugar',
+    'presup_id'
+    ];
 
     public function bienes(){
-
     return $this->hasMany('App\Bien_sub3_bienes', 'orden_id');
 	}
+
+    public function modificado(){
+        return $this->belongsTo('App\Presup_mod', 'presup_id');
+    }
 
 }

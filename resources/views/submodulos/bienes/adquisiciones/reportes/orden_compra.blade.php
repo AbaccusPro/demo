@@ -65,8 +65,8 @@
                   <div class="container-sm-height">
                     <div class="row-sm-height">
                       <div class="col-md-9 col-sm-height sm-no-padding">
-                        <p class="small no-margin">A quien corresponda</p>
-                        <h5 class="semi-bold m-t-0">Lic. Juan López Pérez</h5>
+                        <p class="small no-margin"></p>
+                        <h5 class="semi-bold m-t-0">Comisión Municipal de Agua y Saneamiento de Xalapa</h5>
                         <address>
                                               <strong>Dirección General de Contabilidad.</strong>
                                               <br>Gobierno de la Ciudad de México
