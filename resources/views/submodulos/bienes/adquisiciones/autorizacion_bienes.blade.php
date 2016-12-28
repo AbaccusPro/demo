@@ -2,7 +2,9 @@
 
 @section('content')  <!-- TODOS LOS CONTENIDOS LLEVAN EL MISMO NOMBRE DE SECCION !-->
 
+
 <!-- NO MOVEER NINGÚN DIV !-->
+
 <div class="fixed-header horizontal-menu">  
 
   <div class="page-content-wrapper">
@@ -80,108 +82,65 @@
 
 <!-- CHANGE 'content' HERE-->
 
-
-          <!-- START CONTAINER FLUID -->
-        <div class="container-fluid container-fixed-lg ">
-          <div class"row">
-
-            <!-- START PANEL -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="panel-title">Ingresar el número de folio para buscar la solicitud</div>
-                </div>
-                                    
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-5">
-                      <form>
-                        <h5>a/ Folio de Solicitud de Bien</h5>
-                          <div class="form-group form-group-default ">
-                            <label>Folio:</label>                            
-                            <input type="text" class="form-control" placeholder="123-5653">
-                          </div>
-                          <button class="btn btn-sm  btn-rounded btn-complete">Buscar <i class="pg-search"></i></button>
-                          <br>                
-                        </form>
-                      </div>
-
-                </div>
-              </div>
-            </div>
+      <!-- START PANEL -->
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-title">Bandeja de solicitudes de bienes</div>
+            <div class="clearfix"></div>
           </div>
-        </div>
 
           <!-- START CONTAINER FLUID -->
           <div class="container-fluid container-fixed-lg">
-          <div class"row">
-
-            <!-- START PANEL -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="panel-title">Bandeja de Autorizaciones de solicitudes de bienes
-                </div>
-                <div class="pull-right">
-                  <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
+           <div class"row">
 
               <div class="panel-body">
-                <table class="table table-hover demo-table-search" id="tableWithSearch">
+                <table class="table table-hover demo-table-dynamic" id="basicDataTable">
                 <p><h2>Solicitudes por autorizar</h2></p>
                   <thead>
                     <tr>
-                      <th>Estatus</th>
+                      <th>Clave</th>
                       <th>Fecha</th>
-                      <th>Clave Presupuestal</th>                      
-                      <th>Área Solicitante</th>
-                      <th>Folio</th>
-                      <th>Importe Comprometido</th>
+                      <th>Área solicitante</th>
+                      <th>Partida</th>
+                      <th>Importe a comprometer</th>
+                      <th>Estatus</th>
                     </tr>
                   </thead>
-                    <tbody>                        
-                    @foreach ($bien_sub2 as $bien_sub2)
-                      <tr class="even gradeC">
-                        <td><span class="label label-warning">Pendiente</span></td>
-                        <td>{{ $bien_sub2->fecha }}</td>
-                        <td><a href="{{ url('bienes/submodulo/adquisiciones/solicitud', $bien_sub2->id) }}">{{ $bien_sub2->clave }}</a></td>
-                        <td>{{ $bien_sub2->ur }}</td>
-                        <td>{{ $bien_sub2->folio }}</td>
-                        <td>${{ number_format($bien_sub2->imp_comp, 2) }}</td>
-                      </tr>
-                      @endforeach
+
+                    <tbody>
+                      @for ($i = 0; $i < count($input); $i++)
+                         <tr class="odd gradeX">
+                          <td><a href="{{ url('bienes/submodulo/adquisiciones/solicitud', $input[$i]->id) }}">{{ $input[$i]->clave }}</a></td>
+                          <td>{{ $input[$i]->fecha }}</td>
+                          <td>{{ $input[$i]->ur }}</td>
+                          <td>{{ $input[$i]->pp }}</td>
+                          <td>${{ number_format($input[$i]->imp_comp,2) }}</td>
+
+                          @if ($input[$i]->estatus == 'Pendiente')
+                          <td class="v-align-middle estatus" id="{{ $input[$i]->id }}">
+                          <label class="label label-warning">{{ $input[$i]->estatus }}</label></td>
+
+                          @elseif($input[$i]->estatus == 'Aceptada')
+                          <td class="v-align-middle estatus" id="{{$input[$i]->id}}">
+                          <label class="label label-success">{{ $input[$i]->estatus }}</label></td> 
+
+                          @elseif($input[$i]->estatus == 'Rechazada')
+                          <td class="v-align-middle estatus" id="{{$input[$i]->id}}">
+                          <label class="label label-danger">{{ $input[$i]->estatus }}</label></td>
+                          
+                          @else
+                          <td class="v-align-middle estatus" id="{{ $input[$i]->id }}">{{ $input[$i]->estatus }}
+                          <label class="label label-default">Ingresada</label></td>
+                          @endif                     
+
+                         </tr>
+                      @endfor
                     </tbody>
+
                 </table>
               </div>
 
-              <div class="panel-body">
-                <p><h2>Lista de bienes solicitados</h2></p>
-                <table class="table table-hover demo-table-search" id="tableWithSearch">
-                  <thead>
-                    <tr>
-                      <th>Bien</th>
-                      <th>Características</th>
-                      <th>Cantidad</th>                      
-                      <th>Precio cotizado</th>
-                      <th>Justificación</th>
-                    </tr>
-                  </thead>
-                    <tbody>                        
-                    @foreach ($bien_sub2_bienes as $bien_sub2_bienes)
-                      <tr class="even gradeC">
-                        <td>{{ $bien_sub2_bienes->bien }}</td>
-                        <td>{{ $bien_sub2_bienes->carac }}</td>
-                        <td>{{ $bien_sub2_bienes->cantidad }}</td>
-                        <td>${{ number_format($bien_sub2_bienes->precio,2 ) }}</td>
-                        <td>{{ $bien_sub2_bienes->just }}</td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                </table>
-              </div>
-
+            
             </div>
 
           </div> <!-- END PANEL -->
@@ -220,7 +179,37 @@
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ URL::asset('assets/js/datatables.js') }}" type="text/javascript"></script>
 
+    <script type="text/javascript" src="{{ URL::asset('https://cdn.jsdelivr.net/jquery.jeditable/1.7.3/jquery.jeditable.js') }}"></script>
+
     <!-- END PAGE LEVEL JS -->
+
+<script>
+  
+$(document).ready(function() {
+    $("#basicDataTable").DataTable({
+        "order": [],
+    });
+
+    dest = "{{ url('estatus') }}";
+    $("#basicDataTable").on("click", "td", function(){
+      $('.estatus').editable(dest , {
+      data   : "{'Pendiente':'Pendiente','Aceptada':'Aceptada','Rechazada':'Rechazada'}",
+      type   : 'select',
+      submit : 'Guardar',
+      callback: function(){
+         window.setTimeout('location.reload()', 1000); //Reloads after three seconds
+       }
+      /*onerror : function(settings,original,xhr){
+          original.reset();
+          alertify.error("Existe un error en el campo OCR");
+        },
+        onblur: 'cancel', 
+      // ,*/
+      });
+  });
+
+});
+</script>
 
 
 @endsection

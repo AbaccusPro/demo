@@ -99,6 +99,11 @@
                           <div class="pull-right"><strong>{{ $orden->fecha }}</strong></div>
                           <div class="clearfix"></div>
                         </div> 
+                        <div>
+                          <div class="pull-left font-montserrat bold all-caps">Estatus:</div>
+                          <div class="pull-right"><strong>{{ $orden->estatus }}</strong></div>
+                          <div class="clearfix"></div>
+                        </div> 
                       </div>
                     </div>
                   </div>

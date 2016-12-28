@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
-
 use App\Plan_sub15;
 use App\cat_Bienes;
 use App\Claves_ur;
@@ -115,10 +114,22 @@ class SolicitudBienesController extends Controller
      */
     public function show()
     {
-        $input = DB::table('bien_sub2')->get();
-        $bienes = DB::table('bien_sub2_bienes')->get();
+        $input = Bien_sub2::all();
+        $bienes = Bien_sub2_bienes::all();
 
-        return view('submodulos.bienes.adquisiciones.autorizacion_bienes', ['bien_sub2' => $input, 'bien_sub2_bienes' => $bienes]);
+        return view('submodulos.bienes.adquisiciones.autorizacion_bienes', compact('input', 'bienes'));
+    }
+
+
+    public function estatus(Request $request)
+    {
+        $input = $request->all();
+
+        $row = Bien_sub2::find($input['id']);
+        $row->estatus = $input['value'];
+        $row->save();
+        
+        return $input['value'];
     }
 
 

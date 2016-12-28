@@ -18,7 +18,9 @@ class Bien_sub2 extends Model
     'cog', 
     'gasto', 
     'ff', 
-    'imp_comp'];
+    'imp_comp',
+    'estatus'
+    ];
     
     public function bienes(){
 

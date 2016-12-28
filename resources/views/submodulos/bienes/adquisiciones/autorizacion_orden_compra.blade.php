@@ -61,7 +61,7 @@
                           </div>
                         </div>
                         <div class="panel-body">
-                          <h3>Autorizaciones de Órdenes de compra</h3>
+                          <h3>Bandeja de Órdenes de compra</h3>
                           <p>En esta sección podrá consultar las autorizaciones pendientes provenientes de otras áreas.</p>
                           <br>
                         </div>
@@ -79,112 +79,69 @@
 
 <!-- CHANGE 'content' HERE-->
 
-
-          <!-- START CONTAINER FLUID -->
-        <div class="container-fluid container-fixed-lg ">
-          <div class"row">
-
-            <!-- START PANEL -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="panel-title">Ingresar el número de folio para buscar la solicitud</div>
-                </div>
-                                    
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-5">
-                      <form>
-                        <h5>a/ Folio de Órden de Compra</h5>
-                          <div class="form-group form-group-default ">
-                            <label>Folio:</label>                            
-                            <input type="text" class="form-control" placeholder="123-5653">
-                          </div>
-                          <button class="btn btn-sm  btn-rounded btn-complete">Buscar <i class="pg-search"></i></button>
-                          <br>                
-                        </form>
-                      </div>
-
-                </div>
-              </div>
-            </div>
+      <!-- START PANEL -->
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-title">Bandeja de estatus de órdenes de compra</div>
+            <div class="clearfix"></div>
           </div>
-        </div>
 
           <!-- START CONTAINER FLUID -->
           <div class="container-fluid container-fixed-lg">
-          <div class"row">
+           <div class"row">
 
-            <!-- START PANEL -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="panel-title">Bandeja de Autorizaciones de Órdenes de Compra
-                </div>
-                <div class="pull-right">
-                  <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
               <div class="panel-body">
-                <table class="table table-hover demo-table-search" id="tableWithSearch">
+                <table class="table table-hover demo-table-dynamic" id="basicDataTable">
+                <p><h2>Órdenes de Compra</h2></p>
                   <thead>
                     <tr>
-                      <th>Estatus</th>
-                      <th>Ver Documentación</th>
                       <th>Clave</th>
                       <th>Fecha</th>
-                      <th>Folio de Solicitud de Bien</th>
-                      <th>Folio de Solicitud de Compra</th>
+                      <th>Folio de Solicitud Aprobada</th>
+                      <th>Folio de Orden de Compra</th>
+                      <th>Proveedor</th>
                       <th>Tipo de Adquisición</th>
                       <th>Total</th>
+                      <th>Documentos</th>
+                      <th>Estatus</th>
                     </tr>
                   </thead>
-                    <tbody>                        
-                    @foreach ($bien_sub3 as $bien_sub3)
-                      <tr class="even gradeC">
-                        <td><span class="label label-warning">Pendiente</span></td>
-                        <td class="v-align-middle"><button type="button" class="btn btn-complete"><i class="fa fa-file-o"></i></button></td>
-                        <td><a href="{{ url('bienes/submodulo/adquisiciones/orden_compra', $bien_sub3->id) }}">{{ $bien_sub3->clave }}</a></td>
-                        <td>{{ $bien_sub3->fecha }}</td>
-                        <td>{{ $bien_sub3->folio_aprobado }}</td>
-                        <td>{{ $bien_sub3->folio_compra }}</td>
-                        <td>{{ $bien_sub3->tipo_adqui }}</td>
-                        <td>${{ number_format($bien_sub3->total, 2) }}</td>
-                      </tr>
-                      @endforeach
+
+                    <tbody>
+                      @for ($i = 0; $i < count($input); $i++)
+                         <tr class="odd gradeX">
+                          <td><a href="{{ url('bienes/submodulo/adquisiciones/orden_compra', $input[$i]->id) }}">{{ $input[$i]->clave }}</a></td>
+                          <td>{{ $input[$i]->fecha }}</td>
+                          <td>{{ $input[$i]->folio_aprobado }}</td>
+                          <td>{{ $input[$i]->folio_compra }}</td>
+                          <td>{{ $input[$i]->proveedor }}</td>
+                          <td>{{ $input[$i]->tipo_adqui }}</td>
+                          <td>${{ number_format($input[$i]->total,2) }}</td>
+                          <td class="v-align-middle"><button type="button" class="btn btn-complete"><i class="fa fa-file-o"></i></button></td>
+
+                          @if ($input[$i]->estatus == 'Procesando')
+                          <td class="v-align-middle estatus" id="{{ $input[$i]->id }}">
+                          <label class="label label-warning">{{ $input[$i]->estatus }}</label></td>
+
+                          @elseif($input[$i]->estatus == 'Pagada')
+                          <td class="v-align-middle estatus" id="{{$input[$i]->id}}">
+                          <label class="label label-success">{{ $input[$i]->estatus }}</label></td> 
+
+                          @elseif($input[$i]->estatus == 'Cancelada')
+                          <td class="v-align-middle estatus" id="{{$input[$i]->id}}">
+                          <label class="label label-danger">{{ $input[$i]->estatus }}</label></td>
+                          
+                          @else
+                          <td class="v-align-middle estatus" id="{{ $input[$i]->id }}">{{ $input[$i]->estatus }}
+                          <label class="label label-default">Comprometida</label></td>
+                          @endif                     
+
+                         </tr>
+                      @endfor
                     </tbody>
+
                 </table>
               </div>
-
-              <div class="panel-body">
-                <p><h2>Lista de productos solicitados</h2></p>
-                <table class="table table-hover demo-table-search" id="tableWithSearch">
-                  <thead>
-                    <tr>
-                      <th>Producto</th>
-                      <th>Marca</th>
-                      <th>Medida</th>
-                      <th>Características</th>
-                      <th>Cantidad</th>
-                      <th>Precio</th>
-                    </tr>
-                  </thead>
-                    <tbody>                        
-                    @foreach ($bien_sub3_bienes as $bien_sub3_bienes)
-                      <tr class="even gradeC">
-                        <td>{{ $bien_sub3_bienes->producto }}</td>
-                        <td>{{ $bien_sub3_bienes->marca }}</td>
-                        <td>{{ $bien_sub3_bienes->medida }}</td>
-                        <td>{{ $bien_sub3_bienes->carac }}</td>
-                        <td>{{ $bien_sub3_bienes->cantidad }}</td>
-                        <td>${{ number_format($bien_sub3_bienes->precio,2 ) }}</td>                        
-                      </tr>                      
-                      @endforeach
-                    </tbody>
-                </table>
-              </div>
-
             </div>
 
           </div> <!-- END PANEL -->
@@ -223,7 +180,38 @@
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ URL::asset('assets/js/datatables.js') }}" type="text/javascript"></script>
 
+    <script type="text/javascript" src="{{ URL::asset('https://cdn.jsdelivr.net/jquery.jeditable/1.7.3/jquery.jeditable.js') }}"></script>
+
     <!-- END PAGE LEVEL JS -->
+
+<script>
+  
+$(document).ready(function() {
+    $("#basicDataTable").DataTable({
+        "order": [],
+    });
+
+    dest = "{{ url('estatusOrden') }}";
+    $("#basicDataTable").on("click", "td", function(){
+      $('.estatus').editable(dest , {
+      data   : "{'Procesando':'Procesando','Pagada':'Pagada','Cancelada':'Cancelada'}",
+      type   : 'select',
+      submit : 'Guardar',
+      callback: function(){
+         window.setTimeout('location.reload()', 1000); //Reloads after three seconds
+       }
+      /*onerror : function(settings,original,xhr){
+          original.reset();
+          alertify.error("Existe un error en el campo OCR");
+        },
+        onblur: 'cancel', 
+      // ,*/
+      });
+  });
+
+});
+</script>
 
 
 @endsection
+

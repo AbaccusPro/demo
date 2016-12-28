@@ -98,14 +98,25 @@ class OrdenCompraController extends Controller
      *
      * @return Response
      */
-    public function show()
+    public function showOrdenes()
     {
-        $input = DB::table('bien_sub3')->get();
-        $bienes = DB::table('bien_sub3_bienes')->get();
+        $input = Bien_sub3::all();
+        $bienes = Bien_sub3_bienes::all();
 
-        return view('submodulos.bienes.adquisiciones.autorizacion_orden_compra', ['bien_sub3' => $input, 'bien_sub3_bienes' => $bienes] );
+        return view('submodulos.bienes.adquisiciones.autorizacion_orden_compra', compact('input', 'bienes'));
     }
     
+
+    public function estatusOrden(Request $request)
+    {
+        $input = $request->all();
+
+        $row = Bien_sub3::find($input['id']);
+        $row->estatus = $input['value'];
+        $row->save();
+        
+        return $input['value'];
+    }
 
     /**
      * Se busca el id y se inyectan los datos para visualizar cada orden de compra.
@@ -119,9 +130,6 @@ class OrdenCompraController extends Controller
 
         return view('submodulos.bienes.adquisiciones.orden_compra', compact('orden', 'bienes'));
     }
-
-
-
 
 
 

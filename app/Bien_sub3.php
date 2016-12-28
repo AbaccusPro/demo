@@ -20,8 +20,7 @@ class Bien_sub3 extends Model
     'total',
     'ent_dias',
     'ent_lugar',
-    'presup_id'
-    ];
+    'presup_id'];
 
     public function bienes(){
     return $this->hasMany('App\Bien_sub3_bienes', 'orden_id');

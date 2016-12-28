@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <title>Abaccus Pro - El abc de armonización contable @yield('title')</title>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
     <link rel="apple-touch-icon" href="/pages/ico/60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/pages/ico/76.png">
@@ -17,6 +19,7 @@
     <meta content="" name="description" />
     <meta content="" name="author" />
 
+
     <link href="{{ URL::asset('assets/plugins/pace/pace-theme-flash.css')  }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('assets/plugins/boostrapv3/css/bootstrap.min.css')  }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('assets/plugins/font-awesome/css/font-awesome.css')  }}" rel="stylesheet" type="text/css" />
@@ -28,6 +31,13 @@
     <link href="{{ URL::asset('assets/plugins/rickshaw/rickshaw.min.css')  }}" rel="stylesheet" type="text/css" />
     <link href="{{ URL::asset('assets/plugins/bootstrap-datepicker/css/datepicker3.css')  }}" rel="stylesheet" type="text/css" media="screen">
     <link href="{{ URL::asset('assets/plugins/jquery-metrojs/MetroJs.css')  }}" rel="stylesheet" type="text/css" media="screen" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css">
+  
+    <link href="{{ URL::asset('assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ URL::asset('assets/plugins/datatables-responsive/css/datatables.responsive.css')}}" rel="stylesheet" type="text/css" media="screen" />
+
     <link href="{{ URL::asset('pages/css/pages-icons.css')  }}" rel="stylesheet" type="text/css">
     <link class="main-stylesheet" href="{{ URL::asset('pages/css/pages.css')  }}" rel="stylesheet" type="text/css" />
     
@@ -93,7 +103,7 @@
         <div class=" pull-left sm-table hidden-xs hidden-sm">
           <div class="header-inner">
             <div class="brand inline">
-              <img src="{{ URL::asset('/assets/img/abc_home_header.png') }}" alt="logo" data-src="{{ URL::asset('/assets/img/abc_home_header.png') }}" data-src-retina="/assets/img/logo_2x.png" width="245" height="25">
+              <a href="{{ url('/home') }}"><img src="{{ URL::asset('/assets/img/abc_home_header.png') }}" alt="home" data-src="{{ URL::asset('/assets/img/abc_home_header.png') }}" data-src-retina="/assets/img/logo_2x.png" width="245" height="25"></a>
             </div>
             <!-- START NOTIFICATION LIST -->
             <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
@@ -244,6 +254,7 @@
 @yield('script_page')
 
     <script src="{{ URL::asset('assets/js/scripts.js') }}" type="text/javascript"></script>
+
     <!-- END PAGE LEVEL JS -->
 
 

@@ -126,6 +126,7 @@ Route::get('bienes/submodulo/adquisiciones/solicitud_bienes', 'Submodulos\Solici
 
 //////////////////////// AUTORIZACIONES Y REPORTES //////////////////////
 Route::get('bienes/submodulo/adquisiciones/autorizacion_bienes', 'Submodulos\SolicitudBienesController@show');
+Route::post('estatus', 'Submodulos\SolicitudBienesController@estatus');
 Route::get('bienes/submodulo/adquisiciones/solicitud/{id}', 'Submodulos\SolicitudBienesController@showSolicitud');
 Route::get('bienes/submodulo/adquisiciones/reportes/solicitud/{id}', 'Reportes\AdquisicionesReportesController@solicitudPDF');
 
@@ -136,10 +137,9 @@ Route::get('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\O
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra/{id}', 'Submodulos\OrdenCompraController@create');
 Route::post('bienes/submodulo/adquisiciones/registro_orden_compra/{id}', 'Submodulos\OrdenCompraController@store');
 
-
-
 //////////////////////// AUTORIZACIONES Y REPORTES //////////////////////
-Route::get('bienes/submodulo/adquisiciones/autorizacion_orden_compra', 'Submodulos\OrdenCompraController@show');
+Route::get('bienes/submodulo/adquisiciones/autorizacion_orden_compra', 'Submodulos\OrdenCompraController@showOrdenes');
+Route::post('estatusOrden', 'Submodulos\OrdenCompraController@estatusOrden');
 Route::get('bienes/submodulo/adquisiciones/orden_compra/{id}', 'Submodulos\OrdenCompraController@showOrden');
 Route::get('bienes/submodulo/adquisiciones/reportes/orden/{id}', 'Reportes\AdquisicionesReportesController@ordenPDF');
 

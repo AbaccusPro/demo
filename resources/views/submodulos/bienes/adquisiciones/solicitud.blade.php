@@ -94,6 +94,11 @@
                           <div class="pull-right"><strong>{{ $solicitud->fecha }}</strong></div>
                           <div class="clearfix"></div>
                         </div> 
+                        <div>
+                          <div class="pull-left font-montserrat bold all-caps">Estatus :</div>
+                          <div class="pull-right"><strong>{{ $solicitud->estatus }}</strong></div>
+                          <div class="clearfix"></div>
+                        </div> 
                       </div>
                     </div>
                   </div>

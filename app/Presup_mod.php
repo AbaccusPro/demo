@@ -14,7 +14,7 @@ class Presup_mod extends Model
     }
 
     public function compra(){
-    	return $this->hasMany('App\Bien_sub3');
+    	return $this->hasMany('App\Bien_sub3', 'presup_id');
     }
 
 }
