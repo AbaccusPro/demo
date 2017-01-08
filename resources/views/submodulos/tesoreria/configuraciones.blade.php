@@ -96,11 +96,11 @@
                       </div>
                       <!-- END PANEL -->
                     </div>
-                    <div class="col-lg-7 col-md-6 col-md-height col-middle bg-white">
+                    <div class="col-lg-7 col-md-6 col-md-height col-middle ">
                       <!-- START PANEL -->
                       <div class="full-height">
                         <div class="panel-body text-center">
-                          <img class="image-responsive-height demo-mw-50" src="{{ URL::asset('assets/img/demo/progress.svg') }}" alt="Progress">
+                          <!-- <img class="image-responsive-height demo-mw-50" src="{{ URL::asset('assets/img/demo/progress.svg') }}" alt="Progress"> -->
                         </div>
                       </div>
                       <!-- END PANEL -->
@@ -126,7 +126,7 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">1/ </span>Proveedores</h2>
-                        <p>Este módulo nos permite definir...etc<a a href="#"><br>Ir al configurador >></a></p>
+                        <p><a a href="#">Ir al configurador >></a></p>
                       </div>
                     </div>                    
                   </div>
@@ -140,7 +140,7 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">2/ </span>Acreedores</h2>
-                        <p>Este módulo nos permite definir...etc<a a href="#"><br>Ir al configurador >></a></p>
+                        <p><a a href="#">Ir al configurador >></a></p>
                       </div>
                     </div>                    
                   </div>
@@ -154,7 +154,7 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">3/ </span>Bancos</h2>
-                        <p>Este módulo nos permite definir...etc<a a href="#"><br>Ir al configurador >></a></p>
+                        <p><a a href="#">Ir al configurador >></a></p>
                       </div>
                     </div>                    
                   </div>
@@ -171,7 +171,7 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">4/ </span>Cuentas Bancarias</h2>
-                        <p>Este módulo nos permite definir...etc<a a href="#"><br>Ir al configurador >></a></p>
+                        <p><a a href="#">Ir al configurador >></a></p>
                       </div>
                     </div>                    
                   </div>
@@ -185,7 +185,7 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">5/ </span>Calendario de pagos</h2>
-                        <p>Este módulo nos permite definir...etc<a a href="#"><br>Ir al configurador >></a></p>
+                        <p><a a href="#">Ir al configurador >></a></p>
                       </div>
                     </div>                    
                   </div>
@@ -199,7 +199,7 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">6/ </span>Calendario de cierres</h2>
-                        <p>Este módulo nos permite definir...etc<a a href="#"><br>Ir al configurador >></a></p>
+                        <p><a a href="#">Ir al configurador >></a></p>
                       </div>
                     </div>                    
                   </div>
@@ -215,7 +215,7 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">7/ </span>Formas valoradas</h2>
-                        <p>Este módulo nos permite definir...etc<a a href="#"><br>Ir al configurador >></a></p>
+                        <p><a a href="#">Ir al configurador >></a></p>
                       </div>
                     </div>                    
                   </div>
@@ -229,7 +229,7 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">8/ </span>Cancelación de Cheques</h2>
-                        <p>Este módulo nos permite definir...etc<a a href="#"><br>Ir al configurador >></a></p>
+                        <p><a a href="#">Ir al configurador >></a></p>
                       </div>
                     </div>                    
                   </div>
@@ -243,7 +243,7 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">9/ </span>Firmas autorizadas</h2>
-                        <p>Este módulo nos permite definir...etc<a a href="#"><br>Ir al configurador >></a></p>
+                        <p><a a href="#">Ir al configurador >></a></p>
                       </div>
                     </div>                    
                   </div>

@@ -117,8 +117,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo / Bienes
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo / Bienes </span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -129,10 +129,10 @@
                   </div>
 
                   <div class="col-md-4">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default bg-success-lighter">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo / Bienes
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-success" ><li class="fa fa-cube"></li> Submódulo / Bienes </span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -145,8 +145,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo / Bienes
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo / Bienes </span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -159,10 +159,10 @@
 
                 <div class="row">    
                   <div class="col-md-4">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default bg-success-lighter">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo / Bienes
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-success" ><li class="fa fa-cube"></li> Submódulo / Bienes </span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -175,8 +175,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo / Bienes
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo / Patrimonio </span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -190,8 +190,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo / Bienes
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo / Patrimonio </span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -206,8 +206,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo / Patrimonio
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo / Patrimonio </span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -221,8 +221,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo / Patrimonio
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo / Patrimonio </span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -235,8 +235,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo / Patrimonio
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo / Patrimonio </span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -251,8 +251,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo / Patrimonio
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo / Patrimonio </span>
                       </div>
                       <div class="panel-body">
                         <h2>

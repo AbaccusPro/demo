@@ -32,30 +32,36 @@ class OrdenCompraController extends Controller
 
     public function catCreate()
     {
-        $clave = Plan_sub15::pluck('clave', 'clave');  
+        $clave = Presup_mod::pluck('clave', 'clave');  
         $proveedor = cat_Proveedores::pluck('nombre', 'nombre');     
         $bienes = cat_Bienes::pluck('nombre');    
 
     return view('submodulos.bienes.adquisiciones.registro_orden_compra', compact('clave', 'proveedor', 'bienes'));
 }
 
-
+ /*
     public function create($Id)
     {
-        //para asignarle el workout al usuario, se encuentra mediante el id y nos envia al formulario de asignacion
         $id = base64_decode($Id);
-        $folio = Bien_sub3::find($id);
+        $folio = Bien_sub3::find($id);  
 
         return view('bienes/submodulo/adquisiciones/registro_orden_compra', compact('folio'));
-    }
+    } */
 
 
     public function store(Request $request, $id)
     {       
 
+        $account = Presup_mod::find($id);
+
+         /* dd($account); */
+
+        $amount = $request->input('total');
         $data = $request->all();
 
         $orden = Bien_sub3::create([ 
+
+            'presup_id'       => $request->id,
 
             'fecha'           => $data['fecha'],
             'folio_aprobado'  => $data['folio_aprobado'],
@@ -68,7 +74,7 @@ class OrdenCompraController extends Controller
             'iva'             => $data['iva'],
             'total'           => $data['total'],
             'ent_dias'        => $data['ent_dias'],
-            'ent_lugar'       => $data['ent_lugar'],
+            'ent_lugar'       => $data['ent_lugar'],        
 
 ]);
      

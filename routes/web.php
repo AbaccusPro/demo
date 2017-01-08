@@ -79,12 +79,6 @@ Route::get('obra_publica/configuraciones', 'Modulos\ObraPublicaController@config
 Route::get('obra_publica/manuales', 'Modulos\ObraPublicaController@manuales');
 
 
-/* -- RUTAS DE HERRAMIENTAS -- */
-Route::get('monitoreo', 'Modulos\MonitoreoController@index');
-Route::get('tutoriales', 'Modulos\HerramientasController@tutoriales');
-Route::get('soporte', 'Modulos\HerramientasController@soporte');
-
-
 /* -- RUTAS DE CONFIGURACIONES -- */
 
 
@@ -98,9 +92,15 @@ Route::get('planeacion/configuraciones/clasificadores_egreso', 'Submodulos\Plane
 /* -- PLANEACION -- */
 Route::get('planeacion/consultas/presupuesto_aprobado', 'Submodulos\PlaneacionSubmodulosController@show');
 
-/* -- PRESUPUESTO -- */
+
+//////////////////////// PRESUPUESTO //////////////////////
 Route::get('presupuesto/consultas/suficiencia_presupuestal', 'Submodulos\PresupuestoSubmodulosController@suficienciaPresupuestal');
 Route::get('presupuesto/consultas/suficiencia_presupuestal', 'Submodulos\PresupuestoSubmodulosController@show');
+Route::get('presupuesto/submodulo/autorizaciones', 'Submodulos\PresupuestoSubmodulosController@autoriza');
+
+Route::post('estatusPres', 'Submodulos\PresupuestoSubmodulosController@estatus');
+
+Route::get('presupuesto/submodulo/autorizaciones', 'Submodulos\PresupuestoSubmodulosController@showAutoriza');
 
 
 /* -- CONTABILIDAD -- */
@@ -134,7 +134,10 @@ Route::get('bienes/submodulo/adquisiciones/reportes/solicitud/{id}', 'Reportes\A
 //////////////////////// ORDENES DE COMPRA //////////////////////
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\OrdenCompraController@index');
 Route::get('bienes/submodulo/adquisiciones/registro_orden_compra', 'Submodulos\OrdenCompraController@catCreate');
-Route::get('bienes/submodulo/adquisiciones/registro_orden_compra/{id}', 'Submodulos\OrdenCompraController@create');
+
+
+/* Route::get('bienes/submodulo/adquisiciones/registro_orden_compra/{id}', 'Submodulos\OrdenCompraController@create'); */
+
 Route::post('bienes/submodulo/adquisiciones/registro_orden_compra/{id}', 'Submodulos\OrdenCompraController@store');
 
 //////////////////////// AUTORIZACIONES Y REPORTES //////////////////////
@@ -160,11 +163,6 @@ Route::get('bienes/submodulo/almacen/reportes/entrada/{id}', 'Reportes\AlmacenRe
 
 
 
-/* -- Presupuesto -- */
-Route::get('presupuesto/submodulo/autorizaciones', 'Submodulos\PresupuestoSubmodulosController@autoriza');
-Route::get('presupuesto/submodulo/autorizaciones', 'Submodulos\PresupuestoSubmodulosController@showAutoriza');
-
-
 Route::get('planeacion/submodulo/carga_presupuesto_aprobado', 'Submodulos\PlaneacionSubmodulosController@planeacionsub15');
 Route::get('planeacion/submodulo/carga_presupuesto_aprobado', 'Submodulos\PlaneacionSubmodulosController@create');
 Route::post('planeacion/submodulo/carga_presupuesto_aprobado', 'Submodulos\PlaneacionSubmodulosController@store');
@@ -179,8 +177,14 @@ Route::get('contabilidad/reportes/libro_mayor', 'Reportes\ContabilidadReportesCo
 
 
 
-/* -- RUTAS DE TOOLS -- */
+
+//////////////////////// HERRAMIENTAS //////////////////////
+
 Route::get('abc_armonizacion', 'Modulos\ToolsController@abc_armonizacion');
+Route::get('monitoreo', 'Modulos\MonitoreoController@index');
+Route::get('soporte', 'Modulos\HerramientasController@soporte');
 
-
+//////////////////////// TUTORIALES //////////////////////
+Route::get('tutoriales', 'Modulos\HerramientasController@tutoriales');
+Route::get('tutoriales/videos/planeacion', 'Modulos\TutorialesController@videosPlaneacion');
 

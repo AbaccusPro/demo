@@ -100,6 +100,7 @@
                     <tr>
                       <th>Clave</th>
                       <th>Fecha</th>
+                      <th>Folio</th>
                       <th>Área solicitante</th>
                       <th>Partida</th>
                       <th>Importe a comprometer</th>
@@ -112,6 +113,7 @@
                          <tr class="odd gradeX">
                           <td><a href="{{ url('bienes/submodulo/adquisiciones/solicitud', $input[$i]->id) }}">{{ $input[$i]->clave }}</a></td>
                           <td>{{ $input[$i]->fecha }}</td>
+                          <td>{{ $input[$i]->folio }}</td>
                           <td>{{ $input[$i]->ur }}</td>
                           <td>{{ $input[$i]->pp }}</td>
                           <td>${{ number_format($input[$i]->imp_comp,2) }}</td>

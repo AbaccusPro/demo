@@ -100,6 +100,7 @@ class PlaneacionSubmodulosController extends Controller
         $input->oct = $request->oct;
         $input->nov = $request->nov;
         $input->dic = $request->dic;
+        $input->total = $request->total;
 
         $input->save();
 

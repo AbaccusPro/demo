@@ -91,73 +91,62 @@
 
 
           <!-- START CONTAINER FLUID -->
-          <div class="container-fluid container-fixed-lg ">
+
             <!-- START PANEL -->
             <div class="panel panel-default">
               <div class="panel-heading">
                 <div class="panel-title">Lista de Solicitudes para uso de Presupuesto
                 </div>
-                <div class="pull-right">
-                  <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
-                  </div>
-                </div>
+
                 <div class="clearfix"></div>
               </div>
               <div class="panel-body">
-                <table class="table table-hover demo-table-search" id="tableWithSearch">
+                <table class="table table-hover demo-table-search" id="basicDataTable">
                   <thead>
                     <tr>
                       <th>Estatus</th>
                       <th>Fecha</th>
                       <th>Clave Presupuestal</th>                      
-                      <th>Ene</th>
-                      <th>Feb</th>
-                      <th>Mar</th>
-                      <th>Abr</th>
-                      <th>May</th>
-                      <th>Jun</th>
-                      <th>Jul</th>
-                      <th>Ago</th>
-                      <th>Sep</th>
-                      <th>Oct</th>
-                      <th>Nov</th>
-                      <th>Dic</th>
+                      <th>Folio</th>
+                      <th>Justificación</th>
+                      <th>Techo presupuestal</th>
                       <th>Total</th>
                     </tr>
                   </thead>
+
                     <tbody>                        
-                    @foreach ($plan_sub15 as $plan_sub15)
-                      <tr class="even gradeC">
-                        <td> <div class="btn-group dropdown-default dropup"> <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Pendiente <span class="caret"></span> </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fa fa-check"></i> Autorizar</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-times"></i> Rechazar</a>
-                            </li>
-                          </ul>
-                        </div></td>
-                        <td>{{$plan_sub15->fecha}}</td>
-                        <td>{!! $plan_sub15->ur . '-' . $plan_sub15->fun . '-'  . $plan_sub15->pp . '-' . $plan_sub15->cog . '-' . $plan_sub15->gasto . '-' . $plan_sub15->ff !!}</a></td>
-                        <td>${{ number_format($plan_sub15->ene,2) }}</td>
-                        <td>${{ number_format($plan_sub15->feb,2) }}</td>
-                        <td>${{ number_format($plan_sub15->feb,2) }}</td>
-                        <td>${{ number_format($plan_sub15->mar,2) }}</td>
-                        <td>${{ number_format($plan_sub15->abr,2) }}</td>
-                        <td>${{ number_format($plan_sub15->jun,2) }}</td>
-                        <td>${{ number_format($plan_sub15->jul,2) }}</td>
-                        <td>${{ number_format($plan_sub15->ago,2) }}</td>
-                        <td>${{ number_format($plan_sub15->sep,2) }}</td>
-                        <td>${{ number_format($plan_sub15->oct,2) }}</td>
-                        <td>${{ number_format($plan_sub15->nov,2) }}</td>
-                        <td>${{ number_format($plan_sub15->dic,2) }}</td>
-                        <td>${{ number_format($plan_sub15->total,2) }}</td>
+                    @for ($i = 0; $i < count($input); $i++)
+                      <tr class="odd gradeX">
+                          @if ($input[$i]->estatus == 'Pendiente')
+                          <td class="v-align-middle estatus" id="{{ $input[$i]->id }}">
+                          <label class="label label-warning">{{ $input[$i]->estatus }}</label></td>
+
+                          @elseif($input[$i]->estatus == 'Disponible')
+                          <td class="v-align-middle estatus" id="{{$input[$i]->id}}">
+                          <label class="label label-success">{{ $input[$i]->estatus }}</label></td> 
+
+                          @elseif($input[$i]->estatus == 'Rechazada')
+                          <td class="v-align-middle estatus" id="{{$input[$i]->id}}">
+                          <label class="label label-danger">{{ $input[$i]->estatus }}</label></td>
+                          
+                          @else
+                          <td class="v-align-middle estatus" id="{{ $input[$i]->id }}">{{ $input[$i]->estatus }}
+                          <label class="label label-default">Pendiente</label></td>
+                          @endif 
+
+                        <td>{{ $input[$i]->fecha }}</td>
+                        <td>{!! $input[$i]->ur . '-' . $input[$i]->fun . '-'  . $input[$i]->pp . '-' . $input[$i]->cog . '-' . $input[$i]->gasto . '-' . $input[$i]->ff !!}</a></td>
+                        <td>{{ $input[$i]->num_sol }}</td>
+                        <td>{{ $input[$i]->just }}</td>
+                        <td>${{ number_format($input[$i]->techo_presup,2) }}</td>
+                        <td>${{ number_format($input[$i]->total,2) }}</td>
+
                       </tr>
-                      @endforeach
+                      @endfor
                     </tbody>
+
                 </table>
               </div>
-            </div>
 
           </div> <!-- END PANEL -->
 
@@ -193,7 +182,38 @@
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ URL::asset('assets/js/datatables.js') }}" type="text/javascript"></script>
 
+    <script type="text/javascript" src="{{ URL::asset('https://cdn.jsdelivr.net/jquery.jeditable/1.7.3/jquery.jeditable.js') }}"></script>
+
+
     <!-- END PAGE LEVEL JS -->
 
+
+<script>
+  
+$(document).ready(function() {
+    $("#basicDataTable").DataTable({
+        "order": [],
+    });
+
+    dest = "{{ url('estatusPres') }}";
+    $("#basicDataTable").on("click", "td", function(){
+      $('.estatus').editable(dest , {
+      data   : "{'Pendiente':'Pendiente','Disponible':'Disponible','Rechazada':'Rechazada'}",
+      type   : 'select',
+      submit : 'Guardar',
+      callback: function(){
+         window.setTimeout('location.reload()', 1000); //Reloads after three seconds
+       }
+      /*onerror : function(settings,original,xhr){
+          original.reset();
+          alertify.error("Existe un error en el campo OCR");
+        },
+        onblur: 'cancel', 
+      // ,*/
+      });
+  });
+
+});
+</script>
 
 @endsection

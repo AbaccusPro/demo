@@ -123,10 +123,10 @@
                                 <p>Aquí podrá encontrar los manuales organizados de acuerdo al organigrama de su institución.</p>
                                 <div id="default-tree">
                                   <ul id="treeData" class="hidden">
-                                    <li data="url: 'http://192.168.0.23/demo.abaccuspro.org/public/manuales/planeacion/1_Generar_estructura_programatica.pdf'">Generar estructura programática</a></li>
-                                    <li data="url: 'http://192.168.0.23/demo.abaccuspro.org/public/manuales/planeacion/1_Planeacion_programacion_Bases.pdf'">Planeación y Programación / Bases</a></li>
-                                    <li data="url: 'http://192.168.0.23/demo.abaccuspro.org/public/manuales/planeacion/2_Planeacion_Programacion_Taller.pdf'">Planeación y Programación / Taller</a></li>
-                                    <li data="url: 'http://192.168.0.23/demo.abaccuspro.org/public/manuales/planeacion/3_Elaborar_MIR.pdf'">Elaborar MIR</a></li>
+                                    <li data="url: '/manuales/planeacion/1_Generar_estructura_programatica.pdf'">Generar estructura programática</a></li>
+                                    <li data="url: '/manuales/planeacion/1_Planeacion_programacion_Bases.pdf'">Planeación y Programación / Bases</a></li>
+                                    <li data="url: '/manuales/planeacion/2_Planeacion_Programacion_Taller.pdf'">Planeación y Programación / Taller</a></li>
+                                    <li data="url: '/manuales/planeacion/3_Elaborar_MIR.pdf'">Elaborar MIR</a></li>
                                     <li class="folder" id="idt3">Jefatura
                                       <ul>
                                         <li id="idt3.1">Área 1

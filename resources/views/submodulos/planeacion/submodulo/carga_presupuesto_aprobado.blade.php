@@ -127,8 +127,9 @@
 
                   @if(Session::has('alerta'))
                         <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alerta') !!}</em></div>
-                  @endif
+                  @endif                  
                     <h4><strong>Carga de Presupuesto Aprobado</h4></strong>
+                    <hr>
                     <h5>/ Parte 1 - Asignación de clave presupuestal</h5>
 
             {!! Form::open(['url' => 'planeacion/submodulo/carga_presupuesto_aprobado']) !!}

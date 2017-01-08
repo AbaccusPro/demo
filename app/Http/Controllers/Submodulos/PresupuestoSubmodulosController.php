@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Submodulos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 use App\Plan_sub15;
 use App\Presup_mod;
@@ -48,16 +49,27 @@ class PresupuestoSubmodulosController extends Controller
     }
 
 
-    /**
-     * Show a list of all of the application's users.
+     /**
+     * Se obtienen los datos de cada tabla y se envían a la vista (tabla), por separado.
      *
      * @return Response
      */
     public function showAutoriza()
     {
-        $input = DB::table('plan_sub15')->get();
-
-        return view('submodulos.presupuesto.submodulo.autorizaciones', ['plan_sub15' => $input]);
+        $input = Plan_sub15::all();
+        return view('submodulos.presupuesto.submodulo.autorizaciones', compact('input'));
     }
+
+
+    public function estatus(Request $request)
+    {
+        $input = $request->all();
+        $row = Plan_sub15::find($input['id']);
+        $row->estatus = $input['value'];
+        $row->save();
+        
+        return $input['value'];
+    }
+
 
 }

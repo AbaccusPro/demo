@@ -45,9 +45,9 @@
         <!-- START Background Caption-->
         <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
           <h2 class="semi-bold text-white">
-					El abc de contabilidad gubernamental&reg; </h2>
+					El abc de armonización contable&reg; </h2>
           <p class="small">
-            La copia de archivos, datos o elementos del software representan violaciones a ley federal, etc. Derechos Reservados © 2016 Abaccus Pro.
+            El copiado de archivos, datos o elementos presentados en este software representan violaciones a las leyes de Propiedad Industrial Mexicanas. Para mayor información ir a nuestra sección Legal.
           </p>
         </div>
         <!-- END Background Caption-->
@@ -104,7 +104,7 @@
               </div>
             </div>
             <!-- END Form Control-->
-            <button class="btn btn-primary btn-cons m-t-10" type="submit">Ingresar</button>
+            <button class="btn btn-complete btn-cons m-t-10" type="submit">Ingresar</button>
           </form>
           <!--END Login Form-->
           <div class="pull-bottom sm-pull-bottom">
@@ -115,7 +115,7 @@
               <div class="col-sm-9 no-padding m-t-10">
                 <p>
                   <small>
-									Abaccus Pro es un sistema creado por la empresa Abaccus Pro . Visítanos en <a href="http://abaccuspro.com" target= "_blank" class="text-info">Abaccus Pro</a>
+									Derechos Reservados © 2017 Abaccus Pro. Visítanos en <a href="http://abaccuspro.com" target= "_blank" class="text-info">Abaccus Pro</a>
 								</small>
                 </p>
               </div>

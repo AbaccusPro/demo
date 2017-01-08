@@ -109,7 +109,7 @@
                                 <p>Aquí podrá encontrar los manuales organizados de acuerdo al organigrama de su institución.</p>
                                 <div id="default-tree">
                                   <ul id="treeData" class="hidden">
-                                    <li data="url: 'http://192.168.0.23/demo.abaccuspro.org/public/manuales/obra_publica/Gestion_presupuestal_de_Obra_Publica.pdf'">Gestión presupuestal de Obra Pública</a></li>
+                                    <li data="url: '/manuales/obra_publica/Gestion_presupuestal_de_Obra_Publica.pdf'">Gestión presupuestal de Obra Pública</a></li>
                                     <li id="idt1" title="Este es un Manual Principal">Manual de procesos del área</li>
                                     <li class="folder" id="idt3">Jefatura
                                       <ul>

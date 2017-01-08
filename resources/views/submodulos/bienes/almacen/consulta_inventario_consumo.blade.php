@@ -78,64 +78,6 @@
 
 
           <!-- START CONTAINER FLUID -->
-        <div class="container-fluid container-fixed-lg ">
-          <div class"row">
-
-            <!-- START PANEL -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="panel-title">Ingresar el número de folio para buscar el artículo</div>
-                </div>
-                                    
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-5">
-                      <form>
-                        <h5>a/ Buscar por clave de artículo</h5>
-                          <div class="form-group form-group-default ">
-                            <label>Folio:</label>                            
-                            <input type="text" class="form-control" placeholder="123-5653">
-                          </div>
-                          <button class="btn btn-sm  btn-rounded btn-complete">Buscar <i class="pg-search"></i></button>
-                          <br>                
-                        </form>
-                      </div>
-
-                         <div class="col-sm-4">
-                          <h5>b/ Buscar por folio de entrada</h5>
-                            <form class="m-t-10" role="form">
-                              <div class="form-group form-group-default form-group-default-select2">
-                                <label class="">Productos</label>
-                                <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
-                                  <optgroup label="Cómputo">
-                                    <option value="AK">Impresoras</option>
-                                    <option value="HI">Monitores</option>
-                                  </optgroup>
-                                  <optgroup label="Otros">
-                                    <option value="CA">Papelería</option>
-                                    <option value="NV">Limpieza</option>
-                                  </optgroup>
-                                </select>
-                              </div>
-                            <button class="btn btn-sm  btn-rounded btn-complete">Buscar <i class="pg-search"></i></button>                    
-                        </form>
-                     </div>
-
-                      <div class="col-sm-2">
-                        <h5>c/ Emitir no existencia</h5>
-                        <form class="m-t-10" role="form">
-                        <a href="{{ url('bienes/submodulo/adquisiciones/solicitud_bienes') }}"><button class="btn btn-sm  btn-rounded btn-danger" type="button"><i class="pg-form"></i> Solicitar bien</button></a>
-                        </form>
-                      </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-          <!-- START CONTAINER FLUID -->
-          <div class="container-fluid container-fixed-lg">
           <div class"row">
 
             <!-- START PANEL -->
@@ -188,9 +130,6 @@
               </div>
             </div>
 
-          </div> <!-- END PANEL -->
-
-
           </div> <!-- DIV "panel body" - NO BORRAR" -->
                 
 
@@ -199,7 +138,6 @@
             </div> <!-- DIV "col-md-12" - NO BORRAR" -->  
           </div> <!-- DIV "row" - NO BORRAR" -->
 
-      <br>
 
       </div>
       <!-- TERMINA page container / DIV DE ESPACIO PARA FOOTER -->

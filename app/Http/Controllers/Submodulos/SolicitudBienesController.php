@@ -52,6 +52,7 @@ class SolicitudBienesController extends Controller
     return view('submodulos.bienes.adquisiciones.solicitud_bienes', compact('clave', 'bienes', 'claves_ur', 'claves_fun', 'claves_pp', 'claves_cog', 'claves_gas', 'claves_ff'));
 }
 
+/* al parecer esta funcion no es necesaria
 
     public function create($Id)
     {
@@ -61,6 +62,8 @@ class SolicitudBienesController extends Controller
 
         return view('bienes/submodulo/adquisiciones/solicitud_bienes', compact('folio'));
     }
+
+    */
 
     public function store(Request $request, $id)
     {       
@@ -124,7 +127,6 @@ class SolicitudBienesController extends Controller
     public function estatus(Request $request)
     {
         $input = $request->all();
-
         $row = Bien_sub2::find($input['id']);
         $row->estatus = $input['value'];
         $row->save();
@@ -136,7 +138,7 @@ class SolicitudBienesController extends Controller
     /**
      * Se busca el id de la solicitud y se inyectan los datos para mostrar cada solicitud.
      *
-     * @return \Illuminate\Http\Response
+     * @return
      */
     public function showSolicitud($id)
     {

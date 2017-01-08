@@ -106,8 +106,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo</span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -120,8 +120,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo</span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -134,8 +134,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo</span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -151,8 +151,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo</span>
                       </div>
                       <div class="panel-body">
                         <h2>
@@ -165,8 +165,8 @@
                   <div class="col-md-4">
                     <div class="panel panel-default">
                       <div class="panel-heading separator">                      
-                        <div class="panel-title">Sub-Módulo
-                        </div>
+                        <div class="panel-title">
+                        </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo</span>
                       </div>
                       <div class="panel-body">
                         <h2>

@@ -123,8 +123,8 @@
                                 <p>Aquí podrá encontrar los manuales organizados de acuerdo al organigrama de su institución.</p>
                                 <div id="default-tree">
                                   <ul id="treeData" class="hidden">
-                                    <li data="url: 'http://192.168.0.23/demo.abaccuspro.org/public/manuales/presupuesto/1_Marco_Legal_de_la_clave_presupuestal.pdf'">Marco Legal de la Clave Presupuestal</a></li>
-                                    <li title="Este es un Manual Principal" data="url: 'http://192.168.0.23/demo.abaccuspro.org/public/manuales/presupuesto/2_Presupuestacion_Egresos.pdf'">Presupuestación Egresos</li>
+                                    <li data="url: '/manuales/presupuesto/1_Marco_Legal_de_la_clave_presupuestal.pdf'">Marco Legal de la Clave Presupuestal</a></li>
+                                    <li title="Este es un Manual Principal" data="url: '/manuales/presupuesto/2_Presupuestacion_Egresos.pdf'">Presupuestación Egresos</li>
                                     <li class="folder" id="idt3">Jefatura
                                       <ul>
                                         <li id="idt3.1">Área 1
