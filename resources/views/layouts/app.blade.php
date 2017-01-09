@@ -121,7 +121,7 @@
                 <a href="{{ url('/tutoriales') }}" class="fa fa-book"></a>
               </li>
               <li class="fs-16 m-r-10 inline">
-                <a href="http://abaccuspro.com/glosario/" class="fa fa-question-circle" title="" data-toggle="tooltip" class="btn btn-default tip m-b-5 m-r-5" data-placement="bottom" 
+                <a href="{{ url('glosario') }}" class="fa fa-question-circle" title="" data-toggle="tooltip" class="btn btn-default tip m-b-5 m-r-5" data-placement="bottom" 
               title="" data-toggle="tooltip" class="btn btn-default tip m-b-5 m-r-5" type="button" data-original-title="Glosario"></a>
               </li>
               <li class="fs-16 m-r-10 inline" title="" data-toggle="tooltip" class="btn btn-default tip m-b-5 m-r-5" data-placement="bottom" 
@@ -130,7 +130,7 @@
               </li>
               <li class="fs-16 m-r-10 inline" title="" data-toggle="tooltip" class="btn btn-default tip m-b-5 m-r-5" data-placement="bottom" 
               title="" data-toggle="tooltip" class="btn btn-default tip m-b-5 m-r-5" type="button" data-original-title="Navegación">
-                <a href="" class="fa fa-map"></a>                
+                <a href="#" class="fa fa-map"></a>                
               </li>
 
             </ul>

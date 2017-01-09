@@ -6,22 +6,29 @@ use Illuminate\Http\Request;
 
 class HerramientasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    /* Muestra la vista de ABC */
+    public function abc_armonizacion()
+    {
+        return view('herramientas.abc_armonizacion');
+    }
+
+
+    /* Muestra la vista de Glosario */
+    public function glosario()
+    {
+        return view('herramientas.glosario');
+    }
+
+
+    /* Muestra la vista tutoriales */
     public function tutoriales()
     {
         return view('herramientas.tutoriales');
     }
 
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /* Muestra el formulario de soporte */
     public function soporte()
     {
         return view('herramientas.soporte');

@@ -81,10 +81,8 @@
 <!-- CHANGE 'content' HERE-->
 
           <!-- AQUÍ INICIA EL PANEL PRINCIPAL -->
-          <div class="container-fluid container-fixed-lg">
             <div class="row">
               <div class="col-md-12">
-
 
                 <!-- INICIA PANEL BLANCO -->
                 <div class="panel panel-default">

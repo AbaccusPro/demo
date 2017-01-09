@@ -180,7 +180,8 @@ Route::get('contabilidad/reportes/libro_mayor', 'Reportes\ContabilidadReportesCo
 
 //////////////////////// HERRAMIENTAS //////////////////////
 
-Route::get('abc_armonizacion', 'Modulos\ToolsController@abc_armonizacion');
+Route::get('abc_armonizacion', 'Modulos\HerramientasController@abc_armonizacion');
+Route::get('glosario', 'Modulos\HerramientasController@glosario');
 Route::get('monitoreo', 'Modulos\MonitoreoController@index');
 Route::get('soporte', 'Modulos\HerramientasController@soporte');
 

@@ -60,10 +60,9 @@
                         </div>
                         <div class="panel-body">
                           <h3>Soporte Técnico</h3>
-                          <p>En esta sección podrá encontrar la lista de consultas y reportes definidos previamente y que son de uso constante para esta área.</p>
-                          <br>
-                          <p>Las herramientas de consultas y reportes están disponibles únicamente para áreas gerenciales o jefaturas.</p>
-                          <br>
+                          <p>En esta sección únicamente se atienden problemas relacionados con la plataforma o algún proceso relacionado al funcionamiento del software.</p>
+                          El área de Soporte técnico <mark class="text-danger bold">no cuenta con la autorización</mark> para agilizar las autorizaciones o cualquier otro tipo de proceso relacionado 
+                          a las solicitudes ingresadas a través de la plataforma.
                         </div>
                       </div>
                       <!-- END PANEL -->
@@ -81,11 +80,11 @@
 
           <!-- AQUÍ INICIA EL PANEL PRINCIPAL -->
           <!-- START CONTAINER FLUID -->
-          <div class="container-fluid container-fixed-lg">
+          <div class="container-fluid container-fixed-lg bg-white">
             <!-- START PANEL -->
-            <div class="panel panel-transparent">
+            <div class="panel panel-transparent ">
               <div class="panel-heading">
-                <div class="panel-title">Los campos con * son requeridos
+                <div class="panel-title">Todos los campos son requeridos
                 </div>
               </div>
               <div class="panel-body">
@@ -143,11 +142,10 @@
                       <br>
                       <div class="row">
                         <div class="col-sm-3">
-                          <p>Su solicitud se enviará al Depto. de Soporte Técnico.</p>
+                          <p>Su solicitud se enviará al área de Soporte Técnico.</p>
                         </div>
                         <div class="col-sm-9">
                           <button class="btn btn-success" type="submit">Enviar</button>
-                          <button class="btn btn-default"><i class="pg-close"></i> Limpiar</button>
                         </div>
                       </div>
                     </form>
