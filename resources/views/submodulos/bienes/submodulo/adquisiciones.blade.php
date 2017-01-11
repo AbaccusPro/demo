@@ -80,75 +80,73 @@
 
 <!-- CHANGE 'content' HERE-->
 
-          <!-- AQUÍ INICIA EL PANEL PRINCIPAL -->
-            <div class="row">
-              <div class="col-md-12">
+            <!-- INICIAN PANELES DE sub-modulos -->
 
-                <!-- INICIA PANEL BLANCO -->
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <div class="panel-title">
-                      Escribir una descripción aquí. 
-                    </div>
+              <div class="panel-body">
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading separator">                      
+                        <div class="panel-title">
+                        </div><span class="label label-default" ><li class="fa fa-file-text-o"></li> Formulario</span>
+                      </div>
+                      <div class="panel-body">
+                        <h4>
+                      <span class="semi-bold"><a href="{{ url('bienes/submodulo/adquisiciones/solicitud_bienes') }}">1/ </span>Solicitud de Bienes</a></h4></span>
+                      </div>
+                    </div>                    
                   </div>
-                  <div class="panel-body"> <!-- DIV "panel body" - Insertar Contenidos Aquí" -->
-                    <h3>1/ Actividades</h3>
 
-                  <!-- INICIA TABLA DE CONSULTAS -->
-                    <div class="table-responsive">
-                      <table class="table table-hover table-condensed" id="condensedTable">
-                        <thead>
-                          <tr>
-                            <th style="width:25%">Actividad</th>
-                            <th style="width:25%">Tipo</th>
-                            <th style="width:25%">Área</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/adquisiciones/solicitud_bienes') }}">1. Solicitud de Bienes</a></td>
-                            <td class="v-align-middle">Básica</td>
-                            <td class="v-align-middle semi-bold">Adquisiciones</td>
-                          </tr>
-                          <tr>
-                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/adquisiciones/autorizacion_bienes') }}">2. Autorizaciones de Solicitudes de Bienes</a></td>
-                            <td class="v-align-middle">Básica</td>
-                            <td class="v-align-middle semi-bold">Adquisiciones</td>
-                          </tr>
-                          <tr>
-                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/adquisiciones/verificacion_documentos') }}">3. Verificación de Documentos y Aceptación</a></td>
-                            <td class="v-align-middle">Básica</td>
-                            <td class="v-align-middle semi-bold">Adquisiciones</td>
-                          </tr>
-                          <tr>
-                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/adquisiciones/registro_orden_compra') }}">4. Registro de Orden de Compra</a></td>
-                            <td class="v-align-middle">Básica</td>
-                            <td class="v-align-middle semi-bold">Adquisiciones</td>
-                          </tr>
-                          <tr>
-                            <td class="v-align-middle semi-bold"><a href="{{ url('bienes/submodulo/adquisiciones/autorizacion_orden_compra') }}">5. Autorizaciones de Órdenes de Compra</a></td>
-                            <td class="v-align-middle">Básica</td>
-                            <td class="v-align-middle semi-bold">Adquisiciones</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  <!-- TERMINA TABLA DE CONSULTAS -->
+                  <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading separator">                      
+                        <div class="panel-title">
+                        </div><span class="label label-success" ><li class="fa fa-check-circle"></li> Bandeja de entrada</span>
+                      </div>
+                      <div class="panel-body">
+                        <h4>
+                      <span class="semi-bold"><a href="{{ url('bienes/submodulo/adquisiciones/autorizacion_bienes') }}">2/ </span> Autorizaciones de Solicitudes de Bienes</a></h4></span>
+                      </div>
+                    </div>                    
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading separator">                      
+                        <div class="panel-title">
+                        </div><span class="label label-default" ><li class="fa fa-file-text-o"></li> Formulario</span>
+                      </div>
+                      <div class="panel-body">
+                        <h4>
+                      <span class="semi-bold"><a href="{{ url('bienes/submodulo/adquisiciones/registro_orden_compra') }}">3/ </span> Registro de Orden de Compra</a></h4></span>
+                      </div>
+                    </div>                    
+                  </div>
+                </div> <!-- END ROW -->
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading separator">                      
+                        <div class="panel-title">
+                        </div><span class="label label-success" ><li class="fa fa-check-circle"></li> Bandeja de entrada</span>
+                      </div>
+                      <div class="panel-body">
+                        <h4>
+                      <span class="semi-bold"><a href="{{ url('bienes/submodulo/adquisiciones/autorizacion_orden_compra') }}">3/ </span> Autorizaciones de Órdenes de Compra</a></h4></span>
+                      </div>
+                    </div>                    
+                  </div>
 
 
-                  </div> <!-- DIV "panel body" - NO BORRAR" -->
-                </div> <!-- AQUI TERMINA EL PANEL PRINCIPAL -->
+                </div> <!-- END ROW -->
 
+            </div> <!-- DIV "panel body" - NO BORRAR" -->
 
-                  </div> <!-- DIV "panel body" - NO BORRAR" -->
-                </div> <!-- AQUI TERMINA EL PANEL PRINCIPAL -->
+          <!-- TERMINAN PANELES DE sub-modulos -->
 
 <!-- STOP CHANGING 'content' HERE-->
-
-            </div> <!-- DIV "col-md-12" - NO BORRAR" -->  
-          </div> <!-- DIV "row" - NO BORRAR" -->
-        </div> <!-- DIV "container-fluid" - NO BORRAR" -->
-
 
       </div>
       <!-- TERMINA page container / DIV DE ESPACIO PARA FOOTER -->

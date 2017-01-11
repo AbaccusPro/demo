@@ -96,19 +96,21 @@
                   <div class="panel-body"> <!-- DIV "panel body" - Insertar Contenidos Aquí" -->
                     
                   @if(Session::has('alerta'))
-                        <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alerta') !!}</em></div>
+                        <div class="alert alert-info"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alerta') !!}</em></div>
                   @endif
 
                     <h4><strong>Solicitud de Adquisición de Bien o Servicio</h4></strong>
                     <hr>
-                    <h5>/ Parte 1. Elija la partida presupuestal disponible:</h5>
+                    <div class="alert alert-info" role="alert">
+                        <p class="pull-left"><strong>Parte 1:</strong> Elija la partida presupuestal disponible</p>
+                      <div class="clearfix"></div>
+                    </div>
                    
                  {!! Form::open(['url' => ['bienes/submodulo/adquisiciones/solicitud_bienes', 'id'], 'method' => 'POST', 'id' => 'myForm']) !!}
 
-                    <div class="" role="form">    
+                    <div class="" role="form">   
 
                       <div class="row">
-
                         <div class="col-sm-6">
                           <div class="form-group form-group-default form-group-default-select2">
                            <label>Clave Presupuestal<span class="help"></span></label>
@@ -187,14 +189,12 @@
                       </div>
                     </div>    <!-- END ROW -->
 
-
                       <div class="row">
-                          <div class="col-sm-6">
-                            <h5>/ Parte 2. Indique las especificaciones del bien o servicio</h5>
+                        <div class="alert alert-info" role="alert">
+                          <p class="pull-left"><strong>Parte 2:</strong> Indique las especificaciones del bien o servicio</p>
+                          <div class="clearfix"></div>
                         </div>
-                      </div>
-                  
-
+                      </div>               
 
                 <div class="cardio" id="car1">
 
@@ -274,7 +274,7 @@
                         </div>
 
 
-                    {!!Form::submit('Generar solicitud',['class' => 'btn btn-success show-notification'])!!}
+                    {!!Form::submit('Generar solicitud',['class' => 'btn btn-complete show-notification'])!!}
                                             
                     {!! Form::close() !!}                     
 

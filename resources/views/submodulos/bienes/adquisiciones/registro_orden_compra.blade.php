@@ -101,7 +101,10 @@
 
                     <h4><strong>Registro de Orden de Compra</h4></strong>
                     <hr>
-                    <h5>/ Parte 1. Datos Generales</h5>                   
+                    <div class="alert alert-info" role="alert">
+                        <p class="pull-left"><strong>Parte 1:</strong> Datos Generales</p>
+                      <div class="clearfix"></div>
+                    </div>
 
                   {!! Form::open(['url' => ['bienes/submodulo/adquisiciones/registro_orden_compra', 'id'], 'method' => 'POST', 'id' => 'myForm']) !!}
 
@@ -164,8 +167,9 @@
                       </div> <!-- END ROW  -->
 
                       <div class="row">
-                          <div class="col-sm-6">
-                            <h5>/ Parte 2. Indique las especificaciones del bien o servicio</h5>
+                        <div class="alert alert-info" role="alert">
+                            <p class="pull-left"><strong>Parte 2:</strong> Indique las especificaciones del bien o servicio</p>
+                          <div class="clearfix"></div>
                         </div>
                       </div>
                   
@@ -271,7 +275,7 @@
                         </div> <!-- END ROW -->                       
 
 
-                    {!!Form::submit('Generar solicitud',['class' => 'btn btn-success show-notification'])!!}
+                    {!!Form::submit('Generar solicitud',['class' => 'btn btn-complete show-notification'])!!}
                                             
                     {!! Form::close() !!}          
 

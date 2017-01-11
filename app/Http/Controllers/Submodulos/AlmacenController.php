@@ -15,6 +15,7 @@ use App\Claves_ff;
 
 use App\Proveedor;
 use App\Plan_sub15;
+use App\Presup_mod;
 use App\cat_Proveedores;
 
 use App\Bien_sub2;
@@ -49,24 +50,20 @@ class AlmacenController extends Controller
     }
 
 
-    /**
-     * Muestra el registro y guarda las entradas de inventario.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /* Muestra el formulario de registro del inventario */
     public function entradaInventario()
-
     {
         return view('submodulos.bienes.almacen.entrada_inventario');    
     }
 
+
     public function catCreate()
     {
-        $clave = Plan_sub15::pluck('clave', 'clave');  
+        $clave = Presup_mod::pluck('clave', 'clave');  
         $proveedor = cat_Proveedores::pluck('nombre', 'nombre');     
 
-    return view('submodulos.bienes.almacen.entrada_inventario', compact('clave', 'proveedor'));
-}
+        return view('submodulos.bienes.almacen.entrada_inventario', compact('clave', 'proveedor'));
+    }
 
 
     public function storeInventario(Request $request)
@@ -131,6 +128,60 @@ class AlmacenController extends Controller
         $entrada = Bien_sub4_1::find($id);
         return view('submodulos.bienes.almacen.entrada', compact('entrada'));
     }
+
+
+
+
+     /* Muestra la vista de suministro de bienes */
+    public function showSuministro()
+    {
+        return view('submodulos.bienes.almacen.suministro_bienes');
+    }
+
+    /* Muestra los datos de la tabla de bienes para salidas */
+    public function showSuministroData()
+    {
+        $input = DB::table('bien_sub4_1')->get();
+        return view('submodulos.bienes.almacen.suministro_bienes', ['bien_sub4_1' => $input]);
+    }
+
+
+
+    /* Muestra los datos de la BD para el bien por su id y también muestra el catálogo de URs */
+    public function editarBien($id)
+    {
+        $bien = Bien_sub4_1::find($id);
+        $clave = Claves_ur::pluck('nombre', 'nombre');
+        return view('submodulos.bienes.almacen.editar_bien', compact('bien', 'clave'));
+    }
+
+
+    /* Cambiar el guardado a nueva tabla de salidas y crear relaciones */
+    public function storeSalida(Request $request)
+    {       
+        $input = new bien_sub4_1;
+
+        $input->folio_salida = $request->folio_salida;
+        $input->fecha_salida = $request->fecha_salida;
+        $input->ur_asignada = $request->ur_asignada;
+        $input->salida_cantidad = $request->salida_cantidad;
+        $input->salida_cantidad = $request->cantidad;
+        $input->salida_notas = $request->salida_notas;    
+
+        $input->save();
+
+    return redirect('bienes/submodulo/almacen/suministro_bienes');
+}
+
+
+
+    /* Muestra la vista para editar la salida del bien */
+    public function showSalida($id)
+    {
+        $salida = Bien_sub4_1::find($id);
+        return view('submodulos.bienes.almacen.salida', compact('salida'));
+    }
+
 
 
 }

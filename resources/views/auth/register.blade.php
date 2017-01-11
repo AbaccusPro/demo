@@ -44,7 +44,7 @@
             <img src="{{ URL::asset('assets/img/abc_logo_login.png') }}" alt="logo" width="200" height="40">
             <h3>Registro de usuarios para Demo</h3>
             <p>
-              <small>Ingrese sus datos como lo solicita el formulario para darle un acceso a la plataforma</a></small></p>
+              <small>Ingrese sus datos como lo solicita el formulario</a></small></p>
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 

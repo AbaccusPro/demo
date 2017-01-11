@@ -133,7 +133,7 @@
                   </div>
 
                   <div class="col-md-4">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default bg-success-lighter">
                       <div class="panel-heading separator">                      
                         <div class="panel-title">
                         </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo</span>
@@ -141,7 +141,8 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">3/ </span>Padrón de contribuyentes</h2>
-                        <p>Registro de contribuyentes, personas físicas y morales, con obligaciones de pago de productos, aprovechamientos y derechos derivados del uso y aprovechamiento de los bienes gubernamentales.<a a href="#"><br>Ir al módulo >></a></p>
+                        <p>Registro de contribuyentes, personas físicas y morales, con obligaciones de pago de productos, aprovechamientos y derechos derivados del uso y aprovechamiento de los bienes gubernamentales.
+                        <a a href="submodulo/padron_contribuyentes"><br>Ir al módulo >></a></p>
                       </div>
                     </div>                    
                   </div>

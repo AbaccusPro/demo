@@ -20,13 +20,25 @@ use App\Presup_mod;
 class PlaneacionSubmodulosController extends Controller
 {
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function planeacionsub15()
+    /* SUB3 - Muestra la vista de la solicitud de la MIR */ 
+    public function registroMIR()
+    {
+        return view('submodulos.planeacion.submodulo.registro_mir');
+    }
 
+    /* SUB3 - Envía a la vista los datos de los catálogos de claves */ 
+    public function catMIR()
+    {
+
+        $clave_ur = Claves_ur::pluck('nombre', 'id');
+        $clave_fun = Claves_fun::pluck('nombre', 'id');
+        $clave_pp = Claves_pp::pluck('nombre', 'id');
+        
+    return view('submodulos.planeacion.submodulo.registro_mir', compact('clave_ur', 'clave_fun', 'clave_pp'));
+}
+
+    /* SUB15 - Muestra la vista de la solicitud */
+    public function planeacionsub15()
     {
         return view('submodulos.planeacion.submodulo.carga_presupuesto_aprobado');
     }
@@ -135,5 +147,8 @@ class PlaneacionSubmodulosController extends Controller
 
         return view('submodulos.planeacion.consultas.presupuesto_aprobado', ['plan_sub15' => $input]);
     }
+
+
+
 
 }

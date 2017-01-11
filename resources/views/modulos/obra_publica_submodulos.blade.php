@@ -122,7 +122,7 @@
                   </div>
 
                   <div class="col-md-4">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default bg-success-lighter">
                       <div class="panel-heading separator">                      
                         <div class="panel-title">
                         </div><span class="label label-info" ><li class="fa fa-cube"></li> Submódulo</span>
@@ -131,7 +131,7 @@
                         <h2>
                       <span class="semi-bold">2/ </span>Gestión de la Cartera de Inversión</h2>
                         <p>Registro del programa o proyecto de inversión en la Cartera de Programas y Proyectos de Inversión. Contrato autorizado Momento del gasto Comprometido
-                        <a a href="#"><br>Ir al módulo >></a></p>
+                        <a a href="{{ url('obra_publica/submodulo/cartera_inversion') }}"><br>Ir al módulo >></a></p>
                       </div>
                     </div>                    
                   </div>

@@ -130,7 +130,12 @@
                   @endif                  
                     <h4><strong>Carga de Presupuesto Aprobado</h4></strong>
                     <hr>
-                    <h5>/ Parte 1 - Asignación de clave presupuestal</h5>
+                    <div class="row">                                        
+                        <div class="alert alert-info" role="alert">
+                          <p class="pull-left"><strong>Parte 1:</strong> Asignación de clave presupuestal</p>
+                          <div class="clearfix"></div>
+                        </div>
+                    </div>
 
             {!! Form::open(['url' => 'planeacion/submodulo/carga_presupuesto_aprobado']) !!}
 
@@ -220,12 +225,13 @@
                           </div>
                         </div> <!-- END ROW -->
 
-                      <div class="row">
-                        <div class="col-sm-6">
-                             <h5>/ Parte 2 - Asignación de monto presupuestal</h5>
-                      </div>
+                        <div class="row">                                        
+                            <div class="alert alert-info" role="alert">
+                              <p class="pull-left"><strong>Parte 2:</strong> Asignación de monto presupuestal</p>
+                              <div class="clearfix"></div>
+                            </div>
                         </div>
-
+                      
                         <div class="row">
                           <div class="col-sm-3">
                             <div class="form-group">
@@ -345,9 +351,7 @@
 
                     {!!Form::submit('Guardar',['class' => 'btn btn-complete'])!!}
 
-
                     {!! Form::close() !!}       
-
 
                     </div> <!-- END FORM --> 
                   </div> <!-- DIV "panel body" - NO BORRAR" -->

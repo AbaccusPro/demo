@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
 use App\Plan_sub15;
+use App\Presup_mod;
 use App\cat_Bienes;
 use App\Claves_ur;
 use App\Claves_fun;
@@ -39,7 +40,7 @@ class SolicitudBienesController extends Controller
 
     public function catCreate()
     {        
-        $clave = Plan_sub15::pluck('clave', 'clave');  
+        $clave = Presup_mod::pluck('clave', 'clave');  
         $bienes = cat_Bienes::pluck('nombre', 'id'); 
 
         $claves_ur = Claves_ur::pluck('nombre', 'nombre');

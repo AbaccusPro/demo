@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('content')  <!-- TODOS LOS CONTENIDOS LLEVAN EL MISMO NOMBRE DE SECCION !-->
+@section('content')
+
+<!-- TODOS LOS CONTENIDOS LLEVAN EL MISMO NOMBRE DE SECCION !-->
 
 <!-- NO MOVEER NINGÚN DIV !-->
 <div class="fixed-header horizontal-menu">  
@@ -15,20 +17,19 @@
                         <i class=" pg-close_line"></i>
                       </a>
                     </div>
-
 <!-- NO MOVEER NINGÚN DIV !-->
 
                      <div class="bar-inner">
                       <ul>
-
-                          <!-- START BREADCRUMB -->
-                          <ul class="breadcrumb">
-                            <li><a href="{{ url('/home') }}">Inicio</a></li>
-                            <li><a href="{{ url('/bienes') }}">Bienes</a>
-                            <li><a class="active">Almacén</a>
-                            </li>
-                          </ul>
-                          <!-- END BREADCRUMB -->
+                        <!-- START BREADCRUMB -->
+                        <ul class="breadcrumb">
+                          <li><a href="{{ url('/home') }}">Inicio</a></li>
+                          <li><a href="{{ url('/ingresos') }}">Ingresos</a>
+                          <li><a href="{{ url('/ingresos/submodulos') }}">Submódulos</a>
+                          <li><a href="#" class="active">Padrón de Contribuyentes</a>
+                          </li>
+                        </ul>
+                        <!-- END BREADCRUMB -->
                           <ul class="mega">
                           
                             <div class="container">
@@ -44,7 +45,9 @@
               </div> <!-- DIVS SUB-MENU -->
 
       <div class="page-content-wrapper ">
-          
+
+<!-- CHANGE 'content' HERE-->
+             
 <!-- START JUMBOTRON -->
           <div class="jumbotron" data-pages="parallax">
             <div class="container-fluid container-fixed-lg">
@@ -56,20 +59,28 @@
                       <!-- START PANEL -->
                       <div class="panel panel-transparent">
                         <div class="panel-heading">
-                          <div class="panel-title">Sub-Módulo
+                          <div class="panel-title">Sub-Módulos
                           </div>
                         </div>
                         <div class="panel-body">
-                          <h3>Almacén</h3>
-                          <p>En esta sección podrá encontrar la lista de consultas y reportes definidos previamente y que son de uso constante para esta área.</p>
+                          <h3>Padrón de Contribuyentes</h3>
+                          <p>Contiene información relacionada con el número de contribuyentes, clasificados en diversas modalidades como puede ser: por su situación 
+                          ante el RFC, por entidad federativa, por régimen, por sector de actividad económica o por tipo de contribuyente; asimismo, contiene 
+                          listados de contribuyentes con actividades específicas: agentes aduanales, contadores públicos registrados, donatarias autorizadas y 
+                          operadores económicos autorizados.</p>
                           <br>
-                          <p>Las herramientas de consultas y reportes están disponibles únicamente para áreas gerenciales o jefaturas.</p>
-                          <br>
+
                         </div>
                       </div>
                       <!-- END PANEL -->
                     </div>
                     <div class="col-lg-7 col-md-6 col-md-height col-middle">
+                      <!-- START PANEL -->
+                      <div class="full-height">
+                        <div class="panel-body text-center">
+                        </div>
+                      </div>
+                      <!-- END PANEL -->
                     </div>
                   </div>
                 </div>
@@ -78,9 +89,7 @@
           </div>
 <!-- END JUMBOTRON -->
 
-<!-- CHANGE 'content' HERE-->
-
-              <!-- INICIAN PANELES DE sub-modulos -->
+          <!-- INICIAN PANELES DE sub-modulos -->
 
               <div class="panel-body">
 
@@ -93,7 +102,7 @@
                       </div>
                       <div class="panel-body">
                         <h4>
-                      <span class="semi-bold"><a href="{{ url('bienes/submodulo/almacen/entrada_inventario') }}">1/ </span>Recepción de Inventario</a></h4></span>
+                      <span class="semi-bold"><a href="{{ url('ingresos/submodulo/padron_contribuyentes/registro') }}">1/ </span>Registro de Contribuyente</a></h4>
                       </div>
                     </div>                    
                   </div>
@@ -106,38 +115,22 @@
                       </div>
                       <div class="panel-body">
                         <h4>
-                      <span class="semi-bold"><a href="{{ url('bienes/submodulo/almacen/suministro_bienes') }}">2/ </span> Suministro de Bienes</a></h4></span>
-                      </div>
-                    </div>                    
-                  </div>
-
-                  <div class="col-md-4">
-                    <div class="panel panel-default">
-                      <div class="panel-heading separator">                      
-                        <div class="panel-title">
-                        </div><span class="label label-inverse" ><li class="fa fa-search"></li> Consulta</span>
-                      </div>
-                      <div class="panel-body">
-                        <h4>
-                      <span class="semi-bold"><a href="{{ url('bienes/submodulo/almacen/consulta_inventario_consumo') }}">3/ </span> Consulta de Inventario</a></h4></span>
+                      <span class="semi-bold"><a href="#">2/ </span> Consulta de Padrón de Contribuyentes</a></h4>
                       </div>
                     </div>                    
                   </div>
 
                 </div> <!-- END ROW -->
 
-            </div> <!-- DIV "panel body" - NO BORRAR" -->
 
           <!-- TERMINAN PANELES DE sub-modulos -->
-
+                
+              </div> <!-- END panel-body -->
 
 <!-- STOP CHANGING 'content' HERE-->
 
-
       </div>
-      <!-- TERMINA page container / DIV DE ESPACIO PARA FOOTER -->
+      <!-- TERMINA page container -->
 
 <!-- TERMINA CONTENIDO / LA SECCIÓN SE QUEDA ABIERTA PARA CERRAR footer-->
-
-
 @endsection

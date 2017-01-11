@@ -29,7 +29,7 @@
                               <li><a href="{{ url('/home') }}">Inicio</a></li>
                               <li><a href="{{ url('/bienes') }}">Bienes</a>
                               <li><a href="{{ url('/bienes/submodulo/almacen') }}">Almacen</a>
-                              <li><a href="#" class="active">Entradas de inventario</a>
+                              <li><a href="#" class="active">Suministro de Bienes</a>
                               </li>
                             </ul>
                           </div>
@@ -60,7 +60,7 @@
                           </div>
                         </div>
                         <div class="panel-body">
-                          <h3>Entradas de inventario</h3>
+                          <h3>Suministro de Bienes</h3>
                           <p>Esta sección esencial para la carga del presupuesto y permite la integración y flujo de datos adecuado para el resto de los módulos. Por favor llene con precaución.</p>
                           <br>
                         </div>
@@ -96,24 +96,22 @@
                         <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alerta') !!}</em></div>
                   @endif
 
-                    <h4><strong>Registro de entrada de inventario</strong></h4>
+                    <h4><strong>Registro de salida de inventario</strong></h4>
                     <hr>
-                      <div class="row">                                        
-                          <div class="alert alert-info" role="alert">
-                            <p class="pull-left"><strong>Parte 1:</strong> Datos Generales del bien</p>
-                            <div class="clearfix"></div>
-                          </div>
-                      </div>                 
-
-                  {!! Form::open(['url' => 'bienes/submodulo/almacen/entrada_inventario']) !!}
-
+                      <div class="row">
+                        <div class="alert alert-info" role="alert">
+                          <p class="pull-left"><strong>Parte 1:</strong> Datos Generales del Bien</p>
+                          <div class="clearfix"></div>
+                        </div>
+                      </div>
+                    
                     <div class="" role="form">    
 
                       <div class="row">
                         <div class="col-sm-3">
                           <div class="form-group form-group-default input-group required">
                            <label>Fecha de Entrada<span class="help"></span></label>
-                            {!!Form::text('fecha_ent', null, ['class' => 'form-control', 'id' => 'datepicker-component2', 'placeholder' => '11/06/2016']) !!}
+                              <input type="text" class="form-control" value="{{ $bien['fecha_ent'] }}" disabled>
                               <span class="input-group-addon">
                               <i class="fa fa-calendar"></i>
                             </span>
@@ -123,14 +121,14 @@
                         <div class="col-sm-3">
                           <div class="form-group form-group-default required">
                             <label>Folio Orden de Compra<span class="help"></span></label>
-                            {!!Form::text('folio_compra', null, ['class' => 'form-control', 'placeholder' => 'COMP-00001']) !!}
+                            <input type="text" class="form-control" value="{{ $bien['folio_compra'] }}" disabled>
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                           <div class="form-group form-group-default input-group required">
                            <label>Fecha de Factura<span class="help"></span></label>
-                            {!!Form::text('fecha_fact', null, ['class' => 'form-control', 'id' => 'datepicker-component2', 'placeholder' => '11/06/2016']) !!}
+                              <input type="text" class="form-control" value="{{ $bien['fecha_fact'] }}" disabled>
                               <span class="input-group-addon">
                               <i class="fa fa-calendar"></i>
                             </span>
@@ -140,104 +138,149 @@
                         <div class="col-sm-3">
                           <div class="form-group form-group-default required">
                             <label>Folio de Factura<span class="help"></span></label>
-                            {!!Form::text('folio_fact', null, ['class' => 'form-control', 'placeholder' => 'COMP-00001']) !!}
+                            <input type="text" class="form-control" value="{{ $bien['folio_fact'] }}" disabled>
                             </div>
                         </div>
                       </div> <!-- END ROW  -->
 
                       <div class="row">
-                        <div class="col-sm-6">
-                          <div class="form-group form-group-default form-group-default-select2">
-                            <label class="">Clave Presupuestal</label>
-                            {!!Form::select('cve_presup', $clave, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                          <div class="col-sm-6">
+                            <div class="form-group form-group-default">
+                              <label>Clave Presupuestal</label>
+                              <input type="text" class="form-control" value="{{ $bien['cve_presup'] }}" disabled>
+                            </div>
                           </div>
-                        </div>
 
-                        <div class="col-sm-6">
-                          <div class="form-group form-group-default form-group-default-select2">
-                            <label class="">Proovedor</label>
-                            {!!Form::select('proveedor', $proveedor, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                          <div class="col-sm-6">
+                            <div class="form-group form-group-default">
+                              <label>Proveedor</label>
+                              <input type="text" class="form-control" value="{{ $bien['proveedor'] }}" disabled>
+                            </div>
                           </div>
-                        </div>
                       </div> <!-- END ROW  -->
 
                   
-                      <div class="row">                                        
-                          <div class="alert alert-info" role="alert">
-                            <p class="pull-left"><strong>Parte 2:</strong> Especificaciones del bien</p>
-                            <div class="clearfix"></div>
-                          </div>
+                      <div class="row">
+                        <div class="alert alert-info" role="alert">
+                          <p class="pull-left"><strong>Parte 2:</strong> Especificaciones del Bien</p>
+                          <div class="clearfix"></div>
+                        </div>
                       </div>
 
                       <div class="row">
                         <div class="col-sm-3">
                           <div class="form-group form-group-default">
                             <label>Nombre del Bien<span class="help"></span></label>
-                            {!!Form::text('bien', null, ['class' => 'form-control']) !!}
+                            <input type="text" class="form-control" value="{{ $bien['bien'] }}" disabled>
                             </div>
                         </div>
 
                         <div class="col-sm-3">
                           <div class="form-group form-group-default">
                             <label>Clave del Bien<span class="help"></span></label>
-                            {!!Form::text('cve_bien', null, ['class' => 'form-control']) !!}
+                            <input type="text" class="form-control" value="{{ $bien['cve_bien'] }}" disabled>
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default">
                             <label>Marca<span class="help"></span></label>
-                            {!!Form::text('marca', null, ['class' => 'form-control']) !!}
+                            <input type="text" class="form-control" value="{{ $bien['marca'] }}" disabled>
                             </div>
                         </div>
 
                         <div class="col-sm-2">
                           <div class="form-group form-group-default">
                             <label>Modelo<span class="help"></span></label>
-                            {!!Form::text('modelo', null, ['class' => 'form-control']) !!}
+                            <input type="text" class="form-control" value="{{ $bien['modelo'] }}" disabled>
                             </div>
                           </div>
 
                           <div class="col-sm-2">
                             <div class="form-group form-group-default">
                               <label>Cantidad<span class="help"></span></label>
-                              {!!Form::number('cantidad', null, ['class' => 'form-control']) !!}
+                              <input type="text" class="form-control" value="{{ $bien['cantidad'] }}" disabled="">
                               </div>
+                            </div>
                           </div>
-                      </div>
-                      
+
                         <div class="row">
                           <div class="col-sm-8">
                             <div class="form-group form-group-default">
                               <label>Características<span class="help"></span></label>
-                              {!!Form::text('carac', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
+                              <input type="text" class="form-control" value="{{ $bien['carac'] }}" disabled>
                               </div>
-                           </div>
+                          </div>
                           <div class="col-sm-2">
                             <div class="form-group form-group-default">
                               <label>Costo Unitario<span class="help"></span></label>
-                              {!!Form::number('costo_unit', null, ['class' => 'form-control', 'placeholder' => '$', 'step' => 'any']) !!}
+                              <input type="text" class="form-control" value="{{ $bien['costo_unit'] }}" disabled>
                               </div>
                           </div>
 
                           <div class="col-sm-2">
                             <div class="form-group form-group-default">
                               <label>Importe Total<span class="help"></span></label>
-                              {!!Form::number('total', null, ['class' => 'form-control', 'placeholder' => '$', 'step' => 'any']) !!}
+                              <input type="text" class="form-control" value="{{ $bien['total'] }}" disabled>
                               </div>
                           </div>
                          </div>
-                         <br>
 
-                    {!!Form::submit('Ingresar a Inventario',['class' => 'btn btn-complete show-notification'])!!}
+                      <div class="row">                                        
+                          <div class="alert alert-success" role="alert">
+                            <p class="pull-left"><strong>Parte 3:</strong> Indicar datos de Salida del Bien</p>
+                            <div class="clearfix"></div>
+                          </div>
+                      </div>
+
+                    {!! Form::open(['url' => 'bienes/submodulo/almacen/editar_bien']) !!}
+
+                      <div class="row">                        
+                        <div class="col-sm-3">
+                          <div class="form-group form-group-default required">
+                            <label>Folio de Salida<span class="help"></span></label>
+                            {!!Form::text('folio_salida', null, ['class' => 'form-control', 'placeholder' => 'COMP-00001']) !!}
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group form-group-default input-group required">
+                           <label>Fecha de Salida<span class="help"></span></label>
+                            {!!Form::text('fecha_salida', null, ['class' => 'form-control', 'id' => 'datepicker-component2', 'placeholder' => '11/06/2016']) !!}
+                              <span class="input-group-addon">
+                              <i class="fa fa-calendar"></i>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group form-group-default form-group-default-select2 required">
+                            <label class="">Unidad Responsable Asignada</label>
+                            {!!Form::select('ur_asignada', $clave, null,['class' => 'full-width', 'data-init-plugin' => 'select2'])  !!}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group form-group-default">
+                              <label>Cantidad<span class="help"></span></label>
+                              {!!Form::number('salida_cantidad', null, ['class' => 'form-control']) !!}
+                              </div>
+                          </div>
+
+                        <div class="col-sm-9">
+                          <div class="form-group form-group-default">
+                            <label>Notas<span class="help"></span></label>
+                            {!!Form::text('salida_notas', null, ['class' => 'form-control', 'placeholder' => 'Descripción corta']) !!}
+                            </div>
+                        </div>
+                      </div>
+
+
+                    {!!Form::submit('Generar salida',['class' => 'btn btn-success show-notification'])!!}
                                             
-                    {!! Form::close() !!}      
+                    {!! Form::close() !!} 
+                    
 
-                    </div>    
-
-                      </div>            
-
-                    </div>
                   </div> <!-- END FORM -->
                 </div> <!-- DIV "panel body" - NO BORRAR" -->
               </div> <!-- AQUI TERMINA EL PANEL PRINCIPAL -->

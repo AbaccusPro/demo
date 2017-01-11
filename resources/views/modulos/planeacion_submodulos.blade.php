@@ -127,7 +127,7 @@
                       <div class="panel-body">
                         <h2>
                       <span class="semi-bold">3/ </span>Matriz de Indicadores de Resultados MIR</h2>
-                        <p>Registro de la Matriz de Indicadores para Resultados (MIR)<a a href="#"><br>Ir al módulo >></a></p>
+                        <p>Registro de la Matriz de Indicadores para Resultados (MIR)<a href="{{ url('planeacion/submodulo/registro_mir') }}"><br>Ir al módulo >></a></p>
                       </div>
                     </div>                    
                   </div>
